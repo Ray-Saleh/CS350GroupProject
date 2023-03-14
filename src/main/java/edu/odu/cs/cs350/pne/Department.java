@@ -3,7 +3,6 @@ public class Department {
     
 }
 /* 
-
 CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment
      String [] nextLine;
      while ((nextLine = reader.readNext()) != null) 
