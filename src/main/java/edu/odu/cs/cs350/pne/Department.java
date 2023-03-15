@@ -13,7 +13,7 @@ CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();
 
 //////////or for an iterator//////////////////
 
-CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();
+CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment
      CSVIterator iterator = new CSVIterator(reader);
      for(String[] nextLine : iterator) 
      {
