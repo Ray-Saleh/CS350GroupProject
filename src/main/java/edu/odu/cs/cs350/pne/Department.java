@@ -39,7 +39,7 @@ for (int i = 0; i < listOfFiles.length; i++) {
 */
 
 /*
-   Anonther Reference:
+   Another Reference:
  * https://stackabuse.com/java-list-files-in-a-directory/
  * 
  */
