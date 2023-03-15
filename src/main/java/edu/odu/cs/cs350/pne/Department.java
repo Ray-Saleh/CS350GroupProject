@@ -12,7 +12,7 @@ CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();
         System.out.println(nextLine[0] + nextLine[1] + "etc...");
      }
 
-//////////or for an iterator//////////////////
+*********************************for an iterator**********************************************
 
 CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment
      CSVIterator iterator = new CSVIterator(reader);
