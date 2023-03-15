@@ -23,6 +23,25 @@ CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();
      }
 */
 
+/*
+https://stackoverflow.com/questions/5694385/getting-the-filenames-of-all-files-in-a-folder
 
+File folder = new File("your/path");
+File[] listOfFiles = folder.listFiles();
+
+for (int i = 0; i < listOfFiles.length; i++) {
+  if (listOfFiles[i].isFile()) {
+    System.out.println("File " + listOfFiles[i].getName());
+  } else if (listOfFiles[i].isDirectory()) {
+    System.out.println("Directory " + listOfFiles[i].getName());
+  }
+}
+*/
+
+/*
+   Anonther Reference:
+ * https://stackabuse.com/java-list-files-in-a-directory/
+ * 
+ */
 }
 
