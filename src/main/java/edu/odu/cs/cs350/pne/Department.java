@@ -1,6 +1,26 @@
 package edu.odu.cs.cs350.pne;
+
+import java.io.File;
+
 public class Department {
    
+
+   
+
+   public static void main(){
+      String[] pathNames;
+      //f is equal to the directory of the file. FOR RAY SET UP IS BELOW
+      File f = new File("~/cs350/Project/CS350GroupProject/src/main/data/");
+      pathNames = f.list();
+      for(String s: pathNames){
+         System.out.println(s);
+      }
+   }
+
+
+
+
+
     
     
 /* 
