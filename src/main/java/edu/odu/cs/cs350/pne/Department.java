@@ -1,6 +1,35 @@
 package edu.odu.cs.cs350.pne;
+
+import java.io.File;
+import java.util.List;
+
 public class Department {
    
+
+   
+
+   public static void main(String[] arg){
+      /*String[] pathNames;
+      //dataFolder is equal to the directory of the file. FOR RAY SET UP IS BELOW
+      File dataFolder = new File("../pne");
+      pathNames = dataFolder.list();
+      for(String pathname: pathNames){
+         System.out.println(pathname);
+      }*/
+
+      String year = "../../../../../data" + date + "/*.csv";
+
+      List<csv> csvReader = new CSVReader(FileReader(year))
+      .withType(Visitors.class).build().parse();
+
+      
+      
+   }
+
+
+
+
+
     
     
 /* 
@@ -12,9 +41,9 @@ CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();
         System.out.println(nextLine[0] + nextLine[1] + "etc...");
      }
 
-*********************************for an iterator**********************************************
+//////////or for an iterator//////////////////
 
-CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment
+CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();
      CSVIterator iterator = new CSVIterator(reader);
      for(String[] nextLine : iterator) 
      {
