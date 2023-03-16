@@ -4,19 +4,17 @@ import java.io.File;
 import java.util.List;
 
 public class Department {
-   
-
-   
 
    public static void main(String[] arg){   
-      String date = "202010";
-      String year = "../../../../../../data/202010/";
-      String[] pathNames;
+      String year = arg[0];
       File dataFolder = new File(year);
-      pathNames = dataFolder.list();
-      for(String pathname: pathNames){
-         System.out.println(pathname);
-      }
+
+      System.out.println(dataFolder.list());
+      
+     // pathNames = dataFolder.list();
+     // for(String pathname: pathNames){
+     //    System.out.println(pathname);
+     // }
 
 
    
