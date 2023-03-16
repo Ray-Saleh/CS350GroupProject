@@ -4,31 +4,19 @@ import java.io.File;
 import java.util.List;
 
 public class Department {
-   
-   public string ListingDirectory() {
-      File directory = new File("../../../../../../data/testing"); 
-      File[] files = directory.listFiles();
-      if (files != null) {
-         for (File file : files) {
-            if (file.isFile()) {
-               System.out.println(file.getName());
-            }
-         }
-      }
-   }
-   
-/* 
-   public static void main2(String[] arg){   
-      String date = "202010";
-      String year = "../../../../../../data/202010/";
-      String[] pathNames;
-      File dataFolder = new File(year);
-      pathNames = dataFolder.list();
-      for(String pathname: pathNames){
-         System.out.println(pathname);
-      }
 
-*/
+   public static void main(String[] arg){   
+      String year = arg[0];
+      File dataFolder = new File(year);
+
+      System.out.println(dataFolder.list());
+      
+     // pathNames = dataFolder.list();
+     // for(String pathname: pathNames){
+     //    System.out.println(pathname);
+     // }
+
+
    
 
       
@@ -81,5 +69,5 @@ for (int i = 0; i < listOfFiles.length; i++) {
  * https://stackabuse.com/java-list-files-in-a-directory/
  * 
  */
-
+}
 
