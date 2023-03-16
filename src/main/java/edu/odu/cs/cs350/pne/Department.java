@@ -8,19 +8,18 @@ public class Department {
 
    
 
-   public static void main(String[] arg){
-      /*String[] pathNames;
-      //dataFolder is equal to the directory of the file. FOR RAY SET UP IS BELOW
-      File dataFolder = new File("../pne");
+   public static void main(String[] arg){   
+      String date = "202010";
+      String year = "../../../../../../data/202010/";
+      String[] pathNames;
+      File dataFolder = new File(year);
       pathNames = dataFolder.list();
       for(String pathname: pathNames){
          System.out.println(pathname);
-      }*/
+      }
 
-      String year = "../../../../../data" + date + "/*.csv";
 
-      List<csv> csvReader = new CSVReader(FileReader(year))
-      .withType(Visitors.class).build().parse();
+   
 
       
       
