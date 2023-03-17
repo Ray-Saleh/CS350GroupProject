@@ -6,18 +6,30 @@ import java.util.List;
 public class Department {
 
    public static void main(String[] arg){   
-      String year = arg[0];
-      File dataFolder = new File(year);
 
-      System.out.println(dataFolder.list());
-      
-     // pathNames = dataFolder.list();
-     // for(String pathname: pathNames){
-     //    System.out.println(pathname);
-     // }
-
-
+    
+      File directory = new File("../../"); 
+      File[] files = directory.listFiles();
+      if (files != null) {
+         for (File file : files) {
+            if (file.isFile()) {
+               System.out.println(file.getName());
+            }
+         }
+      }
    
+    // String year = arg[0];
+    // File dataFolder = new File(year);
+
+    // System.out.println(dataFolder.list());
+    
+    // // pathNames = dataFolder.list();
+    // // for(String pathname: pathNames){
+    // //    System.out.println(pathname);
+    // // }
+
+
+  
 
       
       
