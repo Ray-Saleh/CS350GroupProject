@@ -11,12 +11,11 @@ public class TestCourse
     @Test
     public void testConstructor()
     {
-        Course c = new Course();
+        Course testCourse = new Course();
         
     
-        assertThat(c.getCourseName(), is(""));
-        assertThat(c.getCourseCrn(), is (""));
-        assertThat(c.getSemester(), is (""));
-        assertThat(c.getInstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
+        assertThat(testCourse.getCoursSubject(), is(""));
+        assertThat(testCourse.getCourseNumber(), is(0)));
+    
     }
 }
