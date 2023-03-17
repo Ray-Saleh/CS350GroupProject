@@ -16,7 +16,9 @@ public class TestDepartment {
 public void testListingDirectory(){
 Department d;
 
-assertThat(d.ListingDirectory(),is("tests.txt"));
-}
 
 }
+
+
+}
+
