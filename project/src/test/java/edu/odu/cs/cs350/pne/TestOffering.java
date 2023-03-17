@@ -14,9 +14,8 @@ public class TestOffering {
 
 @Test
 public void testConstructor(){
-    Offering o = new Offering("CS150", "11:30 -> 12:30", 30, 10, 
-    50, LocalDateTime.now().toLocalDate());
-    
+    Offering o = new Offering("CS150", "11:30 -> 12:30", 30, 
+    10, 50, LocalDateTime.now().toLocalDate());
 
     assertThat(o.getCourseName(), is("CS150"));
     assertThat(o.getTime(), is("11:30 -> 12:30"));
@@ -24,9 +23,6 @@ public void testConstructor(){
     assertThat(o.getEnrollment(), is(10));
     assertThat(o.getMaxCap(), is(50));
     assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
-    
-
-
 }
 
 
