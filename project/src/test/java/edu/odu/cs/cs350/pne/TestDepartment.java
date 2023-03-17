@@ -8,17 +8,19 @@ import java.lang.constant.DirectMethodHandleDesc;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import edu.odu.cs.cs350.pne.Department;
+import edu.odu.cs.cs350.pne.*;
 
 public class TestDepartment {
     
-@Test
-public void testListingDirectory(){
-Department d;
 
+    @Test
+    public void testConstructor()
+    {
+        Department depart;
+        depart.readCSV();
+        depart.getEnrollment();
 
-}
-
+    }
 
 }
 
