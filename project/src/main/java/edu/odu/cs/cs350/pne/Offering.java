@@ -19,6 +19,30 @@ public class Offering {
         this.maxCap = mc;
         this.time = t;
     }
+
+    public String getCourseName() {
+        return this.courseName;
+    }
+
+    public String getTime() {
+        return this.time;
+    }
+
+	public int getSeats() {
+		return this.seats;
+	}
+
+    public int getEnrollment() {
+        return this.enrollment;
+    }
+
+    public int getMaxCap() {
+        return this.maxCap;
+    }
+
+	public LocalDate getDate() {
+		return this.date;
+	}
     
 
 }
