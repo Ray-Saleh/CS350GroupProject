@@ -5,25 +5,29 @@ import java.util.List;
 
 public class Department {
 
+   private String subject;
+
    public static void main(String[] arg){   
 
-    
-      File directory = new File("../../"); 
-      File[] files = directory.listFiles();
-      if (files != null) {
-         for (File file : files) {
-            if (file.isFile()) {
-               System.out.println(file.getName());
-            }
-         }
-      }
+    readCSV();
+    getEnrollment();
+   
    }
 
-      public void readCSV(){
+      public static void readCSV(){
+         File directory = new File("../../"); 
+         File[] files = directory.listFiles();
+         if (files != null) {
+            for (File file : files) {
+               if (file.isFile()) {
+                  System.out.println(file.getName());
+               }
+            }
+         }
 
       }
 
-      public void getEnrollment(){
+      public static void getEnrollment(){
          
       }
    
