@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 public class Offering {
-    private String courseName;
+    private Course courseName;
     private LocalDate date;
     private int seats;
     private int enrollment;
@@ -12,7 +12,7 @@ public class Offering {
     private String time;
 
     public Offering(){
-        this.courseName = "";
+        this.courseName = new Course("",0);
         this.date = null;
         this.seats = 0;
         this.enrollment = 0;
@@ -20,7 +20,7 @@ public class Offering {
         this.time = "";
     }
 
-    public Offering(String c, String t, int s, int e, int mc, LocalDate d){
+    public Offering(Course c, String t, int s, int e, int mc, LocalDate d){
         this.courseName = c;
         this.date = d;
         this.seats = s;
@@ -29,7 +29,7 @@ public class Offering {
         this.time = t;
     }
 
-    public String getCourseName() {
+    public Course getCourseName() {
         return this.courseName;
     }
 
