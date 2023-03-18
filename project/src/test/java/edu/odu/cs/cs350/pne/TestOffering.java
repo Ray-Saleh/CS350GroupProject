@@ -14,6 +14,13 @@ public class TestOffering {
 
 @Test
 public void testConstructor(){
+    Offering o = new Offering();
+    assertThat(o.getCourseName(), is(""));
+    assertThat(o)
+}
+
+@Test
+public void testCopyConstructor(){
     Offering o = new Offering("CS150", "11:30 -> 12:30", 30, 
     10, 50, LocalDateTime.now().toLocalDate());
 
