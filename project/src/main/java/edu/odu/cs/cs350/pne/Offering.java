@@ -64,6 +64,10 @@ public class Offering {
     public void setCRSE(int i) {
         this.course.setCRSE(i);
     }
+
+    public void setDate(LocalDate r) {
+        this.date = r;
+    }
     
 
 }

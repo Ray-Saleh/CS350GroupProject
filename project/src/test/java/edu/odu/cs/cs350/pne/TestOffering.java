@@ -77,6 +77,27 @@ public void testSetCRSE(){
 
 }
 
+@Test
+public void setDate(){
+    Course c = new Course("CS", 150);
+    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
+    10, 50, LocalDateTime.now().toLocalDate()); 
+    assertThat(o.getCourse(), is("CS"));
+
+    LocalDate r = LocalDate.of(2023, 1, 1);
+
+    o.setDate(r);
+
+    assertThat(o.getCourse(), is("CS"));
+    assertThat(o.getCRSE(), is(150));
+    assertThat(o.getTime(), is("11:30 -> 12:30"));
+    assertThat(o.getSeats(), is(30));
+    assertThat(o.getEnrollment(), is(10));
+    assertThat(o.getMaxCap(), is(50));
+    assertNotEquals(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+
+}
+
 
     
 }
