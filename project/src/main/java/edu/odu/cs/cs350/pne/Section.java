@@ -8,5 +8,13 @@ public class Section
     String course;
     int XLSTCap;
 
-    
+    public Section(){
+        crn = 0;
+        enrollment = 0;
+        XLSTCap = 0;
+    }
+
+    public Object getcrn() {
+        return crn;
+    }
 }
