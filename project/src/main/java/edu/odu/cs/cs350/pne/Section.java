@@ -51,7 +51,7 @@ public class Section
             this.name = a;
         }
     }
-        public class XLSTCap
+    public class XLSTCap
         {
             private int cap;
 
