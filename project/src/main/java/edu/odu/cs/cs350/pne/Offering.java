@@ -68,6 +68,10 @@ public class Offering {
     public void setDate(LocalDate r) {
         this.date = r;
     }
+
+    public void setSeats(int i) {
+        this.seats = i;
+    }
     
 
 }

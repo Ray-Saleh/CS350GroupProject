@@ -98,6 +98,23 @@ public void setDate(){
 
 }
 
+@Test
+public void setSeats(){
+    Course c = new Course("CS", 150);
+    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
+    10, 50, LocalDateTime.now().toLocalDate());
+
+    o.setSeats(35);
+
+    assertThat(o.getCourse(), is("CS"));
+    assertThat(o.getCRSE(), is(150));
+    assertThat(o.getTime(), is("11:30 -> 12:30"));
+    assertThat(o.getSeats(), is(35));
+    assertThat(o.getEnrollment(), is(10));
+    assertThat(o.getMaxCap(), is(50));
+    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+}
+
 
     
 }
