@@ -21,8 +21,8 @@ public class Course
             return this.subject;
         }
 
-        public void getCRSE(){
-           
+        public int getCRSE(){
+           return this.CRSE;
         }
 
         public void setSubject(String subj){
