@@ -58,6 +58,25 @@ public void testSetCourseName(){
 
 }
 
+@Test
+public void testSetCRSE(){
+    Course c = new Course("CS", 150);
+    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
+    10, 50, LocalDateTime.now().toLocalDate()); 
+    assertThat(o.getCourse(), is("CS"));
+
+    o.setCRSE(330);
+
+    assertThat(o.getCourse(), is("CS"));
+    assertThat(o.getCRSE(), is(330));
+    assertThat(o.getTime(), is("11:30 -> 12:30"));
+    assertThat(o.getSeats(), is(30));
+    assertThat(o.getEnrollment(), is(10));
+    assertThat(o.getMaxCap(), is(50));
+    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+
+}
+
 
     
 }

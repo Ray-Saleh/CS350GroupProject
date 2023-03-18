@@ -60,6 +60,10 @@ public class Offering {
    public void setCourseName(String string) {
         this.course.setSubject(string);
     }
+
+    public void setCRSE(int i) {
+        this.course.setCRSE(i);
+    }
     
 
 }
