@@ -64,6 +64,7 @@ public class Section
                 this.cap = p;
         }
     }
+    //getters
     public int getXLSTCap()
     {
         return XLSTCap;
@@ -78,7 +79,24 @@ public class Section
     }
     public int getcrn()
     {
-        return getcrn;
+        return crn;
+    }
+    //setters
+    public void setXLSTCap(String x)
+    {
+        this.XLSTCap = x;
+    }
+    public void seteStudent(String s)
+    {
+        this.eStudent = s;
+    }
+    public void setcourse(String c)
+    {
+        this.course = c;
+    }
+    public setcrn(int n)
+    {
+        this.crn = n;
     }
 
 }
