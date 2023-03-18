@@ -20,4 +20,12 @@ public class Course {
     public Object getCourseNumber() {
         return CourseCrn;
     }
+
+    public void setCourseNumber(String inName) {
+        CourseName = inName;
+    }
+    
+    public void setCourseName(int inCrn) {
+        CourseCrn = inCrn;
+    }
 }
