@@ -19,8 +19,8 @@ public class TestCourse
     @Test
     
         assertThat(c.getCourseName(), is(""));
-        assertThat(c.getCourseCrn(), is (""));
-        assertThat(c.getSemester(), is (""));
-        assertThat(c.getInstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
+        assertThat(n.getCourseCrn(), is (""));
+        assertThat(s.getSemester(), is (""));
+        assertThat(i.getInstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
     }
 }
