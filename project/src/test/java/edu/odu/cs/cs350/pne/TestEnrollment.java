@@ -18,7 +18,9 @@ public void testConstructor(){
     assertThat(enrollment.getXLSTGroup(), equalTo(0));
     assertThat(enrollment.getOVERALLCAP(), equalTo(0));
     assertThat(enrollment.getXLSTENR(), equalTo(0));
-    assertNull(enrollment.getCourse());
+    assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
+    assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
+
 }
     
 }
