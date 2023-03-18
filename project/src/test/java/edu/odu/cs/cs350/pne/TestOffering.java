@@ -16,7 +16,11 @@ public class TestOffering {
 public void testConstructor(){
     Offering o = new Offering();
     assertThat(o.getCourseName(), is(""));
-    assertThat(o)
+    assertNull(o.getDate());
+    assertEquals(o.getSeats(), 0);
+    assertEquals(o.getEnrollment(), 0);
+    assertEquals(o.getMaxCap(), 0);
+    assertThat(o.getTime(), is(""));
 }
 
 @Test
