@@ -15,7 +15,7 @@ public class TestCourse
         
     
         assertThat(testCourse.getCoursSubject(), is(""));
-        assertThat(testCourse.getCourseNumber(), is(0)));
+        assertThat(testCourse.getCourseNumber(), is(0));
     
     }
 }
