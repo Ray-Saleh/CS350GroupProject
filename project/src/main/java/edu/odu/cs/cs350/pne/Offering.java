@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 public class Offering {
-    private Course courseName;
+    private Course course;
     private LocalDate date;
     private int seats;
     private int enrollment;
@@ -12,7 +12,7 @@ public class Offering {
     private String time;
 
     public Offering(){
-        this.courseName = new Course("",0);
+        this.course = new Course();
         this.date = null;
         this.seats = 0;
         this.enrollment = 0;
@@ -21,7 +21,7 @@ public class Offering {
     }
 
     public Offering(Course c, String t, int s, int e, int mc, LocalDate d){
-        this.courseName = c;
+        this.course = c;
         this.date = d;
         this.seats = s;
         this.enrollment = e;
@@ -29,8 +29,8 @@ public class Offering {
         this.time = t;
     }
 
-    public Course getCourseName() {
-        return this.courseName;
+    public String getCourse() {
+        return this.course.getSubject();
     }
 
     public String getTime() {
@@ -53,8 +53,20 @@ public class Offering {
 		return this.date;
 	}
 
-    public void setCourseName(String string) {
-        this.courseName = string;
+    public int getCRSE() {
+        return this.course.getCRSE();
+    }
+
+   public void setCourseName(String string) {
+        this.course.setSubject(string);
+    }
+
+    public void setCRSE(int i) {
+        this.course.setCRSE(i);
+    }
+
+    public void setDate(LocalDate r) {
+        this.date = r;
     }
     
 
