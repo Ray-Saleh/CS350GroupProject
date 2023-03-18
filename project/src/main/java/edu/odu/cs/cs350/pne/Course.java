@@ -26,7 +26,11 @@ public class Course
         }
 
         public void setSubject(String subj){
-
+            this.subject =  subj;
+        }
+        
+        public void setCRSE(int courseNum){
+            this.CRSE = courseNum;
         }
 
 }
