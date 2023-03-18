@@ -8,6 +8,11 @@ public class Course {
         CourseCrn = 00000;
     }
 
+    public Course(String Name, int Crn){
+        CourseName = Name;
+        CourseCrn = Crn;
+    }
+
     public Object getCourseSubject() {
         return CourseName;
     }
