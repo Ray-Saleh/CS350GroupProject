@@ -6,7 +6,21 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class TestProjectEnrollment {
-    
-    //@Test
+    /* 
+    @Test
+    public void testProjectEnrollment()
+    {
+        ProjectEnrollment testEnrollment = new ProjectEnrollment();
+        
+         
+        assertThat(testProjectEnrollment.getEnrollment, is(value: ""));
+        assertThat()
+        
 
+        @Test
+        assert(c.getCourseName(), is(""));
+        assertThat()
+        
+    }
+    */
 }

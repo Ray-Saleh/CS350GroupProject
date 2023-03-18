@@ -44,6 +44,16 @@ public class TestCourse
         assertThat(testCourse.fullCourseName(), is("CS350"));
     }
 
+<<<<<<< HEAD
+    @Test
+    
+        assertThat(c.getCourseName(), is(""));
+        assertThat(c.getCourseCrn(), is (""));
+        assertThat(c.getSemester(), is (""));
+        assertThat(c.getInstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
+    }
+=======
 
 
+>>>>>>> b719334ec29f14c9b5da86136544ef72e8a25173
 }
