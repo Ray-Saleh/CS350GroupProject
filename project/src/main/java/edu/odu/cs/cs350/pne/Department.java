@@ -11,7 +11,7 @@ public class Department {
 
     readCSV();
     getEnrollment();
-   
+    
    }
 
       public static void readCSV(){
