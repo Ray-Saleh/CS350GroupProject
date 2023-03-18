@@ -14,9 +14,9 @@ public class TestSection
         Section testSection = new Section();
 
         assertThat(testSection.getcrn(), is(""));
-        assertThat(testcourse.getLINK(), is(""));
-        assertThat(testenrollment.getEnrollment(), is(""));
-        assertThat(testcrn.getcrn(), is(""));
-        assertThat(testxlstcap.getXLSTCap, is(""));
+        assertThat(testSection.getLINK(), is(""));
+        assertThat(testSection.getEnrollment(), is(""));
+        assertThat(testSection.getcrn(), is(""));
+        assertThat(testSection.getXLSTCap(), is(""));
     }
 }
