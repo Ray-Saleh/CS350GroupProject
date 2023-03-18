@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-package edu.odu.cs.cs350.pne;
-public class Course {
-
-    public Object getCourseSubject() {
-        return null;
-    }
-    
-=======
 package edu.odu.cs.cs350.pne; 
 
 
@@ -42,7 +33,6 @@ public class Course
             this.CRSE = courseNum;
         }
 
->>>>>>> ae9b9c4d06e395a5a1d05a082a7b5d4216262dca
 }
 
 

@@ -35,7 +35,7 @@ public class TestCourse
 <<<<<<< HEAD
     @Test
     
-        assertThat(c.getCourseName(), is(""));
+        assertThat(c.getCourse(), is(""));
         assertThat(c.getCourseCrn(), is (""));
         assertThat(c.getSemester(), is (""));
         assertThat(c.getInstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
