@@ -1,13 +1,31 @@
 package edu.odu.cs.cs350.pne;
 public class Course {
+    String CourseName;
+    int CourseCrn;
+
+    public Course(){
+        CourseName = "";
+        CourseCrn = 00000;
+    }
+
+    public Course(String Name, int Crn){
+        CourseName = Name;
+        CourseCrn = Crn;
+    }
+
+    public Object getCourseSubject() {
+        return CourseName;
+    }
+
+    public Object getCourseNumber() {
+        return CourseCrn;
+    }
+
+    public void setCourseName(String inName) {
+        CourseName = inName;
+    }
     
-public static  void getCoursSubject(){
-
-}
-
-public static void getCourseNumber(){
-
-}
-
-
+    public void setCourseNumber(int inCrn) {
+        CourseCrn = inCrn;
+    }
 }
