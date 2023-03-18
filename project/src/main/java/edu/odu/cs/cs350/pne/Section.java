@@ -72,7 +72,7 @@ public class Section
     {
         return eStudent;
     }
-    public int getCourse()
+    public String getCourse()
     {
         return course;
     }
@@ -81,7 +81,7 @@ public class Section
         return crn;
     }
     //setters
-    public void setXLSTCap(String x)
+    public void setXLSTCap(int x)
     {
         this.XLSTCap = x;
     }
@@ -93,7 +93,7 @@ public class Section
     {
         this.course = c;
     }
-    public setcrn(int n)
+    public void setcrn(int n)
     {
         this.crn = n;
     }
