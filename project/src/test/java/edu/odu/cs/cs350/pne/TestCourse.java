@@ -14,9 +14,9 @@ public class TestCourse
         Course c = new Course();
         
     
-        assertThat(c.getCourseName(), is(""));
-        assertThat(c.getCourseCrn(), is (""));
-        assertThat(c.getSemester(), is (""));
-        assertThat(c.getInstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
+        assertThat(c.getclass(), is(""));
+        assertThat(c.getcourseCrn(), is (""));
+        assertThat(c.getsemester(), is (""));
+        assertThat(c.getinstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
     }
 }
