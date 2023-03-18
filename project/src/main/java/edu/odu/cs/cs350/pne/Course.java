@@ -3,31 +3,23 @@ package edu.odu.cs.cs350.pne;   //need help with package
 
 public class Course
 {
-        private String Class;
-        private int courseCRN;
-        private String semester;    //Fall/Spring/Summer
-        private String instructor;
-        public Course(String c, int n, String s, String i)
+        private String subject;
+        private int CRSE;
+        public Course(String sub, int num)
         {
-            this.Class = c;
-            this.courseCRN = n;
-            this.semester = s;
-            this.instructor = i;
+            this.subject = sub;
+            this.CRSE = num;
+          
         }
-        public String getclass()
+        public String getSubject()
         {
-            return this.Class;
+            return this.subject;
         }
-
-        public int getcourseCrn()
+        public int getCRSE()
         {
-            return this.courseCRN;
+            return this.CRSE;
         }
 
-        public String getsemester()
-        {
-            return this.instructor;
-        }
 }
 
 
