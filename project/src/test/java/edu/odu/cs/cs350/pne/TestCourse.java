@@ -27,6 +27,7 @@ public class TestCourse
         assertThat(course.getCourseNumber(), equalTo(12345));
     }
 
+    @Test
     public void testsetCourseName(){
         Course course = new Course();
 

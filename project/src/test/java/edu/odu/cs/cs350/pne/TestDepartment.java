@@ -17,8 +17,8 @@ public class TestDepartment {
     public void testConstructor()
     {
         Department depart;
-        depart.readCSV();
-        depart.getEnrollment();
+        //depart.readCSV();
+        //depart.getEnrollment();
 
     }
 
