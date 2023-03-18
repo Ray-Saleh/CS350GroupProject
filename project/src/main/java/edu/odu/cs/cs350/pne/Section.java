@@ -4,7 +4,7 @@ public class Section
 {
     int crn;
     int link;
-    int eStudent;   //"enrolled Student"
+    String eStudent;   //"enrolled Student"
     String course;
     int XLSTCap;    //max number of students to each section
 
@@ -64,6 +64,21 @@ public class Section
                 this.cap = p;
         }
     }
-    
+    public int getXLSTCap()
+    {
+        return XLSTCap;
+    }
+    public String geteStudent()
+    {
+        return eStudent;
+    }
+    public int getCourse()
+    {
+        return course;
+    }
+    public int getcrn()
+    {
+        return getcrn;
+    }
 
 }
