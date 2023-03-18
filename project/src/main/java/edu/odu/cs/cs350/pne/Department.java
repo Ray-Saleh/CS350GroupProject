@@ -17,6 +17,15 @@ public class Department {
             }
          }
       }
+   }
+
+      public void readCSV(){
+
+      }
+
+      public void getEnrollment(){
+         
+      }
    
     // String year = arg[0];
     // File dataFolder = new File(year);
@@ -35,6 +44,7 @@ public class Department {
       
    }
 
+   
 
 
 
@@ -81,5 +91,4 @@ for (int i = 0; i < listOfFiles.length; i++) {
  * https://stackabuse.com/java-list-files-in-a-directory/
  * 
  */
-}
 

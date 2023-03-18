@@ -9,14 +9,18 @@ import static org.hamcrest.Matchers.*;
 public class TestCourse 
 {
     @Test
-    public void testConstructor()
-    {
-        Course c = new Course();
+    public void testConstructor(){
+        Course testCourse = new Course();
         
+        assertThat(testCourse.getCourseSubject(), is(""));
+        assertThat(testCourse.getCourseNumber(), is(00000));
+    }
+
+    @Test
     
-        assertThat(c.getclass(), is(""));
-        assertThat(c.getcourseCrn(), is (""));
-        assertThat(c.getsemester(), is (""));
-        assertThat(c.getinstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
+        assertThat(c.getCourseName(), is(""));
+        assertThat(c.getCourseCrn(), is (""));
+        assertThat(c.getSemester(), is (""));
+        assertThat(c.getInstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
     }
 }
