@@ -8,7 +8,6 @@ public class Offering {
     private LocalDate date;
     private int seats;
     private Enrollment enrollment;
-    private int maxCap;
     private String time;
 
     public Offering(){
@@ -16,16 +15,14 @@ public class Offering {
         this.date = null;
         this.seats = 0;
         this.enrollment = new Enrollment();
-        this.maxCap = 0;
         this.time = "";
     }
 
-    public Offering(Course c, String t, int s, Enrollment e, int mc, LocalDate d){
+    public Offering(Course c, String t, int s, Enrollment e, LocalDate d){
         this.course = c;
         this.date = d;
         this.seats = s;
         this.enrollment = e;
-        this.maxCap = mc;
         this.time = t;
     }
 
@@ -43,10 +40,6 @@ public class Offering {
 
     public int getEnrollment() {
         return this.enrollment.getENR();
-    }
-
-    public int getMaxCap() {
-        return this.maxCap;
     }
 
 	public LocalDate getDate() {

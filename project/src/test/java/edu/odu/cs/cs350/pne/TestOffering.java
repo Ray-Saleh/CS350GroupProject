@@ -20,7 +20,6 @@ public void testConstructor(){
     assertNull(o.getDate());
     assertEquals(o.getSeats(), 0);
     assertEquals(o.getEnrollment(), 0);
-    assertEquals(o.getMaxCap(), 0);
     assertThat(o.getTime(), is(""));
 }
 
@@ -29,14 +28,13 @@ public void testCopyConstructor(){
     Course c = new Course("CS", 150);
     Enrollment e = new Enrollment(0,10,0,0,0,0,c);
     Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, 50, LocalDateTime.now().toLocalDate());
+    e, LocalDateTime.now().toLocalDate());
 
     assertThat(o.getCourse(), is("CS"));
     assertThat(o.getCRSE(), is(150));
     assertThat(o.getTime(), is("11:30 -> 12:30"));
     assertThat(o.getSeats(), is(30));
     assertThat(o.getEnrollment(), is(10));
-    assertThat(o.getMaxCap(), is(50));
     assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 }
 
@@ -45,7 +43,7 @@ public void testSetCourseName(){
     Course c = new Course("CS", 150);
     Enrollment e = new Enrollment(0,10,0,0,0,0,c);
     Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, 50, LocalDateTime.now().toLocalDate());
+    e, LocalDateTime.now().toLocalDate());
     assertThat(o.getCourse(), is("CS"));
 
     o.setCourseName("CYSE");
@@ -55,8 +53,7 @@ public void testSetCourseName(){
     assertThat(o.getTime(), is("11:30 -> 12:30"));
     assertThat(o.getSeats(), is(30));
     assertThat(o.getEnrollment(), is(10));
-    assertThat(o.getMaxCap(), is(50));
-    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+   assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 
 }
 
@@ -65,7 +62,7 @@ public void testSetCRSE(){
     Course c = new Course("CS", 150);
     Enrollment e = new Enrollment(0,10,0,0,0,0,c);
     Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, 50, LocalDateTime.now().toLocalDate());
+    e, LocalDateTime.now().toLocalDate());
     assertThat(o.getCourse(), is("CS"));
 
     o.setCRSE(330);
@@ -75,7 +72,6 @@ public void testSetCRSE(){
     assertThat(o.getTime(), is("11:30 -> 12:30"));
     assertThat(o.getSeats(), is(30));
     assertThat(o.getEnrollment(), is(10));
-    assertThat(o.getMaxCap(), is(50));
     assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 
 }
@@ -85,7 +81,7 @@ public void setDate(){
     Course c = new Course("CS", 150);
     Enrollment e = new Enrollment(0,10,0,0,0,0,c);
     Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, 50, LocalDateTime.now().toLocalDate());
+    e, LocalDateTime.now().toLocalDate());
     assertThat(o.getCourse(), is("CS"));
 
     LocalDate r = LocalDate.of(2023, 1, 1);
@@ -97,7 +93,6 @@ public void setDate(){
     assertThat(o.getTime(), is("11:30 -> 12:30"));
     assertThat(o.getSeats(), is(30));
     assertThat(o.getEnrollment(), is(10));
-    assertThat(o.getMaxCap(), is(50));
     assertNotEquals(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 
 }
@@ -107,7 +102,7 @@ public void setSeats(){
     Course c = new Course("CS", 150);
     Enrollment e = new Enrollment(0,10,0,0,0,0,c);
     Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, 50, LocalDateTime.now().toLocalDate());
+    e, LocalDateTime.now().toLocalDate());
 
     o.setSeats(35);
 
@@ -116,7 +111,6 @@ public void setSeats(){
     assertThat(o.getTime(), is("11:30 -> 12:30"));
     assertThat(o.getSeats(), is(35));
     assertThat(o.getEnrollment(), is(10));
-    assertThat(o.getMaxCap(), is(50));
     assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 }
 
@@ -125,7 +119,7 @@ public void setEnrollment(){
     Course c = new Course("CS", 150);
     Enrollment e = new Enrollment(0,10,0,0,0,0,c);
     Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, 50, LocalDateTime.now().toLocalDate());
+    e, LocalDateTime.now().toLocalDate());
 
     o.setEnrollment(11);
 
@@ -134,10 +128,10 @@ public void setEnrollment(){
     assertThat(o.getTime(), is("11:30 -> 12:30"));
     assertThat(o.getSeats(), is(30));
     assertThat(o.getEnrollment(), is(11));
-    assertThat(o.getMaxCap(), is(50));
     assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 }
 
+@
 
     
 }
