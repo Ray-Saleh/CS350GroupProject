@@ -8,6 +8,10 @@ public class Department {
    private String subject;
 
    public static void main(String[] arg){   
+      //Pathname will be an incoming arg
+      //List of semesters with their location will be an arg
+      //Location of output will be an arg
+      //Optionally a date in format of YYYY-MM-DD will be an arg
 
     readCSV();
     getEnrollment();
@@ -15,6 +19,9 @@ public class Department {
    }
 
       public static void readCSV(){
+         //Go to specified directory
+         //Check if Dates.txt is there if not abort
+         //The folders contain the snapshots
          File directory = new File("../../"); 
          File[] files = directory.listFiles();
          if (files != null) {
@@ -27,6 +34,7 @@ public class Department {
 
       }
 
+      //Do the calculations and output to specified folder
       public static void getEnrollment(){
          
       }
@@ -41,19 +49,9 @@ public class Department {
     // //    System.out.println(pathname);
     // // }
 
-
-  
-
-      
       
    }
 
-   
-
-
-
-
-    
     
 /* 
 CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment

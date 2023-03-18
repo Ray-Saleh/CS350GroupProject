@@ -4,6 +4,7 @@ package edu.odu.cs.cs350.pne;
 public class Course
 {
         private String subject;
+        //CRSE = Course Number
         private int CRSE;
 
         public Course()

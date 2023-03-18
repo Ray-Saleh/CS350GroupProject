@@ -1,12 +1,20 @@
 package edu.odu.cs.cs350.pne;
 
 public class Enrollment {
+
+    //Cross list cap: Maximum number of students that can enroll in this section
     int XLSTCap;
+    //Number of students enrolled in this section
     int ENR;
+    //Used to associate labs with the lecture. All link codes consist of an upper-case char and a single digit int
     int LINK;
+    //Cross list cap: IDs which sections of a course belong to a single offering. (Array of Courses that match)
     int XLSTGroup;
+    //The maximum number of students that can enroll in the offering to which this section belongs.
     int OVERALLCAP;
+    //Cross listed enrollment
     int XLSTENR;
+    //Course subject
     Course course;
 
     public Enrollment(){
