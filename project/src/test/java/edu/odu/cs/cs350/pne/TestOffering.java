@@ -36,6 +36,22 @@ public void testCopyConstructor(){
     assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 }
 
+@Test
+public void testSetCourseName(){
+    Offering o = new Offering();
+    assertThat(o.getCourseName(), is(""));
+
+    o.setCourseName("CS150");
+
+    assertThat(o.getCourseName(), is("CS150"));
+    assertNull(o.getDate());
+    assertEquals(o.getSeats(), 0);
+    assertEquals(o.getEnrollment(), 0);
+    assertEquals(o.getMaxCap(), 0);
+    assertThat(o.getTime(), is(""));
+
+}
+
 
     
 }

@@ -52,6 +52,10 @@ public class Offering {
 	public LocalDate getDate() {
 		return this.date;
 	}
+
+    public void setCourseName(String string) {
+        this.courseName = string;
+    }
     
 
 }
