@@ -21,11 +21,11 @@ public class Course {
         return CourseCrn;
     }
 
-    public void setCourseNumber(String inName) {
+    public void setCourseName(String inName) {
         CourseName = inName;
     }
     
-    public void setCourseName(int inCrn) {
+    public void setCourseNumber(int inCrn) {
         CourseCrn = inCrn;
     }
 }
