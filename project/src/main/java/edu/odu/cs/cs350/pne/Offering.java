@@ -12,7 +12,7 @@ public class Offering {
     private String time;
 
     public Offering(){
-        this.course = new Course("",0);
+        this.course = new Course();
         this.date = null;
         this.seats = 0;
         this.enrollment = 0;
