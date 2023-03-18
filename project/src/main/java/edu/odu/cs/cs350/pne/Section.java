@@ -52,17 +52,18 @@ public class Section
         }
     }
     public class XLSTCap
-        {
-            private int cap;
+    {
+        private int cap;
 
-            public XLSTCap()
-            {
+        public XLSTCap()
+        {
                 this.cap = 0;
-            }
-            public XLSTCap(int p)
-            {
-                this.cap = p;
-            }
         }
+        public XLSTCap(int p)
+        {
+                this.cap = p;
+        }
+    }
+    
 
 }
