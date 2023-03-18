@@ -11,6 +11,15 @@ public class Offering {
     private int maxCap;
     private String time;
 
+    public Offering(){
+        this.courseName = "";
+        this.date = null;
+        this.seats = 0;
+        this.enrollment = 0;
+        this.maxCap = 0;
+        this.time = "";
+    }
+
     public Offering(String c, String t, int s, int e, int mc, LocalDate d){
         this.courseName = c;
         this.date = d;
