@@ -29,14 +29,9 @@ public class Course
         public void setSubject(String subj){
             this.subject =  subj;
         }
-
+        
         public void setCRSE(int courseNum){
             this.CRSE = courseNum;
-        }
-
-        //Not necessary if we wanted to do this anytime we want both
-        public String fullCourseName(){
-            return this.subject + this.CRSE;
         }
 
 }

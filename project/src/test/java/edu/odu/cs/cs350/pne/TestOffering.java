@@ -15,7 +15,8 @@ public class TestOffering {
 @Test
 public void testConstructor(){
     Offering o = new Offering();
-    assertThat(o.getCourseName(), is(""));
+    assertThat(o.getCourse(), is(""));
+    assertThat(o.getCRSE(), is(0));
     assertNull(o.getDate());
     assertEquals(o.getSeats(), 0);
     assertEquals(o.getEnrollment(), 0);
@@ -25,10 +26,12 @@ public void testConstructor(){
 
 @Test
 public void testCopyConstructor(){
-    Offering o = new Offering("CS150", "11:30 -> 12:30", 30, 
+    Course c = new Course("CS", 150);
+    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
     10, 50, LocalDateTime.now().toLocalDate());
 
-    assertThat(o.getCourseName(), is("CS150"));
+    assertThat(o.getCourse(), is("CS"));
+    assertThat(o.getCRSE(), is(150));
     assertThat(o.getTime(), is("11:30 -> 12:30"));
     assertThat(o.getSeats(), is(30));
     assertThat(o.getEnrollment(), is(10));
@@ -38,18 +41,78 @@ public void testCopyConstructor(){
 
 @Test
 public void testSetCourseName(){
-    Offering o = new Offering();
-    assertThat(o.getCourseName(), is(""));
+    Course c = new Course("CS", 150);
+    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
+    10, 50, LocalDateTime.now().toLocalDate()); 
+    assertThat(o.getCourse(), is("CS"));
 
-    o.setCourseName("CS150");
+    o.setCourseName("CYSE");
 
-    assertThat(o.getCourseName(), is("CS150"));
-    assertNull(o.getDate());
-    assertEquals(o.getSeats(), 0);
-    assertEquals(o.getEnrollment(), 0);
-    assertEquals(o.getMaxCap(), 0);
-    assertThat(o.getTime(), is(""));
+    assertThat(o.getCourse(), is("CYSE"));
+    assertThat(o.getCRSE(), is(150));
+    assertThat(o.getTime(), is("11:30 -> 12:30"));
+    assertThat(o.getSeats(), is(30));
+    assertThat(o.getEnrollment(), is(10));
+    assertThat(o.getMaxCap(), is(50));
+    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 
+}
+
+@Test
+public void testSetCRSE(){
+    Course c = new Course("CS", 150);
+    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
+    10, 50, LocalDateTime.now().toLocalDate()); 
+    assertThat(o.getCourse(), is("CS"));
+
+    o.setCRSE(330);
+
+    assertThat(o.getCourse(), is("CS"));
+    assertThat(o.getCRSE(), is(330));
+    assertThat(o.getTime(), is("11:30 -> 12:30"));
+    assertThat(o.getSeats(), is(30));
+    assertThat(o.getEnrollment(), is(10));
+    assertThat(o.getMaxCap(), is(50));
+    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+
+}
+
+@Test
+public void setDate(){
+    Course c = new Course("CS", 150);
+    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
+    10, 50, LocalDateTime.now().toLocalDate()); 
+    assertThat(o.getCourse(), is("CS"));
+
+    LocalDate r = LocalDate.of(2023, 1, 1);
+
+    o.setDate(r);
+
+    assertThat(o.getCourse(), is("CS"));
+    assertThat(o.getCRSE(), is(150));
+    assertThat(o.getTime(), is("11:30 -> 12:30"));
+    assertThat(o.getSeats(), is(30));
+    assertThat(o.getEnrollment(), is(10));
+    assertThat(o.getMaxCap(), is(50));
+    assertNotEquals(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+
+}
+
+@Test
+public void setSeats(){
+    Course c = new Course("CS", 150);
+    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
+    10, 50, LocalDateTime.now().toLocalDate());
+
+    o.setSeats(35);
+
+    assertThat(o.getCourse(), is("CS"));
+    assertThat(o.getCRSE(), is(150));
+    assertThat(o.getTime(), is("11:30 -> 12:30"));
+    assertThat(o.getSeats(), is(35));
+    assertThat(o.getEnrollment(), is(10));
+    assertThat(o.getMaxCap(), is(50));
+    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
 }
 
 
