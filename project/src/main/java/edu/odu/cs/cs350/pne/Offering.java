@@ -7,7 +7,7 @@ public class Offering {
     private Course course;
     private LocalDate date;
     private int seats;
-    private int enrollment;
+    private Enrollment enrollment;
     private int maxCap;
     private String time;
 
@@ -15,12 +15,12 @@ public class Offering {
         this.course = new Course();
         this.date = null;
         this.seats = 0;
-        this.enrollment = 0;
+        this.enrollment = new Enrollment();
         this.maxCap = 0;
         this.time = "";
     }
 
-    public Offering(Course c, String t, int s, int e, int mc, LocalDate d){
+    public Offering(Course c, String t, int s, Enrollment e, int mc, LocalDate d){
         this.course = c;
         this.date = d;
         this.seats = s;
@@ -42,7 +42,7 @@ public class Offering {
 	}
 
     public int getEnrollment() {
-        return this.enrollment;
+        return this.enrollment.getENR();
     }
 
     public int getMaxCap() {
@@ -71,6 +71,10 @@ public class Offering {
 
     public void setSeats(int i) {
         this.seats = i;
+    }
+
+    public void setEnrollment(int i) {
+        this.enrollment.setENR(i);
     }
     
 
