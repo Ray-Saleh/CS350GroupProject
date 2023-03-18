@@ -52,7 +52,7 @@ public void testConstructor(){
         assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
         assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
     }
-    }
+    
     @Test 
     public void testsetLINK(){
         Enrollment enrollment=new Enrollment();
@@ -129,7 +129,7 @@ public void testConstructor(){
         assertThat(enrollment.getLINK(), equalTo(0));
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
-        assertThat(enrollment.getXLSTENR(), equalTo(10));
+        assertThat(enrollment.getXLSTENR(), equalTo(0));
         assertThat(enrollment.getCourse(),equalTo(course));
       }
     

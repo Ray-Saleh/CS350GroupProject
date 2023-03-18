@@ -9,13 +9,11 @@ import static org.hamcrest.Matchers.*;
 public class TestCourse 
 {
     @Test
-    public void testConstructor()
-    {
+    public void testConstructor() {
         Course testCourse = new Course();
         
-    
         assertThat(testCourse.getCourseSubject(), is(""));
         assertThat(testCourse.getCourseNumber(), is(00000));
-    
     }
+   
 }

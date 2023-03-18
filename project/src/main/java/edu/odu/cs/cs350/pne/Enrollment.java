@@ -18,6 +18,16 @@ public class Enrollment {
         course = new Course();
     }
 
+    public Enrollment(int inXLSTCap, int inENR, int inLINK, int inXLSTGroup, int inOVERALLCAP, int inXLSTENR, Course incourse){
+        XLSTCap=inXLSTCap;
+        ENR=inENR;
+        LINK=inLINK;
+        XLSTGroup=inXLSTGroup;
+        OVERALLCAP=inOVERALLCAP;
+        XLSTENR=inXLSTENR;
+        course = incourse;
+    }
+    ///Accesors 
     public int getXLSTCap() {
         return XLSTCap;
     }
@@ -39,7 +49,27 @@ public class Enrollment {
     public Course getCourse(){
         return course;
     }
-
-
+    ///Mutators
+    public void setXLSTCap(int inXLSTCap) {
+        XLSTCap = inXLSTCap;
+    }
+    public void setENR(int inENR) {
+        ENR = inENR;
+    }
+    public void setLINK(int inLINK){
+       LINK = inLINK;
+    }
+    public void setXLSTGroup(int inXLSTGroup){
+       XLSTGroup = inXLSTGroup;
+    }
+    public void setOVERALLCAP(int inOVERALLCAP){
+        OVERALLCAP = inOVERALLCAP;
+    }
+    public void setXLSTENR(int inXLSTENR) {
+       XLSTENR = inXLSTENR;
+    }
+    public void setCourse(Course inCourse){
+        course = inCourse;
+    }
 
 }
