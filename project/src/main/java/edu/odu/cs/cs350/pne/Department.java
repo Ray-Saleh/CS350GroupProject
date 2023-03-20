@@ -2,41 +2,54 @@ package edu.odu.cs.cs350.pne;
 
 import java.io.File;
 import java.util.List;
+import java.util.Scanner;
 
 public class Department {
 
    private String subject;
-
-   public static void main(String[] arg){   
       //Pathname will be an incoming arg
       //List of semesters with their location will be an arg
       //Location of output will be an arg
       //Optionally a date in format of YYYY-MM-DD will be an arg
-
-    readCSV();
+   public static void main(String[] arg){   
+     
+      Scanner directoryLocation = new Scanner(System.in);
+       System.out.println("Enter directory path to semesters:");
+    getDirectory(directoryLocation.nextLine());
+   
+    readCSV(directoryLocation.nextLine());
     getEnrollment();
     
+
+    directoryLocation.close();
    }
 
-      public static void readCSV(){
+      public static void readCSV(String pathname){
          //Go to specified directory
          //Check if Dates.txt is there if not abort
          //The folders contain the snapshots
-         File directory = new File("../../"); 
+        
+      }
+
+      //Do the calculations and output to specified folder
+      public static void getEnrollment(){
+         
+      }
+
+      public static void getDirectory(String pathname){
+         File directory = new File(pathname); 
          File[] files = directory.listFiles();
          if (files != null) {
             for (File file : files) {
                if (file.isFile()) {
                   System.out.println(file.getName());
                }
+               else if(file.isDirectory()){
+                  System.out.println(file.getName());
+               }
             }
          }
 
-      }
-
-      //Do the calculations and output to specified folder
-      public static void getEnrollment(){
-         
       }
    
     // String year = arg[0];
