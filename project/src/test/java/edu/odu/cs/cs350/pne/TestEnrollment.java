@@ -18,8 +18,8 @@ public void testConstructor(){
     assertThat(enrollment.getXLSTGroup(), equalTo(0));
     assertThat(enrollment.getOVERALLCAP(), equalTo(0));
     assertThat(enrollment.getXLSTENR(), equalTo(0));
-    assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
-    assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
+    assertThat(enrollment.getCourse().getSubject(), equalTo(""));
+    assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
 
 }
     @Test 
@@ -34,8 +34,8 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
+        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
+        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
     @Test 
     public void testsetENR(){
@@ -49,8 +49,8 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
+        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
+        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
     
     @Test 
@@ -65,8 +65,8 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
+        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
+        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
     
     @Test 
@@ -81,8 +81,8 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(10));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
+        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
+        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
         
     
@@ -98,8 +98,8 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(10));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
+        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
+        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
     @Test 
     public void testsetXLSTENR(){
@@ -113,8 +113,8 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(10));
-        assertThat(enrollment.getCourse().getCourseSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCourseNumber(), equalTo(00000));
+        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
+        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
     @Test 
     public void testsetCourse(){
