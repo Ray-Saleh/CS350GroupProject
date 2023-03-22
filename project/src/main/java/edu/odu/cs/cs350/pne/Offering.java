@@ -60,6 +60,15 @@ public class Offering {
 	public void setEnrollmentCap(int i) {
         this.enrollment.setOVERALLCAP(i);
 	}
+	public void setEnrollmentNum(int i) {
+        this.enrollment.setENR(i);
+	}
+	public void setCourseSubject(String string) {
+        this.course.setSubject(string);
+	}
+	public void setCourseNumber(int i) {
+        this.course.setCRSE(i);
+	}
 
 
 
