@@ -4,71 +4,57 @@ import java.time.LocalDate;
 
 
 public class Offering {
-    private Course course;
-    private LocalDate date;
-    private int seats;
+    //numsecotions will be int for now
+    //professor is string
+    //overallcap and overall enrollment will be apart of enrollment
+    //course will be an object of course
+
+
+    private String professor;
+    private int numSections;
     private Enrollment enrollment;
-    private String time;
+    private Course course;
 
     public Offering(){
-        this.course = new Course();
-        this.date = null;
-        this.seats = 0;
+        this.professor = "";
+        this.numSections = 0;
         this.enrollment = new Enrollment();
-        this.time = "";
+        this.course = new Course();
     }
-
-    public Offering(Course c, String t, int s, Enrollment e, LocalDate d){
-        this.course = c;
-        this.date = d;
-        this.seats = s;
+    public Offering(String p, int n, Enrollment e, Course c){
+        this.professor = p;
+        this.numSections = n;
         this.enrollment = e;
-        this.time = t;
+        this.course = c;
     }
 
-    public String getCourse() {
-        return this.course.getSubject();
-    }
-
-    public String getTime() {
-        return this.time;
-    }
-
-	public int getSeats() {
-		return this.seats;
+	public String getProfessor() {
+		return this.professor;
 	}
 
-    public int getEnrollment() {
+    public int getNumSections() {
+        return this.numSections;
+    }
+
+    public int getEnrollmentCap() {
+        return this.enrollment.getOVERALLCAP();
+    }
+
+    public int getEnrolledNum() {
         return this.enrollment.getENR();
     }
 
-	public LocalDate getDate() {
-		return this.date;
+	public String getCourseSubject() {
+		return this.course.getSubject();
 	}
 
-    public int getCRSE() {
+    public int getCourseNumber() {
         return this.course.getCRSE();
     }
 
-   public void setCourseName(String string) {
-        this.course.setSubject(string);
-    }
 
-    public void setCRSE(int i) {
-        this.course.setCRSE(i);
-    }
 
-    public void setDate(LocalDate r) {
-        this.date = r;
-    }
 
-    public void setSeats(int i) {
-        this.seats = i;
-    }
 
-    public void setEnrollment(int i) {
-        this.enrollment.setENR(i);
-    }
     
-
 }
