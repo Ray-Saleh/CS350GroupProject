@@ -51,6 +51,15 @@ public class Offering {
     public int getCourseNumber() {
         return this.course.getCRSE();
     }
+	public void setProfessor(String string) {
+        this.professor = string;
+	}
+	public void setNumSections(int i) {
+        this.numSections = i;
+	}
+	public void setEnrollmentCap(int i) {
+        this.enrollment.setOVERALLCAP(i);
+	}
 
 
 
