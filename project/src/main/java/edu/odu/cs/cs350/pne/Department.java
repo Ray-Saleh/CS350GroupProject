@@ -92,6 +92,7 @@ public class Department {
       }
       return contentsList;
    }
+}
    
 /* 
 CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment
