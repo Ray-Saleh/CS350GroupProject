@@ -77,7 +77,7 @@ public class Department {
      
    public static List<String[]> readCsvFiles(String directoryPath) throws IOException 
    {
-      List<String[]> contentsList = new ArrayList<>();   //create array list 
+      List<String[]> contentsList = new ArrayList<>();   //Create array list 
       File directory = new File(directoryPath);
   
       for (File file : directory.listFiles())      // Iterate over all files in the directory
