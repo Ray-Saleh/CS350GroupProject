@@ -75,10 +75,24 @@ public class Department {
          return output;
      }
      
-     
+   public static List<String[]> readCsvFiles(String directoryPath) throws IOException 
+   {
+      List<String[]> contentsList = new ArrayList<>();
+      File directory = new File(directoryPath);
+  
+      for (File file : directory.listFiles())      // Iterate over all files in the directory
+      {
+          if (file.isFile() && file.getName().endsWith(".csv")) 
+          {
+              CSVReader reader = new CSVReader(new FileReader(file));   // Read the contents of the CSV file into an array of strings
+              List<String[]> contents = reader.readAll();
+              reader.close();
+              contentsList.addAll(contents);    // Add the contents array to the list of contents arrays
+          }
+      }
+      return contentsList;
    }
-
-    
+   
 /* 
 CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment
      String [] nextLine;
