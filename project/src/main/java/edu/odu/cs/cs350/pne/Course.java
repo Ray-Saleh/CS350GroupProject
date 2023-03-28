@@ -34,6 +34,8 @@ public class Course
             this.CRSE = courseNum;
         }
 
+    
+
 }
 
 
