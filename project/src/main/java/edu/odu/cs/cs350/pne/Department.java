@@ -51,18 +51,27 @@ public class Department {
          }
 
       }
-   
-    // String year = arg[0];
-    // File dataFolder = new File(year);
 
-    // System.out.println(dataFolder.list());
-    
-    // // pathNames = dataFolder.list();
-    // // for(String pathname: pathNames){
-    // //    System.out.println(pathname);
-    // // }
 
-      
+      public static int[] smoothCurve(int[] input) {
+         // Create an output array with the same length as the input array
+         int[] output = new int[input.length];
+     
+         // Copy the first and last elements of the input array to the output array
+         output[0] = input[0];
+         output[input.length - 1] = input[input.length - 1];
+     
+         // Iterate over the input array, skipping the first and last elements
+         for (int i = 1; i < input.length - 1; i++) {
+             // Compute the average of the adjacent elements and store it in the output array
+             output[i] = (input[i - 1] + input[i] + input[i + 1]) / 3;
+         }
+     
+         // Return the output array
+         return output;
+     }
+     
+     
    }
 
     
