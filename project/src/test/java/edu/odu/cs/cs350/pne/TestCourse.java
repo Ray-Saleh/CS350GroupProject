@@ -32,7 +32,6 @@ public class TestCourse
         assertThat(testCourse.getCRSE(), is(350));
     }
 
-<<<<<<< HEAD
     @Test
     
         assertThat(c.getCourseName(), is(""));
@@ -40,8 +39,4 @@ public class TestCourse
         assertThat(c.getSemester(), is (""));
         assertThat(c.getInstructor(), is (""));     //instructor/professor/teacher, whichever is the appropiate name
     }
-=======
-
-
->>>>>>> bde6548d4fba4f0e7187bf56fc75ae52f71885cf
 }
