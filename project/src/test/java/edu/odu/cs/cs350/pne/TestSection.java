@@ -17,6 +17,7 @@ public class TestSection {
         assertThat(s.getXLSTCap(), is(0));
     }
 
+    @Test
     public void testCopyConstructor() {
         Course c = new Course("cs", 150);
         Enrollment e = new Enrollment(10, 10, 10, 10, 10, 10, c);
@@ -29,7 +30,7 @@ public class TestSection {
         assertThat(s.getXLSTCap(), is(10));
     }
 
-    public void testSetLinked(){
+    public void testSetLinked() {
 
     }
 }
