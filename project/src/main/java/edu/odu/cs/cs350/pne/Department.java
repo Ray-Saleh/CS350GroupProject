@@ -6,25 +6,29 @@ import java.util.Scanner;
 
 public class Department {
 
-   private String subject;
+  //private String subject;
       //Pathname will be an incoming arg
       //List of semesters with their location will be an arg
       //Location of output will be an arg
       //Optionally a date in format of YYYY-MM-DD will be an arg
    public static void main(String[] arg){   
      
-      Scanner directoryLocation = new Scanner(System.in);
-       System.out.println("Enter directory path to semesters:");
-    getDirectory(directoryLocation.nextLine());
-   
-    readCSV(directoryLocation.nextLine());
-    getEnrollment();
-    
+      Scanner userInput = new Scanner(System.in);
+      String inputDirectory = new String("");
 
-    directoryLocation.close();
+     
+          System.out.println("Enter directory path to semesters:");
+          getDirectory(userInput.nextLine(),inputDirectory);
+     
+   
+          readCSV(inputDirectory);
+          System.out.println("Enter directory path for data Output:");
+          getEnrollment(userInput.nextLine());
+      
+    userInput.close();
    }
 
-      public static void readCSV(String pathname){
+      public static void readCSV(String inputPathname){
          //Go to specified directory
          //Check if Dates.txt is there if not abort
          //The folders contain the snapshots
@@ -32,12 +36,12 @@ public class Department {
       }
 
       //Do the calculations and output to specified folder
-      public static void getEnrollment(){
+      public static void getEnrollment(String outputPathname){
          
       }
 
-      public static void getDirectory(String pathname){
-         File directory = new File(pathname); 
+      public static void getDirectory(String inputPathname,String savedPathname){
+         File directory = new File(inputPathname); 
          File[] files = directory.listFiles();
          if (files != null) {
             for (File file : files) {
@@ -48,6 +52,7 @@ public class Department {
                   System.out.println(file.getName());
                }
             }
+            savedPathname = inputPathname;
          }
 
       }
