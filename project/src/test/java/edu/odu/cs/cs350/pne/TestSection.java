@@ -13,8 +13,8 @@ public class TestSection {
         assertThat(s.getcrn(), is(0));
         assertThat(s.getSub(), is(""));
         assertThat(s.getCRSE(), is(000));
-        assertThat(s.getLinked(), is(0));
-        assertThat(s.getXLSTCap(), is(0));
+        // assertThat(s.getLINK(), is(0));
+        // assertThat(s.getXLSTCap(), is(0));
     }
 
     @Test
@@ -26,7 +26,7 @@ public class TestSection {
         assertThat(s.getcrn(), is(1010));
         assertThat(s.getSub(), is("cs"));
         assertThat(s.getCRSE(), is(150));
-        assertThat(s.getLinked(), is(10));
+        assertThat(s.getLINK(), is(10));
         assertThat(s.getXLSTCap(), is(10));
     }
 

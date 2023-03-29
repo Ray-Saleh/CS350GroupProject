@@ -7,9 +7,9 @@ public class Section {
     private Course course;
 
     public Section() {
-        crn = 0;
-        enrollment = new Enrollment();
-        course = new Course();
+        this.crn = 0;
+        this.enrollment = new Enrollment();
+        this.course = new Course();
     }
 
     public Section(int r, Enrollment e, Course c) {
@@ -19,11 +19,11 @@ public class Section {
     }
 
     // setters and getters
-    public int getLinked() {
+    public int getLINK() {
         return this.enrollment.getLINK();
     }
 
-    public void setLinked(int i) {
+    public void setLINK(int i) {
         this.enrollment.setLINK(i);
     }
 
@@ -53,7 +53,6 @@ public class Section {
 
     public int getXLSTCap() {
         return this.enrollment.getXLSTCap();
-
     }
 
     public void setXLSTCap(int i) {
