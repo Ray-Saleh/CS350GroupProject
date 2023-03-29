@@ -3,135 +3,135 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 
 public class TestOffering {
 
-@Test
-public void testConstructor(){
-    Offering o = new Offering();
-    assertThat(o.getCourse(), is(""));
-    assertThat(o.getCRSE(), is(0));
-    assertNull(o.getDate());
-    assertEquals(o.getSeats(), 0);
-    assertEquals(o.getEnrollment(), 0);
-    assertThat(o.getTime(), is(""));
-}
+    @Test
+    public void testConstructor(){
+        Offering o = new Offering();
+        assertThat(o.getProfessor(), is(""));
+        assertThat(o.getNumSections(), is(0));
+        assertThat(o.getEnrollmentCap(), is(0));
+        assertThat(o.getEnrolledNum(), is(0));
+        assertThat(o.getCourseSubject(), is(""));
+        assertThat(o.getCourseNumber(), is(0));
+    }
 
-@Test
-public void testCopyConstructor(){
-    Course c = new Course("CS", 150);
-    Enrollment e = new Enrollment(0,10,0,0,0,0,c);
-    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, LocalDateTime.now().toLocalDate());
+    @Test
+    public void testCConstructor(){
+        Course c = new Course("CS",150);
+        Enrollment e = new Enrollment(0,10,0,
+        0,20,0,c);
+        Offering o = new Offering("Zeil", 5, e,c);
 
-    assertThat(o.getCourse(), is("CS"));
-    assertThat(o.getCRSE(), is(150));
-    assertThat(o.getTime(), is("11:30 -> 12:30"));
-    assertThat(o.getSeats(), is(30));
-    assertThat(o.getEnrollment(), is(10));
-    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
-}
+        assertThat(o.getProfessor(), is("Zeil"));
+        assertThat(o.getNumSections(), is(5));
+        assertThat(o.getEnrollmentCap(), is(20));
+        assertThat(o.getEnrolledNum(), is(10));
+        assertThat(o.getCourseSubject(), is("CS"));
+        assertThat(o.getCourseNumber(), is(150));
+    }
 
-@Test
-public void testSetCourseName(){
-    Course c = new Course("CS", 150);
-    Enrollment e = new Enrollment(0,10,0,0,0,0,c);
-    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, LocalDateTime.now().toLocalDate());
-    assertThat(o.getCourse(), is("CS"));
+    @Test
+    public void testSetProfessor(){
+        Course c = new Course("CS",150);
+        Enrollment e = new Enrollment(0,10,0,
+        0,20,0,c);
+        Offering o = new Offering("Zeil", 5, e,c);
 
-    o.setCourseName("CYSE");
+        o.setProfessor("Kennedy");
+        assertThat(o.getProfessor(), is("Kennedy"));
+        assertThat(o.getNumSections(), is(5));
+        assertThat(o.getEnrollmentCap(), is(20));
+        assertThat(o.getEnrolledNum(), is(10));
+        assertThat(o.getCourseSubject(), is("CS"));
+        assertThat(o.getCourseNumber(), is(150));
 
-    assertThat(o.getCourse(), is("CYSE"));
-    assertThat(o.getCRSE(), is(150));
-    assertThat(o.getTime(), is("11:30 -> 12:30"));
-    assertThat(o.getSeats(), is(30));
-    assertThat(o.getEnrollment(), is(10));
-   assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+    }
 
-}
+    @Test
+    public void testSetNumSections(){
+        Course c = new Course("CS",150);
+        Enrollment e = new Enrollment(0,10,0,
+        0,20,0,c);
+        Offering o = new Offering("Zeil", 5, e,c);
 
-@Test
-public void testSetCRSE(){
-    Course c = new Course("CS", 150);
-    Enrollment e = new Enrollment(0,10,0,0,0,0,c);
-    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, LocalDateTime.now().toLocalDate());
-    assertThat(o.getCourse(), is("CS"));
+        o.setNumSections(6);
+        assertThat(o.getProfessor(), is("Zeil"));
+        assertThat(o.getNumSections(), is(6));
+        assertThat(o.getEnrollmentCap(), is(20));
+        assertThat(o.getEnrolledNum(), is(10));
+        assertThat(o.getCourseSubject(), is("CS"));
+        assertThat(o.getCourseNumber(), is(150));
+    }
 
-    o.setCRSE(330);
+    @Test
+    public void testSetEnrollmentCap(){
+        Course c = new Course("CS",150);
+        Enrollment e = new Enrollment(0,10,0,
+        0,20,0,c);
+        Offering o = new Offering("Zeil", 5, e,c);
 
-    assertThat(o.getCourse(), is("CS"));
-    assertThat(o.getCRSE(), is(330));
-    assertThat(o.getTime(), is("11:30 -> 12:30"));
-    assertThat(o.getSeats(), is(30));
-    assertThat(o.getEnrollment(), is(10));
-    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+        o.setEnrollmentCap(50);
+        assertThat(o.getProfessor(), is("Zeil"));
+        assertThat(o.getNumSections(), is(5));
+        assertThat(o.getEnrollmentCap(), is(50));
+        assertThat(o.getEnrolledNum(), is(10));
+        assertThat(o.getCourseSubject(), is("CS"));
+        assertThat(o.getCourseNumber(), is(150));
+    }
 
-}
+    @Test
+    public void testSetEnrollmentNum(){
+        Course c = new Course("CS",150);
+        Enrollment e = new Enrollment(0,10,0,
+        0,20,0,c);
+        Offering o = new Offering("Zeil", 5, e,c);
 
-@Test
-public void setDate(){
-    Course c = new Course("CS", 150);
-    Enrollment e = new Enrollment(0,10,0,0,0,0,c);
-    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, LocalDateTime.now().toLocalDate());
-    assertThat(o.getCourse(), is("CS"));
+        o.setEnrollmentNum(20);
+        assertThat(o.getProfessor(), is("Zeil"));
+        assertThat(o.getNumSections(), is(5));
+        assertThat(o.getEnrollmentCap(), is(20));
+        assertThat(o.getEnrolledNum(), is(20));
+        assertThat(o.getCourseSubject(), is("CS"));
+        assertThat(o.getCourseNumber(), is(150));
+    }
 
-    LocalDate r = LocalDate.of(2023, 1, 1);
+    @Test
+    public void testSetCourseSubject(){
+        Course c = new Course("CS",150);
+        Enrollment e = new Enrollment(0,10,0,
+        0,20,0,c);
+        Offering o = new Offering("Zeil", 5, e,c);
 
-    o.setDate(r);
+        o.setCourseSubject("CYSE");
+        assertThat(o.getProfessor(), is("Zeil"));
+        assertThat(o.getNumSections(), is(5));
+        assertThat(o.getEnrollmentCap(), is(20));
+        assertThat(o.getEnrolledNum(), is(10));
+        assertThat(o.getCourseSubject(), is("CYSE"));
+        assertThat(o.getCourseNumber(), is(150));
+    }
 
-    assertThat(o.getCourse(), is("CS"));
-    assertThat(o.getCRSE(), is(150));
-    assertThat(o.getTime(), is("11:30 -> 12:30"));
-    assertThat(o.getSeats(), is(30));
-    assertThat(o.getEnrollment(), is(10));
-    assertNotEquals(o.getDate(), is(LocalDateTime.now().toLocalDate()));
+    @Test 
+    public void setCourseNumber(){
+        Course c = new Course("CS",150);
+        Enrollment e = new Enrollment(0,10,0,
+        0,20,0,c);
+        Offering o = new Offering("Zeil", 5, e,c);
 
-}
-
-@Test
-public void setSeats(){
-    Course c = new Course("CS", 150);
-    Enrollment e = new Enrollment(0,10,0,0,0,0,c);
-    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, LocalDateTime.now().toLocalDate());
-
-    o.setSeats(35);
-
-    assertThat(o.getCourse(), is("CS"));
-    assertThat(o.getCRSE(), is(150));
-    assertThat(o.getTime(), is("11:30 -> 12:30"));
-    assertThat(o.getSeats(), is(35));
-    assertThat(o.getEnrollment(), is(10));
-    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
-}
-
-@Test
-public void setEnrollment(){
-    Course c = new Course("CS", 150);
-    Enrollment e = new Enrollment(0,10,0,0,0,0,c);
-    Offering o = new Offering(c, "11:30 -> 12:30", 30, 
-    e, LocalDateTime.now().toLocalDate());
-
-    o.setEnrollment(11);
-
-    assertThat(o.getCourse(), is("CS"));
-    assertThat(o.getCRSE(), is(150));
-    assertThat(o.getTime(), is("11:30 -> 12:30"));
-    assertThat(o.getSeats(), is(30));
-    assertThat(o.getEnrollment(), is(11));
-    assertThat(o.getDate(), is(LocalDateTime.now().toLocalDate()));
-}
+        o.setCourseNumber(330);
+        assertThat(o.getProfessor(), is("Zeil"));
+        assertThat(o.getNumSections(), is(5));
+        assertThat(o.getEnrollmentCap(), is(20));
+        assertThat(o.getEnrolledNum(), is(10));
+        assertThat(o.getCourseSubject(), is("CS"));
+        assertThat(o.getCourseNumber(), is(330));
 
 
+    }
 
-    
 }

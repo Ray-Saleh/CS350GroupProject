@@ -3,6 +3,10 @@ package edu.odu.cs.cs350.pne;
 import java.io.File;
 import java.util.List;
 import java.util.Scanner;
+import com.opencsv.CSVReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Department {
 
@@ -56,21 +60,43 @@ public class Department {
          }
 
       }
-   
-    // String year = arg[0];
-    // File dataFolder = new File(year);
 
-    // System.out.println(dataFolder.list());
-    
-    // // pathNames = dataFolder.list();
-    // // for(String pathname: pathNames){
-    // //    System.out.println(pathname);
-    // // }
 
-      
+      public static int[] smoothCurve(int[] values, int windowSize) {
+         int[] smoothedValues = new int[values.length];
+     
+         for (int i = 0; i < values.length; i++) {
+             int sum = 0;
+             int count = 0;
+             for (int j = Math.max(0, i - windowSize); j <= Math.min(values.length - 1, i + windowSize); j++) {
+                 sum += values[j];
+                 count++;
+             }
+             smoothedValues[i] = sum / count;
+         }
+     
+         return smoothedValues;
+     }
+     
+   public static List<String[]> readCsvFiles(String directoryPath) throws IOException 
+   {
+      List<String[]> contentsList = new ArrayList<>();   //Create array list 
+      File directory = new File(directoryPath);
+  
+      for (File file : directory.listFiles())      // Iterate over all files in the directory
+      {
+          if (file.isFile() && file.getName().endsWith(".csv")) 
+          {
+              CSVReader reader = new CSVReader(new FileReader(file));   // Read the contents of the CSV file into an array of strings
+              List<String[]> contents = reader.readAll();
+              reader.close();
+              contentsList.addAll(contents);    // Add the contents array to the list of contents arrays
+          }
+      }
+      return contentsList;
    }
-
-    
+}
+   
 /* 
 CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment
      String [] nextLine;
