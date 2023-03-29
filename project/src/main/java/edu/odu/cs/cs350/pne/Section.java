@@ -1,84 +1,70 @@
 package edu.odu.cs.cs350.pne;
-public class Section 
-{
-    int crn;
-    int link;
-    String eStudent;   //"enrolled Student"
-    String course;
-    int XLSTCap;    //max number of students to each section
 
-    public class Course
-    {
-        private String subject;
-        private int crn;
-        
-        public Course()
-        {
-            this.subject = "";
-            this.crn = 0;
-        }
-        public Course(String s, int c)
-        {
-            this.subject = s;
-            this.crn = c;
-        }
-    }
-    public class crn
-    {
-        private int classCrn;
+public class Section {
 
-        public crn()
-        {
-            this.classCrn = 0;
-        }
-        public crn(int n)
-        {
-            this.classCrn = n;
-        }
+    private int crn;
+    private Enrollment enrollment;
+    private Course course;
+
+    public Section() {
+        crn = 0;
+        enrollment = new Enrollment();
+        course = new Course();
     }
 
-    public class eStudent   //"enrolled Student"
-    {
-        private String name;
-        
-        public eStudent()
-        {
-            this.name = "";
-        }
-        public eStudent(String a)
-        {
-            this.name = a;
-        }
-    }
-    public class XLSTCap
-    {
-        private int cap;
-
-        public XLSTCap()
-        {
-                this.cap = 0;
-        }
-        public XLSTCap(int p)
-        {
-                this.cap = p;
-        }
+    public Section(int r, Enrollment e, Course c) {
+        this.crn = r;
+        this.enrollment = e;
+        this.course = c;
     }
 
-    public int XLSTCap()
-    {
-        return XLSTCap;
-    }
-    public String eStudent()
-    {
-        return eStudent;
-    }
-    public int crn()
-    {
-        return crn;
-    }
-    public String course()
-    {
-        return course;
+    // setters and getters
+    public int getLinked() {
+        return this.enrollment.getLINK();
     }
 
+    public void setLinked(int i) {
+        this.enrollment.setLINK(i);
+    }
+
+    public int getcrn() {
+        return this.crn;
+    }
+
+    public void setcrn(int i) {
+        this.crn = i;
+    }
+
+    public int getCRSE() {
+        return this.course.getCRSE();
+    }
+
+    public void setCRSE(int i) {
+        this.course.setCRSE(i);
+    }
+
+    public String getSub() {
+        return this.course.getSubject();
+    }
+
+    public void setSub(String s) {
+        this.course.setSubject(s);
+    }
+
+    public int getXLSTCap() {
+        return this.enrollment.getXLSTCap();
+
+    }
+
+    public void setXLSTCap(int i) {
+        this.enrollment.setXLSTCap(i);
+    }
+
+    public int getENR() {
+        return this.enrollment.getENR();
+    }
+
+    public void setENR(int i) {
+        this.enrollment.setENR(i);
+    }
 }
