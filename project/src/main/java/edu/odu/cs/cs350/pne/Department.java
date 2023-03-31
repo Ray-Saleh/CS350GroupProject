@@ -3,7 +3,7 @@ package edu.odu.cs.cs350.pne;
 import java.io.File;
 import java.util.List;
 import java.util.Scanner;
-import com.opencsv.CSVReader;
+//import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -77,8 +77,9 @@ public class Department {
      
          return smoothedValues;
      }
+   }
      
-   public static List<String[]> readCsvFiles(String directoryPath) throws IOException 
+   /*public static List<String[]> readCsvFiles(String directoryPath) throws IOException 
    {
       List<String[]> contentsList = new ArrayList<>();   //Create array list 
       File directory = new File(directoryPath);
