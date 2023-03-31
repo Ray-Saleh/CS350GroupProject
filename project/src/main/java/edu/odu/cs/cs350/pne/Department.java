@@ -2,33 +2,102 @@ package edu.odu.cs.cs350.pne;
 
 import java.io.File;
 import java.util.List;
+import java.util.Scanner;
+//import com.opencsv.CSVReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Department {
 
+  //private String subject;
+      //Pathname will be an incoming arg
+      //List of semesters with their location will be an arg
+      //Location of output will be an arg
+      //Optionally a date in format of YYYY-MM-DD will be an arg
    public static void main(String[] arg){   
-      String year = arg[0];
-      File dataFolder = new File(year);
+     
+      Scanner userInput = new Scanner(System.in);
+      String inputDirectory = new String("");
 
-      System.out.println(dataFolder.list());
-      
-     // pathNames = dataFolder.list();
-     // for(String pathname: pathNames){
-     //    System.out.println(pathname);
-     // }
-
-
+     
+          System.out.println("Enter directory path to semesters:");
+          getDirectory(userInput.nextLine(),inputDirectory);
+     
    
-
+          readCSV(inputDirectory);
+          System.out.println("Enter directory path for data Output:");
+          getEnrollment(userInput.nextLine());
       
-      
+    userInput.close();
    }
 
+      public static void readCSV(String inputPathname){
+         //Go to specified directory
+         //Check if Dates.txt is there if not abort
+         //The folders contain the snapshots
+        
+      }
+
+      //Do the calculations and output to specified folder
+      public static void getEnrollment(String outputPathname){
+         
+      }
+
+      public static void getDirectory(String inputPathname,String savedPathname){
+         File directory = new File(inputPathname); 
+         File[] files = directory.listFiles();
+         if (files != null) {
+            for (File file : files) {
+               if (file.isFile()) {
+                  System.out.println(file.getName());
+               }
+               else if(file.isDirectory()){
+                  System.out.println(file.getName());
+               }
+            }
+            savedPathname = inputPathname;
+         }
+
+      }
 
 
-
-
-    
-    
+      public static int[] smoothCurve(int[] values, int windowSize) {
+         int[] smoothedValues = new int[values.length];
+     
+         for (int i = 0; i < values.length; i++) {
+             int sum = 0;
+             int count = 0;
+             for (int j = Math.max(0, i - windowSize); j <= Math.min(values.length - 1, i + windowSize); j++) {
+                 sum += values[j];
+                 count++;
+             }
+             smoothedValues[i] = sum / count;
+         }
+     
+         return smoothedValues;
+     }
+   }
+     
+   /*public static List<String[]> readCsvFiles(String directoryPath) throws IOException 
+   {
+      List<String[]> contentsList = new ArrayList<>();   //Create array list 
+      File directory = new File(directoryPath);
+  
+      for (File file : directory.listFiles())      // Iterate over all files in the directory
+      {
+          if (file.isFile() && file.getName().endsWith(".csv")) 
+          {
+              CSVReader reader = new CSVReader(new FileReader(file));   // Read the contents of the CSV file into an array of strings
+              List<String[]> contents = reader.readAll();
+              reader.close();
+              contentsList.addAll(contents);    // Add the contents array to the list of contents arrays
+          }
+      }
+      return contentsList;
+   }
+}
+   
 /* 
 CSVReader reader = new CSVReaderBuilder(new FileReader("yourfile.csv")).build();    //"yourfile" is a variable and a place holder for the moment
      String [] nextLine;
@@ -69,5 +138,4 @@ for (int i = 0; i < listOfFiles.length; i++) {
  * https://stackabuse.com/java-list-files-in-a-directory/
  * 
  */
-}
 

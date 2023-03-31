@@ -13,15 +13,18 @@ repositories {
 }
 
 application {
-    mainClass = 'edu.odu.cs.cs350.pne.ProjectEnrollment'
+    mainClass = 'edu.odu.cs.cs350.pne.Department'
 }
 
 dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
 	testImplementation 'org.hamcrest:hamcrest-library:2.2'
+	implementation 'com.opencsv:opencsv:5.1'
+
 }
 
 test {
 	ignoreFailures = true
 	useJUnitPlatform()
 }
+

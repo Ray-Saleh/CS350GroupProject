@@ -4,45 +4,75 @@ import java.time.LocalDate;
 
 
 public class Offering {
-    private String courseName;
-    private LocalDate date;
-    private int seats;
-    private int enrollment;
-    private int maxCap;
-    private String time;
+    //numsecotions will be int for now
+    //professor is string
+    //overallcap and overall enrollment will be apart of enrollment
+    //course will be an object of course
 
-    public Offering(String c, String t, int s, int e, int mc, LocalDate d){
-        this.courseName = c;
-        this.date = d;
-        this.seats = s;
+
+    private String professor;
+    private int numSections;
+    private Enrollment enrollment;
+    private Course course;
+
+    public Offering(){
+        this.professor = "";
+        this.numSections = 0;
+        this.enrollment = new Enrollment();
+        this.course = new Course();
+    }
+    public Offering(String p, int n, Enrollment e, Course c){
+        this.professor = p;
+        this.numSections = n;
         this.enrollment = e;
-        this.maxCap = mc;
-        this.time = t;
+        this.course = c;
     }
 
-    public String getCourseName() {
-        return this.courseName;
-    }
-
-    public String getTime() {
-        return this.time;
-    }
-
-	public int getSeats() {
-		return this.seats;
+	public String getProfessor() {
+		return this.professor;
 	}
 
-    public int getEnrollment() {
-        return this.enrollment;
+    public int getNumSections() {
+        return this.numSections;
     }
 
-    public int getMaxCap() {
-        return this.maxCap;
+    public int getEnrollmentCap() {
+        return this.enrollment.getOVERALLCAP();
     }
 
-	public LocalDate getDate() {
-		return this.date;
+    public int getEnrolledNum() {
+        return this.enrollment.getENR();
+    }
+
+	public String getCourseSubject() {
+		return this.course.getSubject();
 	}
+
+    public int getCourseNumber() {
+        return this.course.getCRSE();
+    }
+	public void setProfessor(String string) {
+        this.professor = string;
+	}
+	public void setNumSections(int i) {
+        this.numSections = i;
+	}
+	public void setEnrollmentCap(int i) {
+        this.enrollment.setOVERALLCAP(i);
+	}
+	public void setEnrollmentNum(int i) {
+        this.enrollment.setENR(i);
+	}
+	public void setCourseSubject(String string) {
+        this.course.setSubject(string);
+	}
+	public void setCourseNumber(int i) {
+        this.course.setCRSE(i);
+	}
+
+
+
+
+
     
-
 }
