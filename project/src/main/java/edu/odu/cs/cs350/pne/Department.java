@@ -3,8 +3,12 @@ package edu.odu.cs.cs350.pne;
 import java.io.File;
 import java.util.List;
 import java.util.Scanner;
+
+import com.opencsv.CSVWriter;
+
 //import com.opencsv.CSVReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,6 +23,7 @@ public class Department {
      
       Scanner userInput = new Scanner(System.in);
       String inputDirectory = new String("");
+      Enrollment e = new Enrollment();
 
      
           System.out.println("Enter directory path to semesters:");
@@ -27,7 +32,8 @@ public class Department {
    
           readCSV(inputDirectory);
           System.out.println("Enter directory path for data Output:");
-          getEnrollment(userInput.nextLine());
+          getEnrollment(e);
+          detailedProjecitonReport(userInput.nextLine());
       
     userInput.close();
    }
@@ -38,10 +44,40 @@ public class Department {
          //The folders contain the snapshots
         
       }
+      //Summery Projection written as standard output
+      public static void summeryProjectionReport(Enrollment enrolled)
+      {
+         System.out.println(" of enrollment period has elapsed.");
+         System.out.println("Course Enrollment Projected Cap");
+         
+         for (Course c : enrolled.course )
+         System.out.println(enrolled.getCourse()+" "+enrolled.getENR()+" "+enrolled.getENR()+" "+enrolled.getOVERALLCAP());
+
+      }
+      //Detailed Projection Report outputed to a CSV file
+      public static void detailedProjecitonReport(String outputPathname)
+      {
+
+         File file = new File(outputPathname);
+       
+         try {
+            //File Writer object 
+            FileWriter outputFile = new FileWriter(file);
+         
+         CSVWriter writer = new CSVWriter(outputFile);
+         String[] header = {"d historical","","d current", "d projected","Projected"};
+         writer.writeNext(header);
+        writer.close();
+         
+      } catch (IOException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+      }
 
       //Do the calculations and output to specified folder
-      public static void getEnrollment(String outputPathname){
-         
+      public static void getEnrollment(Enrollment enroll){
+       
       }
 
       public static void getDirectory(String inputPathname,String savedPathname){
