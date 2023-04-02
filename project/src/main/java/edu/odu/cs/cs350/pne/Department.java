@@ -55,6 +55,8 @@ public class Department {
 
       }
       //Detailed Projection Report outputed to a CSV file
+      //Used the following as I had no idea how to write a CSV file
+      //https://www.geeksforgeeks.org/writing-a-csv-file-in-java-using-opencsv/
       public static void detailedProjecitonReport(String outputPathname)
       {
 
