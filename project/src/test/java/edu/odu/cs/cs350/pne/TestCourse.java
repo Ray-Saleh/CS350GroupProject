@@ -14,4 +14,19 @@ public class TestCourse {
         assertThat(c.getSubject(), is(""));
 
     }
+
+    @Test
+    public void testInput(){
+        Course c = new Course("MATH", 124);
+        assertThat(c.getCRSE(), is(124));
+        assertThat(c.getSubject(), is("MATH"));
+    }
+
+    @Test
+    public void testsetCRSE(){
+        Course c = new Course();
+        c.setCRSE(452);
+        assertThat(c.getCRSE(), is(452));
+        assertThat(c.getSubject(), is(""));
+    }
 }
