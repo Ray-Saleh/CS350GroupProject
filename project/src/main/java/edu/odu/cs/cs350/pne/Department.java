@@ -4,13 +4,13 @@ import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
-import com.opencsv.CSVWriter;
 
 //import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
 
 public class Department {
 
@@ -19,24 +19,34 @@ public class Department {
       //List of semesters with their location will be an arg
       //Location of output will be an arg
       //Optionally a date in format of YYYY-MM-DD will be an arg
-   public static void main(String[] arg){   
-     
-      Scanner userInput = new Scanner(System.in);
-      String inputDirectory = new String("");
-      Enrollment e = new Enrollment();
+   public static void main(String[] args){   
+      if (args.length != 1) {
+         System.err.println("Usage: java CsvReader <filename>");
+         System.exit(1);
+     }
 
-     
-          System.out.println("Enter directory path to semesters:");
-          getDirectory(userInput.nextLine(),inputDirectory);
-     
-   
-          readCSV(inputDirectory);
-          System.out.println("Enter directory path for data Output:");
-          getEnrollment(e);
-          detailedProjecitonReport(userInput.nextLine());
-      
-    userInput.close();
+     String filename = args[0];
+     File file = new File(filename);
+
+     try {
+         Scanner scanner = new Scanner(file);
+         scanner.useDelimiter(",");
+
+         while (scanner.hasNextLine()) {
+             String line = scanner.nextLine();
+             String[] fields = line.split(",");
+             // Do something with the fields
+            System.out.println(line);
+         }
+
+         scanner.close();
+     } catch (FileNotFoundException e) {
+         System.err.println("Error: File not found - " + filename);
+         System.exit(1);
+     }
    }
+}
+   /* 
    //test
 
       public static void readCSV(String inputPathname){
