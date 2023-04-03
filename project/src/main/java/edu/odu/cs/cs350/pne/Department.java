@@ -3,8 +3,7 @@ package edu.odu.cs.cs350.pne;
 import java.io.File;
 import java.util.List;
 import java.util.Scanner;
-
-
+import java.util.jar.Attributes.Name;
 //import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -20,30 +19,38 @@ public class Department {
       //Location of output will be an arg
       //Optionally a date in format of YYYY-MM-DD will be an arg
    public static void main(String[] args){   
-      if (args.length != 1) {
+      if (args.length == 0) {
          System.err.println("Usage: java CsvReader <filename>");
          System.exit(1);
      }
 
-     String filename = args[0];
-     File file = new File(filename);
+     String directory = args[0];
+     File dir = new File(directory);
 
-     try {
-         Scanner scanner = new Scanner(file);
-         scanner.useDelimiter(",");
+     if (!dir.isDirectory()) {
+      System.err.println("Error: " + directory + " is not a directory.");
+      System.exit(1);
+      }
 
-         while (scanner.hasNextLine()) {
-             String line = scanner.nextLine();
-             String[] fields = line.split(",");
-             // Do something with the fields
-            System.out.println(line);
+      File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
+      for (File file : files) {
+         try {
+            Scanner scanner = new Scanner(file);
+            scanner.useDelimiter(",");
+
+            while (scanner.hasNextLine()) {
+               String line = scanner.nextLine();
+               String[] fields = line.split(",");
+               System.out.println(line);
+               // Do something with the fields
+            }
+
+            scanner.close();
+            } catch (FileNotFoundException e) {
+            System.err.println("Error: File not found - " + file.getName());
+            System.exit(1);
          }
-
-         scanner.close();
-     } catch (FileNotFoundException e) {
-         System.err.println("Error: File not found - " + filename);
-         System.exit(1);
-     }
+      }
    }
 }
    /* 
