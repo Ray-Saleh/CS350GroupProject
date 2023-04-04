@@ -63,7 +63,8 @@ public class Department {
                     String[] fields = line.split(",");
                     // Do something with the fields
                 }
-
+                // line under this line prints all files within said directory
+                // System.out.println(file.getName());
                 scanner.close();
             } catch (FileNotFoundException e) {
                 System.err.println("Error: File not found - " + file.getName());
