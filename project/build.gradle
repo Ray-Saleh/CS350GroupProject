@@ -64,11 +64,11 @@ task gstatus2 () {
 
 def pagesDir = file("${project.rootDir}/../website-temp").absolutePath
 
-task clearPages(type: Delete) {
-    delete pagesDir
-}
+//task clearPages(type: Delete) {
+//    delete pagesDir
+//}
 
-task workTree(dependsOn: ['clearPages']) { 
+task workTree() { 
     doLast {
         exec {
             workingDir = '.'
@@ -120,7 +120,6 @@ task pushWebsite (type: Exec, dependsOn: 'commitWebsite') {
 task deployReports (type: Delete, dependsOn: 'pushWebsite') {
     group = "Reporting"
     description  'Commit and push website changes to GitHub'
-    delete pagesDir
 }
 
 check.dependsOn copyDocs
