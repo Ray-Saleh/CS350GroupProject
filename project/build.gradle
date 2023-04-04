@@ -64,11 +64,11 @@ task gstatus2 () {
 
 def pagesDir = file("${project.rootDir}/../website-temp").absolutePath
 
-//task clearPages(type: Delete) {
-//    delete pagesDir
-//}
+task clearPages(type: Delete) {
+    delete pagesDir
+}
 
-task workTree() { 
+task workTree(dependsOn: 'clearPages') { 
     doLast {
         exec {
             workingDir = '.'
