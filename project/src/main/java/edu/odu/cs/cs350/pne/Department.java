@@ -28,6 +28,7 @@ public class Department {
             file.delete();
             System.out.println("Deleted existing file " + filename);
         }
+        // this is a test
         String[] data1 = { "CRN", "Subj", "CRSE", "XLST Cap" };
         String[] data2 = { "1", "CS", "330", "30" };
         String[] data3 = { "2", "CS", "350", "30" };
