@@ -13,103 +13,100 @@ import java.io.FileNotFoundException;
 
 public class Department {
 
-  //private String subject;
-      //Pathname will be an incoming arg
-      //List of semesters with their location will be an arg
-      //Location of output will be an arg
-      //Optionally a date in format of YYYY-MM-DD will be an arg
+    // private String subject;
+    // Pathname will be an incoming arg
+    // List of semesters with their location will be an arg
+    // Location of output will be an arg
+    // Optionally a date in format of YYYY-MM-DD will be an arg
 
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.err.println("Usage: java CsvReader <directory>");
+            System.exit(1);
+        }
 
-      public static void main(String[] args) {
-         if (args.length == 0) {
-             System.err.println("Usage: java CsvReader <directory>");
-             System.exit(1);
-         }
-         
-         //fake output 
-         String filename = "Fake_Output.csv";
-         File file = new File(filename);
-         if (file.exists()) {
-               file.delete();
-               System.out.println("Deleted existing file " + filename);
-         }
-         String[] data1 = {"CRN", "Subj", "CRSE", "XLST Cap"};
-         String[] data2 = {"1", "CS", "330", "30"};
-         String[] data3 = {"2", "CS", "350", "30"};
-         String[] data4 = {"3", "CS", "361", "30"};
-         writeDataToCSV(data1, "Fake_Output.csv");
-         writeDataToCSV(data2, "Fake_Output.csv");
-         writeDataToCSV(data3, "Fake_Output.csv");
-         writeDataToCSV(data4, "Fake_Output.csv");
-         //comment from here to fake output comment to remove the fakeoutput
+        // fake output
+        String filename = "Fake_Output.csv";
+        File file = new File(filename);
+        if (file.exists()) {
+            file.delete();
+            System.out.println("Deleted existing file " + filename);
+        }
+        String[] data1 = { "CRN", "Subj", "CRSE", "XLST Cap" };
+        String[] data2 = { "1", "CS", "330", "30" };
+        String[] data3 = { "2", "CS", "350", "30" };
+        String[] data4 = { "3", "CS", "361", "30" };
+        writeDataToCSV(data1, "Fake_Output.csv");
+        writeDataToCSV(data2, "Fake_Output.csv");
+        writeDataToCSV(data3, "Fake_Output.csv");
+        writeDataToCSV(data4, "Fake_Output.csv");
+        // comment from here to fake output comment to remove the fakeoutput
 
-         String directory = args[0];
- 
-         readCsvFiles(directory);
-     }
+        String directory = args[0];
 
-   public static void readCsvFiles(String directory) {
-      File dir = new File(directory);
+        readCsvFiles(directory);
+    }
 
-      if (!dir.isDirectory()) {
-          System.err.println("Error: " + directory + " is not a directory.");
-          System.exit(1);
-      }
+    public static void readCsvFiles(String directory) {
+        File dir = new File(directory);
 
-      File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
+        if (!dir.isDirectory()) {
+            System.err.println("Error: " + directory + " is not a directory.");
+            System.exit(1);
+        }
 
-      for (File file : files) {
-          try {
-              Scanner scanner = new Scanner(file);
-              scanner.useDelimiter(",");
+        File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
 
-              while (scanner.hasNextLine()) {
-                  String line = scanner.nextLine();
-                  String[] fields = line.split(",");
-                  // Do something with the fields
-              }
+        for (File file : files) {
+            try {
+                Scanner scanner = new Scanner(file);
+                scanner.useDelimiter(",");
 
-              scanner.close();
-          } catch (FileNotFoundException e) {
-              System.err.println("Error: File not found - " + file.getName());
-              System.exit(1);
-          }
-      }
-  }
-   public static int[] smoothCurve(int[] values, int windowSize) {
-      int[] smoothedValues = new int[values.length];
-  
-      for (int i = 0; i < values.length; i++) {
-          int sum = 0;
-          int count = 0;
-          for (int j = Math.max(0, i - windowSize); j <= Math.min(values.length - 1, i + windowSize); j++) {
-              sum += values[j];
-              count++;
-          }
-          smoothedValues[i] = sum / count;
-      }
-  
-      return smoothedValues;
-  }
+                while (scanner.hasNextLine()) {
+                    String line = scanner.nextLine();
+                    String[] fields = line.split(",");
+                    // Do something with the fields
+                }
 
-
-  public static void writeDataToCSV(String[] data, String filename) {
-      try {
-         FileWriter csvWriter = new FileWriter(filename, true);
-         for (int i = 0; i < data.length; i++) {
-            csvWriter.append(data[i]);
-            if (i != data.length - 1) {
-                  csvWriter.append(","); // use a comma as the delimiter between columns
+                scanner.close();
+            } catch (FileNotFoundException e) {
+                System.err.println("Error: File not found - " + file.getName());
+                System.exit(1);
             }
-         }
-         csvWriter.append("\n"); // add a new line character to separate rows
-         csvWriter.flush();
-         csvWriter.close();
-         System.out.println("Data has been written to " + filename + " successfully!");
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
-   }
+        }
+    }
+
+    public static int[] smoothCurve(int[] values, int windowSize) {
+        int[] smoothedValues = new int[values.length];
+
+        for (int i = 0; i < values.length; i++) {
+            int sum = 0;
+            int count = 0;
+            for (int j = Math.max(0, i - windowSize); j <= Math.min(values.length - 1, i + windowSize); j++) {
+                sum += values[j];
+                count++;
+            }
+            smoothedValues[i] = sum / count;
+        }
+
+        return smoothedValues;
+    }
+
+    public static void writeDataToCSV(String[] data, String filename) {
+        try {
+            FileWriter csvWriter = new FileWriter(filename, true);
+            for (int i = 0; i < data.length; i++) {
+                csvWriter.append(data[i]);
+                if (i != data.length - 1) {
+                    csvWriter.append(","); // use a comma as the delimiter between columns
+                }
+            }
+            csvWriter.append("\n"); // add a new line character to separate rows
+            csvWriter.flush();
+            csvWriter.close();
+            System.out.println("Data has been written to " + filename + " successfully!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
-
-
