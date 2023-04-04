@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.odu.cs.cs350.pne.TestCourse" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-04-04T16:43:06" hostname="ganymede" time="0.077">
-  <properties/>
-  <testcase name="testInput()" classname="edu.odu.cs.cs350.pne.TestCourse" time="0.074"/>
-  <testcase name="testsetCRSE()" classname="edu.odu.cs.cs350.pne.TestCourse" time="0.001"/>
-  <testcase name="testCourse()" classname="edu.odu.cs.cs350.pne.TestCourse" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
