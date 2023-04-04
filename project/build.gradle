@@ -30,45 +30,67 @@ test {
 	useJUnitPlatform()
 }
 
-task copyDocs (dependsOn: 'javadoc', type: Copy) {
-	def directory = file("build/reports")
-	from layout.buildDirectory.dir("docs")
-	into layout.buildDirectory.dir("reports")
-	check.dependsOn(copyDocs)	
+
+
+//post data to branch to create website
+task copyDocs(dependsOn: 'javadoc') {
+    doLast {
+        copy {
+            from 'build/docs/'
+            into 'build/reports/'
+        }
+    }
 }
 
-task reports (dependsOn: ['build', 'javadoc'], type: Copy){
-    from file("src/main/html")
-    into file("build/reports")
+task reports(dependsOn: ['javadoc','test']) {
+    doLast {
+        copy {
+            from 'src/main/html/'
+            into 'build/reports/'
+        }
+    }
 }
 
+
+task gstatus2 () {
+    doLast {
+        println "Check out repository status"
+        exec {
+            workingDir = '.'
+            commandLine = ['git', 'status']
+        }
+    }
+}
 
 def pagesDir = file("${project.rootDir}/../website-temp").absolutePath
+
 task clearPages(type: Delete) {
     delete pagesDir
 }
-task worktree (dependsOn: ['build', "clearPages"]) {
-	doLast{
-		exec{
+
+task workTree(dependsOn: 'clearPages') { 
+    doLast {
+        exec {
             workingDir = '.'
             commandLine = ['git', 'worktree', 'add', '-f', pagesDir, 'gh-pages']
-		}
-		exec {
+        }
+        exec {
             workingDir = pagesDir
             commandLine = ['git', 'checkout', 'gh-pages']
         }
-		exec {
+        exec {
             workingDir = pagesDir
             commandLine = ['git', 'pull']
         }
-		
-	}
+    }
 }
 
-task copyReports (type: Copy, dependsOn: ['worktree']) {
+task copyReports (type: Copy, dependsOn: ['reports', 'workTree', 'copyDocs']) {
     from 'build/reports'
     into pagesDir
 }
+
+
 task copyWebsite (dependsOn: ['copyReports']) {
 }
 
@@ -100,3 +122,6 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
     description  'Commit and push website changes to GitHub'
     delete pagesDir
 }
+
+check.dependsOn copyDocs
+
