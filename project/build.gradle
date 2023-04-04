@@ -85,7 +85,7 @@ task workTree(dependsOn: 'clearPages') {
     }
 }
 
-task copyReports (type: Copy, dependsOn: ['reports', 'workTree', 'copyDocs']) {
+task copyReports (type: Copy, dependsOn: ['reports', 'workTree']) {
     from 'build/reports'
     into pagesDir
 }
