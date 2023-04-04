@@ -68,7 +68,7 @@ task clearPages(type: Delete) {
     delete pagesDir
 }
 
-task workTree() { 
+task workTree(dependsOn: 'clearPages') { 
     doLast {
         exec {
             workingDir = '.'
