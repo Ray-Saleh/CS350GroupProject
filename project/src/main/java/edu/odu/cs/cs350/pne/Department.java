@@ -52,7 +52,24 @@ public class Department {
          }
       }
    }
+
+   public static int[] smoothCurve(int[] values, int windowSize) {
+      int[] smoothedValues = new int[values.length];
+  
+      for (int i = 0; i < values.length; i++) {
+          int sum = 0;
+          int count = 0;
+          for (int j = Math.max(0, i - windowSize); j <= Math.min(values.length - 1, i + windowSize); j++) {
+              sum += values[j];
+              count++;
+          }
+          smoothedValues[i] = sum / count;
+      }
+  
+      return smoothedValues;
+  }
 }
+
    /* 
    //test
 
@@ -115,23 +132,6 @@ public class Department {
 
       }
 
-
-      public static int[] smoothCurve(int[] values, int windowSize) {
-         int[] smoothedValues = new int[values.length];
-     
-         for (int i = 0; i < values.length; i++) {
-             int sum = 0;
-             int count = 0;
-             for (int j = Math.max(0, i - windowSize); j <= Math.min(values.length - 1, i + windowSize); j++) {
-                 sum += values[j];
-                 count++;
-             }
-             smoothedValues[i] = sum / count;
-         }
-     
-         return smoothedValues;
-     }
-   }
      
    /*public static List<String[]> readCsvFiles(String directoryPath) throws IOException 
    {
