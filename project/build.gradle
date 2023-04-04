@@ -31,7 +31,7 @@ test {
 }
 
 
-
+/*
 //post data to branch to create website
 task copyDocs(dependsOn: 'javadoc') {
     doLast {
@@ -126,4 +126,4 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
 
 
 check.dependsOn copyDocs
-
+*/
