@@ -41,9 +41,11 @@ public class Department {
             while (scanner.hasNextLine()) {
                String line = scanner.nextLine();
                String[] fields = line.split(",");
-               System.out.println(line);
                // Do something with the fields
+               writeDataToCSV(fields, "Test.csv");
+
             }
+
 
             scanner.close();
             } catch (FileNotFoundException e) {
@@ -68,6 +70,25 @@ public class Department {
   
       return smoothedValues;
   }
+
+
+  public static void writeDataToCSV(String[] data, String filename) {
+      try {
+         FileWriter csvWriter = new FileWriter(filename, true);
+         for (int i = 0; i < data.length; i++) {
+            csvWriter.append(data[i]);
+            if (i != data.length - 1) {
+                  csvWriter.append(","); // use a comma as the delimiter between columns
+            }
+         }
+         csvWriter.append("\n"); // add a new line character to separate rows
+         csvWriter.flush();
+         csvWriter.close();
+         System.out.println("Data has been written to " + filename + " successfully!");
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
 }
 
    /* 
