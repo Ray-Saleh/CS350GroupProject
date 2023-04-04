@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.odu.cs.cs350.pne.TestSemester" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-04T16:43:06" hostname="ganymede" time="0.0">
+  <properties/>
+  <testcase name="testConstructor()" classname="edu.odu.cs.cs350.pne.TestSemester" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
