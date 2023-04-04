@@ -37,6 +37,7 @@ public class Department {
       
     userInput.close();
    }
+   //test
 
       public static void readCSV(String inputPathname){
          //Go to specified directory
@@ -50,7 +51,7 @@ public class Department {
          System.out.println(" of enrollment period has elapsed.");
          System.out.println("Course Enrollment Projected Cap");
          
-         for (Course c : enrolled.course )
+         //for (Course c : enrolled.course )
          System.out.println(enrolled.getCourse()+" "+enrolled.getENR()+" "+enrolled.getENR()+" "+enrolled.getOVERALLCAP());
 
       }

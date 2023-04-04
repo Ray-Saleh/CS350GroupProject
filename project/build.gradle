@@ -12,6 +12,8 @@ repositories {
 	mavenCentral()
 }
 
+mainClassName = 'edu.odu.cs.cs350.pne.Department'
+
 application {
     mainClass = 'edu.odu.cs.cs350.pne.Department'
 }
@@ -19,7 +21,7 @@ application {
 dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
 	testImplementation 'org.hamcrest:hamcrest-library:2.2'
-	implementation 'com.opencsv:opencsv:5.1'
+    implementation 'com.opencsv:opencsv:5.5.2'
 
 }
 

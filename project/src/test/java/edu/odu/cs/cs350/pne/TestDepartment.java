@@ -22,6 +22,10 @@ public class TestDepartment {
 
     }
 
+    @Test
+    public void testSummaryReport(){
+        
+    }
 
     @Test
     public void testSmoothCurving(){
