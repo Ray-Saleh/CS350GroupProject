@@ -1,6 +1,7 @@
-# Project Report
+# cs350 Project Report
 
-Wedsnesday Group 2
+Scott Atkins, Prestin Bell, Scott McAllister,  Chance Sadler, Ray Saleh
+
 
 * [Tests](./tests/test/)
 * [JavaDoc](./javadoc/)
