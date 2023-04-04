@@ -51,6 +51,7 @@ task reports(dependsOn: ['javadoc','test']) {
     }
 }
 
+
 task gstatus2 () {
     doLast {
         println "Check out repository status"
@@ -121,9 +122,6 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
     description  'Commit and push website changes to GitHub'
     delete pagesDir
 }
-
-
-
 
 check.dependsOn copyDocs
 
