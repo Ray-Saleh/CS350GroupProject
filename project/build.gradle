@@ -120,6 +120,7 @@ task pushWebsite (type: Exec, dependsOn: 'commitWebsite') {
 task deployReports (type: Delete, dependsOn: 'pushWebsite') {
     group = "Reporting"
     description  'Commit and push website changes to GitHub'
+    delete pagesDir
 }
 
 check.dependsOn copyDocs
