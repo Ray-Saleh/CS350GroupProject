@@ -68,7 +68,7 @@ task clearPages(type: Delete) {
     delete pagesDir
 }
 
-task workTree(dependsOn: 'clearPages') { 
+task workTree() { 
     doLast {
         exec {
             workingDir = '.'
@@ -85,7 +85,7 @@ task workTree(dependsOn: 'clearPages') {
     }
 }
 
-task copyReports (type: Copy, dependsOn: ['reports', 'workTree']) {
+task copyReports (type: Copy, dependsOn: ['reports', 'workTree', 'javadoc']) {
     from 'build/reports'
     into pagesDir
 }
@@ -120,7 +120,6 @@ task pushWebsite (type: Exec, dependsOn: 'commitWebsite') {
 task deployReports (type: Delete, dependsOn: 'pushWebsite') {
     group = "Reporting"
     description  'Commit and push website changes to GitHub'
-    delete pagesDir
 }
 
 check.dependsOn copyDocs
