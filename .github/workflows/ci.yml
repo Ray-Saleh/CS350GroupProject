@@ -1,9 +1,8 @@
-
 name: CI - build and test
 
 on:                                
   push:
-    branches: [main]
+    branches: [ main]
 
 jobs:
   build:                           
@@ -29,10 +28,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4.2.5
       with:
         branch: gh-pages                          
-        folder: project/build/reports    
-
-
-
-
-
+        folder: project/build/reports
       
