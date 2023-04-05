@@ -25,21 +25,21 @@ public class Department {
             System.exit(1);
         }
 
-        // fake output
-        String filename = "Fake_Output.csv";
-        File file = new File(filename);
+        File file = new File("Summary_Projection_Report.csv");
         if (file.exists()) {
             file.delete();
-            System.out.println("Deleted existing file " + filename);
+            System.out.println("Deleted existing file Summary_Projection_Report.csv");
         }
+
+        // fake output
         String[] data1 = { "CRN", "Subj", "CRSE", "XLST Cap" };
         String[] data2 = { "1", "CS", "330", "30" };
         String[] data3 = { "2", "CS", "350", "30" };
         String[] data4 = { "3", "CS", "361", "30" };
-        writeDataToCSV(data1, "Fake_Output.csv");
-        writeDataToCSV(data2, "Fake_Output.csv");
-        writeDataToCSV(data3, "Fake_Output.csv");
-        writeDataToCSV(data4, "Fake_Output.csv");
+        writeSummaryProjectionCSV(data1);
+        writeSummaryProjectionCSV(data2);
+        writeSummaryProjectionCSV(data3);
+        writeSummaryProjectionCSV(data4);
         // comment from here to fake output comment to remove the fakeoutput
 
         String directory = args[0];
@@ -92,7 +92,9 @@ public class Department {
         return smoothedValues;
     }
 
-    public static void writeDataToCSV(String[] data, String filename) {
+    public static void writeSummaryProjectionCSV(String[] data) {
+
+        String filename = "Summary_Projection_Report.csv";
         try {
             FileWriter csvWriter = new FileWriter(filename, true);
             for (int i = 0; i < data.length; i++) {
