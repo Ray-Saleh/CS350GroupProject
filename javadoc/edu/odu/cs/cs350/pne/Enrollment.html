@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -156,10 +156,10 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int,int,java.lang.String,java.lang.String,int,int,edu.odu.cs.cs350.pne.Course)">Enrollment</a></span>&#8203;(int&nbsp;inXLSTCap,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int,int,int,int,int,int,edu.odu.cs.cs350.pne.Course)">Enrollment</a></span>&#8203;(int&nbsp;inXLSTCap,
           int&nbsp;inENR,
-          java.lang.String&nbsp;inLINK,
-          java.lang.String&nbsp;inXLSTGroup,
+          int&nbsp;inLINK,
+          int&nbsp;inXLSTGroup,
           int&nbsp;inOVERALLCAP,
           int&nbsp;inXLSTENR,
           <a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;incourse)</code></th>
@@ -184,63 +184,73 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCourse()">getCourse</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getENR()">getENR</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLINK()">getLINK</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOVERALLCAP()">getOVERALLCAP</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLINK()">getLINK</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXLSTCap()">getXLSTCap</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOVERALLCAP()">getOVERALLCAP</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXLSTENR()">getXLSTENR</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXLSTCap()">getXLSTCap</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXLSTGroup()">getXLSTGroup</a></span>()</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXLSTENR()">getXLSTENR</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setENR(int)">setENR</a></span>&#8203;(int&nbsp;inENR)</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXLSTGroup()">getXLSTGroup</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLINK(java.lang.String)">setLINK</a></span>&#8203;(java.lang.String&nbsp;inLINK)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCourse(edu.odu.cs.cs350.pne.Course)">setCourse</a></span>&#8203;(<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;inCourse)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOVERALLCAP(int)">setOVERALLCAP</a></span>&#8203;(int&nbsp;inOVERALLCAP)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setENR(int)">setENR</a></span>&#8203;(int&nbsp;inENR)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setXLSTCap(int)">setXLSTCap</a></span>&#8203;(int&nbsp;inXLSTCap)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLINK(int)">setLINK</a></span>&#8203;(int&nbsp;inLINK)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setXLSTENR(int)">setXLSTENR</a></span>&#8203;(int&nbsp;inXLSTENR)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOVERALLCAP(int)">setOVERALLCAP</a></span>&#8203;(int&nbsp;inOVERALLCAP)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setXLSTGroup(java.lang.String)">setXLSTGroup</a></span>&#8203;(java.lang.String&nbsp;inXLSTGroup)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setXLSTCap(int)">setXLSTCap</a></span>&#8203;(int&nbsp;inXLSTCap)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setXLSTENR(int)">setXLSTENR</a></span>&#8203;(int&nbsp;inXLSTENR)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setXLSTGroup(int)">setXLSTGroup</a></span>&#8203;(int&nbsp;inXLSTGroup)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -276,7 +286,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;Enrollment()</pre>
 </li>
 </ul>
-<a id="&lt;init&gt;(int,int,java.lang.String,java.lang.String,int,int,edu.odu.cs.cs350.pne.Course)">
+<a id="&lt;init&gt;(int,int,int,int,int,int,edu.odu.cs.cs350.pne.Course)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -284,8 +294,8 @@ extends java.lang.Object</pre>
 <h4>Enrollment</h4>
 <pre>public&nbsp;Enrollment&#8203;(int&nbsp;inXLSTCap,
                   int&nbsp;inENR,
-                  java.lang.String&nbsp;inLINK,
-                  java.lang.String&nbsp;inXLSTGroup,
+                  int&nbsp;inLINK,
+                  int&nbsp;inXLSTGroup,
                   int&nbsp;inOVERALLCAP,
                   int&nbsp;inXLSTENR,
                   <a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;incourse)</pre>
@@ -325,7 +335,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getLINK</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getLINK()</pre>
+<pre class="methodSignature">public&nbsp;int&nbsp;getLINK()</pre>
 </li>
 </ul>
 <a id="getXLSTGroup()">
@@ -334,7 +344,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getXLSTGroup</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getXLSTGroup()</pre>
+<pre class="methodSignature">public&nbsp;int&nbsp;getXLSTGroup()</pre>
 </li>
 </ul>
 <a id="getOVERALLCAP()">
@@ -355,6 +365,15 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;int&nbsp;getXLSTENR()</pre>
 </li>
 </ul>
+<a id="getCourse()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCourse</h4>
+<pre class="methodSignature">public&nbsp;<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;getCourse()</pre>
+</li>
+</ul>
 <a id="setXLSTCap(int)">
 <!--   -->
 </a>
@@ -373,22 +392,22 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;setENR&#8203;(int&nbsp;inENR)</pre>
 </li>
 </ul>
-<a id="setLINK(java.lang.String)">
+<a id="setLINK(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setLINK</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setLINK&#8203;(java.lang.String&nbsp;inLINK)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setLINK&#8203;(int&nbsp;inLINK)</pre>
 </li>
 </ul>
-<a id="setXLSTGroup(java.lang.String)">
+<a id="setXLSTGroup(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setXLSTGroup</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setXLSTGroup&#8203;(java.lang.String&nbsp;inXLSTGroup)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setXLSTGroup&#8203;(int&nbsp;inXLSTGroup)</pre>
 </li>
 </ul>
 <a id="setOVERALLCAP(int)">
@@ -403,10 +422,19 @@ extends java.lang.Object</pre>
 <a id="setXLSTENR(int)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setXLSTENR</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setXLSTENR&#8203;(int&nbsp;inXLSTENR)</pre>
+</li>
+</ul>
+<a id="setCourse(edu.odu.cs.cs350.pne.Course)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setCourse</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setCourse&#8203;(<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;inCourse)</pre>
 </li>
 </ul>
 </li>
