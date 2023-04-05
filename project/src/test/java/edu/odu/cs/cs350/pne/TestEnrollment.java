@@ -14,8 +14,8 @@ public void testConstructor(){
     Enrollment enrollment=new Enrollment();
     assertThat(enrollment.getXLSTCap(), equalTo(0));
     assertThat(enrollment.getENR(), equalTo(0));
-    assertThat(enrollment.getLINK(), equalTo(0));
-    assertThat(enrollment.getXLSTGroup(), equalTo(0));
+    assertThat(enrollment.getLINK(), equalTo("0"));
+    assertThat(enrollment.getXLSTGroup(), equalTo("0"));
     assertThat(enrollment.getOVERALLCAP(), equalTo(0));
     assertThat(enrollment.getXLSTENR(), equalTo(0));
     }   
@@ -28,8 +28,8 @@ public void testConstructor(){
 
         assertThat(enrollment.getXLSTCap(), equalTo(10));
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getLINK(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo(0));
+        assertThat(enrollment.getLINK(), equalTo("0"));
+        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
     }
@@ -41,8 +41,8 @@ public void testConstructor(){
 
         assertThat(enrollment.getXLSTCap(), equalTo(0));
         assertThat(enrollment.getENR(), equalTo(10));
-        assertThat(enrollment.getLINK(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo(0));
+        assertThat(enrollment.getLINK(), equalTo("0"));
+        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
     }
@@ -56,7 +56,7 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTCap(), equalTo(0));
         assertThat(enrollment.getENR(), equalTo(0));
         assertThat(enrollment.getLINK(), equalTo("10"));
-        assertThat(enrollment.getXLSTGroup(), equalTo(0));
+        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
     ;
@@ -70,7 +70,7 @@ public void testConstructor(){
 
         assertThat(enrollment.getXLSTCap(), equalTo(0));
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getLINK(), equalTo(0));
+        assertThat(enrollment.getLINK(), equalTo("0"));
         assertThat(enrollment.getXLSTGroup(), equalTo("10"));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
@@ -85,8 +85,8 @@ public void testConstructor(){
 
         assertThat(enrollment.getXLSTCap(), equalTo(0));
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getLINK(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo(0));
+        assertThat(enrollment.getLINK(), equalTo("0"));
+        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
         assertThat(enrollment.getOVERALLCAP(), equalTo(10));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
     }
@@ -99,8 +99,8 @@ public void testConstructor(){
 
         assertThat(enrollment.getXLSTCap(), equalTo(0));
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getLINK(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo(0));
+        assertThat(enrollment.getLINK(), equalTo("0"));
+        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(10));
 
