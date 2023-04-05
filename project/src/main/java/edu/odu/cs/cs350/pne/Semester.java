@@ -1,23 +1,24 @@
 package edu.odu.cs.cs350.pne;
-import java.util.ArrayList;
+
 public class Semester {
-    
-    String Year;
+
+    int Year;
     String Season;
-    ArrayList<Snapshot> snapshotList;
+    Offering offering;
+
     public Semester() {
-        Year = "0000";
+        Year = 0000;
         Season = "";
-        snapshotList = new ArrayList<Snapshot>();
+        offering = new Offering();
     }
 
-    public Semester(String inYear, String inSeason, ArrayList<Snapshot> inSnapShotList) {
+    public Semester(int inYear, String inSeason, Offering inOffering) {
         Year = inYear;
         Season = inSeason;
-        snapshotList = inSnapShotList;
+        offering = inOffering;
     }
 
-    public String getYear() {
+    public int getYear() {
         return Year;
     }
 
@@ -25,8 +26,11 @@ public class Semester {
         return Season;
     }
 
- 
-    public void setYear(String inYear) {
+    public Offering getOffering() {
+        return offering;
+    }
+
+    public void setYear(int inYear) {
         Year = inYear;
     }
 
@@ -34,20 +38,22 @@ public class Semester {
         Season = inSeason;
     }
 
-    public int calcProjection(){
-        int futureEnrollment = 0;
+    public void setOffering(Offering inOffering) {
+        offering = inOffering;
+    }
 
+    public void readCSV() {
+
+    }
+
+    public void outputCSV() {
+
+    }
+
+    public int calcProjection() {
+        int futureEnrollment = 0;
 
         return futureEnrollment;
     }
 
-    public Snapshot getSnapshot(int i)
-    {
-        return snapshotList.get(i);
-    }
-
-    public void addSnapshot(Snapshot inSnapshot)
-    {
-       snapshotList.add(inSnapshot);
-    }
 }

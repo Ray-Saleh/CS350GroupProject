@@ -19,7 +19,13 @@ public class Section {
     }
 
     // setters and getters
+    public int getLINK() {
+        return this.enrollment.getLINK();
+    }
 
+    public void setLINK(int i) {
+        this.enrollment.setLINK(i);
+    }
 
     public int getcrn() {
         return this.crn;
@@ -29,6 +35,13 @@ public class Section {
         this.crn = i;
     }
 
+    public int getCRSE() {
+        return this.course.getCRSE();
+    }
+
+    public void setCRSE(int i) {
+        this.course.setCRSE(i);
+    }
 
     public String getSub() {
         return this.course.getSubject();
