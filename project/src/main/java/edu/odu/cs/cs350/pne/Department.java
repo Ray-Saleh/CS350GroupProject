@@ -25,6 +25,7 @@ public class Department {
             System.exit(1);
         }
 
+        // reads if file is exsisting, if so delete it (TEMP SET UP WILL CHANGE LATER)
         File file = new File("Summary_Projection_Report.csv");
         if (file.exists()) {
             file.delete();
@@ -32,10 +33,11 @@ public class Department {
         }
 
         // fake output
-        String[] data1 = { "CRN", "Subj", "CRSE", "XLST Cap" };
-        String[] data2 = { "1", "CS", "330", "30" };
-        String[] data3 = { "2", "CS", "350", "30" };
-        String[] data4 = { "3", "CS", "361", "30" };
+        String[] data1 = { "CRN", "Subj", "CRSE", "XLST Cap", "ENR", "LINK", "XLST GROUP", "OVERALL CAP",
+                "OVERALL ENR" };
+        String[] data2 = { "1", "CS", "330", "50", "0", "N/A", "N/A", "50", "0" };
+        String[] data3 = { "2", "CS", "350", "30", "0", "N/A", "N/A", "30", "0" };
+        String[] data4 = { "3", "CS", "361", "30", "0", "N/A", "N/A", "30", "0" };
         writeSummaryProjectionCSV(data1);
         writeSummaryProjectionCSV(data2);
         writeSummaryProjectionCSV(data3);
