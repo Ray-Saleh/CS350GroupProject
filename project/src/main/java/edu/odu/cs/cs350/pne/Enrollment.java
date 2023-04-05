@@ -7,34 +7,33 @@ public class Enrollment {
     //Number of students enrolled in this section
     int ENR;
     //Used to associate labs with the lecture. All link codes consist of an upper-case char and a single digit int
-    int LINK;
+    String LINK;
     //Cross list cap: IDs which sections of a course belong to a single offering. (Array of Courses that match)
-    int XLSTGroup;
+    String XLSTGroup;
     //The maximum number of students that can enroll in the offering to which this section belongs.
     int OVERALLCAP;
     //Cross listed enrollment
     int XLSTENR;
-    //Course subject
-    Course course;
+
 
     public Enrollment(){
         XLSTCap=0;
         ENR=0;
-        LINK=0;
-        XLSTGroup=0;
+        LINK="0";
+        XLSTGroup="0";
         OVERALLCAP=0;
         XLSTENR=0;
-        course = new Course();
+       
     }
 
-    public Enrollment(int inXLSTCap, int inENR, int inLINK, int inXLSTGroup, int inOVERALLCAP, int inXLSTENR, Course incourse){
+    public Enrollment(int inXLSTCap, int inENR, String inLINK, String inXLSTGroup, int inOVERALLCAP, int inXLSTENR, Course incourse){
         XLSTCap=inXLSTCap;
         ENR=inENR;
         LINK=inLINK;
         XLSTGroup=inXLSTGroup;
         OVERALLCAP=inOVERALLCAP;
         XLSTENR=inXLSTENR;
-        course = incourse;
+        
     }
     ///Accesors 
     public int getXLSTCap() {
@@ -43,10 +42,10 @@ public class Enrollment {
     public int getENR() {
         return ENR;
     }
-    public int getLINK(){
+    public String getLINK(){
         return LINK;
     }
-    public int getXLSTGroup(){
+    public String getXLSTGroup(){
         return XLSTGroup;
     }
     public int getOVERALLCAP(){
@@ -55,9 +54,7 @@ public class Enrollment {
     public int getXLSTENR() {
         return XLSTENR;
     }
-    public Course getCourse(){
-        return course;
-    }
+
     ///Mutators
     public void setXLSTCap(int inXLSTCap) {
         XLSTCap = inXLSTCap;
@@ -65,10 +62,10 @@ public class Enrollment {
     public void setENR(int inENR) {
         ENR = inENR;
     }
-    public void setLINK(int inLINK){
+    public void setLINK(String inLINK){
        LINK = inLINK;
     }
-    public void setXLSTGroup(int inXLSTGroup){
+    public void setXLSTGroup(String inXLSTGroup){
        XLSTGroup = inXLSTGroup;
     }
     public void setOVERALLCAP(int inOVERALLCAP){
@@ -77,8 +74,6 @@ public class Enrollment {
     public void setXLSTENR(int inXLSTENR) {
        XLSTENR = inXLSTENR;
     }
-    public void setCourse(Course inCourse){
-        course = inCourse;
-    }
+   
 
 }

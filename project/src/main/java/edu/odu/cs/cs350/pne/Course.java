@@ -1,34 +1,57 @@
 package edu.odu.cs.cs350.pne;
+import java.util.ArrayList;
 
 public class Course {
     private String subject;
     // CRSE = Course Number
-    private int CRSE;
+    private String CRSE;
 
+    ArrayList<Offering> offerringList;
     public Course() {
         this.subject = "";
-        this.CRSE = 000;
-    }
+        this.CRSE =" 000";
+        this.offerringList = new ArrayList<Offering>();
+      }
 
-    public Course(String sub, int num) {
+    public Course(String sub, String inCRSE, ArrayList<Offering> inOfferringList) {
+        this.offerringList = inOfferringList;
         this.subject = sub;
-        this.CRSE = num;
+        this.CRSE = inCRSE;
     }
 
     public String getSubject() {
         return this.subject;
     }
 
-    public int getCRSE() {
+    public String getCRSE() {
         return this.CRSE;
     }
 
     public void setSubject(String subj) {
-        this.subject = subj;
+        subject = subj;
     }
 
-    public void setCRSE(int courseNum) {
-        this.CRSE = courseNum;
+    public void setCRSE(String inCRSE) {
+        CRSE = inCRSE;
     }
+
+    public void addOffering(Offering addOffering){
+        offerringList.add(addOffering);
+    }
+    public Offering getOffering(int inCRN){
+        for(int i= 0; i<offerringList.size(); i ++)
+        {
+           if( offerringList.get(i).getCRN() == inCRN)
+           {
+            return offerringList.get(i);
+           }
+        }   
+        return null;    
+    }
+    
+    public ArrayList<Offering> getOfferingList(){
+        return offerringList;
+    }
+
 
 }

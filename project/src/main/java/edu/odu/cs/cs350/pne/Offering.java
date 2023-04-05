@@ -9,23 +9,25 @@ public class Offering {
     //overallcap and overall enrollment will be apart of enrollment
     //course will be an object of course
 
-
+    private int crn;
     private String professor;
     private int numSections;
     private Enrollment enrollment;
-    private Course course;
+   
 
     public Offering(){
+        crn = 0;
         this.professor = "";
         this.numSections = 0;
         this.enrollment = new Enrollment();
-        this.course = new Course();
+      
     }
-    public Offering(String p, int n, Enrollment e, Course c){
+    public Offering(int inCRN,String p, int n, Enrollment e){
+        this.crn = inCRN;
         this.professor = p;
         this.numSections = n;
         this.enrollment = e;
-        this.course = c;
+       
     }
 
 	public String getProfessor() {
@@ -36,39 +38,30 @@ public class Offering {
         return this.numSections;
     }
 
-    public int getEnrollmentCap() {
-        return this.enrollment.getOVERALLCAP();
-    }
 
-    public int getEnrolledNum() {
-        return this.enrollment.getENR();
-    }
-
-	public String getCourseSubject() {
-		return this.course.getSubject();
-	}
-
-    public int getCourseNumber() {
-        return this.course.getCRSE();
-    }
 	public void setProfessor(String string) {
         this.professor = string;
 	}
 	public void setNumSections(int i) {
         this.numSections = i;
 	}
-	public void setEnrollmentCap(int i) {
-        this.enrollment.setOVERALLCAP(i);
-	}
-	public void setEnrollmentNum(int i) {
-        this.enrollment.setENR(i);
-	}
-	public void setCourseSubject(String string) {
-        this.course.setSubject(string);
-	}
-	public void setCourseNumber(int i) {
-        this.course.setCRSE(i);
-	}
+
+    public void setCRN(int inCRN){
+        crn = inCRN;
+    }
+
+    public int getCRN(){
+        return crn; 
+    }
+
+    public void setEnrollment(Enrollment inEnrollment)
+    {
+        enrollment = inEnrollment;
+    }
+
+    public Enrollment getEnrollment(){
+        return enrollment;
+    }
 
 
 

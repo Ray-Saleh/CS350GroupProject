@@ -1,37 +1,51 @@
 package edu.odu.cs.cs350.pne;
+import java.util.ArrayList;
 public class Snapshot {
 
-  private int year;
-  private int semester;
 
-
-
+  ArrayList<Course> courseList;
+  String fileName;
   public Snapshot(){
-    this.year = 0;
-    this.semester = 0;
+  
+    fileName = "emptySnapshot";
+    courseList =new ArrayList<Course>();
   }
 
-  public Snapshot(int y, int s){
-    this.year = y;
-    this.semester = s;
+  public Snapshot(String inFileName,  ArrayList<Course> inCourseList){
+   this. fileName = inFileName;
+    this.courseList = inCourseList;
   }
 
-public int getSemester() {
-    return this.semester;
+
+public void setFileName(String inName)
+{
+  fileName = inName;
 }
 
-public int getYear() {
-    return this.year;
+public String getFileName(){
+  return fileName;
 }
+
+public void addCourse(Course addCourse){
+  courseList.add(addCourse);
+}
+public Course getCourse(String inCRSE){
+  for(int i= 0; i<courseList.size(); i ++)
+  {
+     if( courseList.get(i).getCRSE() == inCRSE)
+     {
+      return courseList.get(i);
+     }
+  }   
+  return null;    
+}
+
+public ArrayList<Course> getCourseList(){
+  return courseList;
+}
+
 //setters
-public void setSemester(int s)
-{
-  this.semester = s;
-}
-public void setYear(int y)
-{
-  this.year = y;
-}
+
     
 }
 /*

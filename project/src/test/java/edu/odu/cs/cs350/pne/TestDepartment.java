@@ -28,7 +28,7 @@ public class TestDepartment {
     }
 
     @Test
-    public void testSmoothCurving(){
+    public static void testSmoothCurving(){
         Department d = new Department();
         int[] input1 = {1, 2, 3, 4, 5};
         int[] expectedOutput1 = {1, 2, 3, 4, 4};

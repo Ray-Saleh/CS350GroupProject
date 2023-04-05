@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
 
-import com.opencsv.CSVWriter;
+//import com.opencsv.CSVWriter;
 
 //import com.opencsv.CSVReader;
 import java.io.FileReader;
@@ -20,32 +20,38 @@ public class Department {
             System.err.println("Usage: java CsvReader <directory>");
             System.exit(1);
         }
+        ArrayList<Semester> semesterList = new ArrayList<Semester>();
 
-        // fake output
-        String filename = "Fake_Output.csv";
-        File file = new File(filename);
-        if (file.exists()) {
-            file.delete();
-            System.out.println("Deleted existing file " + filename);
+        //creates semesters and assigns information for each semester directory given
+        
+        
+        for(int i=0;i<args.length; i++)
+        {
+         Semester tempSemester = new Semester();
+         tempSemester.setSeason(args[i].substring(args[i].length()-2,args[i].length())); 
+         tempSemester.setYear(args[i].substring(args[i].length()-6,args[i].length()-2));
+         semesterList.add(tempSemester);    
+         readCsvFiles(args[i], semesterList,i);
+        
         }
-        String[] data1 = { "CRN", "Subj", "CRSE", "XLST Cap" };
-        String[] data2 = { "1", "CS", "330", "30" };
-        String[] data3 = { "2", "CS", "350", "30" };
-        String[] data4 = { "3", "CS", "361", "30" };
-        writeDataToCSV(data1, "Fake_Output.csv");
-        writeDataToCSV(data2, "Fake_Output.csv");
-        writeDataToCSV(data3, "Fake_Output.csv");
-        writeDataToCSV(data4, "Fake_Output.csv");
+         
+        
+
+            
+      
+        simpleProjectionReport(semesterList.get(0));
+
         // comment from here to fake output comment to remove the fakeoutput
 
-        String directory = args[0];
+       
 
-        readCsvFiles(directory);
+        
     }
 
-    public static void readCsvFiles(String directory) {
+    public static void readCsvFiles(String directory , ArrayList<Semester> semesterList , int i) {
         File dir = new File(directory);
 
+        //directory check
         if (!dir.isDirectory()) {
             System.err.println("Error: " + directory + " is not a directory.");
             System.exit(1);
@@ -55,16 +61,21 @@ public class Department {
 
         for (File file : files) {
             try {
+               Snapshot tempSnapshot = new Snapshot();
                 Scanner scanner = new Scanner(file);
-                scanner.useDelimiter(",");
-
+                
+                scanner.nextLine();
+                tempSnapshot.setFileName(file.getName());
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
-                    String[] fields = line.split(",");
-                    // Do something with the fields
+                    line = line.trim();
+                   
+                    String[] fields = line.split("\",\"");
+                    tempSnapshot = readCSVLine(fields, tempSnapshot);
+                   // System.out.println(fields[2] + "@");
                 }
-                // line under this line prints all files within said directory
-                // System.out.println(file.getName());
+
+                semesterList.get(i).addSnapshot(tempSnapshot);
                 scanner.close();
             } catch (FileNotFoundException e) {
                 System.err.println("Error: File not found - " + file.getName());
@@ -73,6 +84,38 @@ public class Department {
         }
     }
 
+    //Reads a given line from a CSV file sends it to the apporitate location
+    public static Snapshot readCSVLine(String[] fields, Snapshot tempSnapshot){
+      Course tempCourse = new Course();
+      Offering tempOffering = new Offering();
+      Enrollment tempEnrollment = new Enrollment();
+      
+   
+      tempCourse.setCRSE(fields[3]);
+      tempCourse.setSubject(fields[2]);
+
+      tempOffering.setProfessor(fields[21]);
+      tempOffering.setCRN(Integer.parseInt(fields[1]));
+
+      tempEnrollment.setXLSTCap(Integer.parseInt(fields[6]));
+      tempEnrollment.setENR(Integer.parseInt(fields[7]));
+      tempEnrollment.setLINK(fields[8]);
+      tempEnrollment.setXLSTGroup(fields[9]);
+      tempEnrollment.setOVERALLCAP(Integer.parseInt(fields[23]));
+      tempEnrollment.setXLSTENR(Integer.parseInt(fields[24]));
+
+      tempOffering.setEnrollment(tempEnrollment);
+
+      if(tempSnapshot.getCourse(fields[3])!= null){
+         tempSnapshot.getCourse(fields[3]).addOffering(tempOffering);
+      }
+      else{
+         tempCourse.addOffering(tempOffering);
+         tempSnapshot.addCourse(tempCourse);
+      }
+
+      return tempSnapshot;
+    }
     public static int[] smoothCurve(int[] values, int windowSize) {
         int[] smoothedValues = new int[values.length];
 
@@ -88,6 +131,26 @@ public class Department {
 
         return smoothedValues;
     }
+
+    public static void simpleProjectionReport(Semester inSemester){
+      // fake output
+      
+
+      String filename = "Fake_Output.csv";
+      File file = new File(filename);
+      if (file.exists()) {
+          file.delete();
+          System.out.println("Deleted existing file " + filename);
+      }
+      String[] data1 = { "CRN", "Subj", "CRSE", "XLST Cap" };
+      String[] data2 = { "1", "CS", "330", "30" };
+      String[] data3 = { "2", "CS", "350", "30" };
+      String[] data4 = { "3", "CS", "361", "30" };
+      writeDataToCSV(data1, "Fake_Output.csv");
+      writeDataToCSV(data2, "Fake_Output.csv");
+      writeDataToCSV(data3, "Fake_Output.csv");
+      writeDataToCSV(data4, "Fake_Output.csv");
+}
 
     public static void writeDataToCSV(String[] data, String filename) {
         try {
@@ -118,10 +181,10 @@ public class Department {
             // File Writer object
             FileWriter outputFile = new FileWriter(file);
 
-            CSVWriter writer = new CSVWriter(outputFile);
-            String[] header = { "d historical", "", "d current", "d projected", "Projected" };
-            writer.writeNext(header);
-            writer.close();
+          //  6CSVWriter writer = new CSVWriter(outputFile);
+          //  String[] header = { "d historical", "", "d current", "d projected", "Projected" };
+           // writer.writeNext(header);
+           // writer.close();
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
