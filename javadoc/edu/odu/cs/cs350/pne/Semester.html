@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -156,9 +156,9 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int,java.lang.String,edu.odu.cs.cs350.pne.Offering)">Semester</a></span>&#8203;(int&nbsp;inYear,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.util.ArrayList)">Semester</a></span>&#8203;(java.lang.String&nbsp;inYear,
         java.lang.String&nbsp;inSeason,
-        <a href="Offering.html" title="class in edu.odu.cs.cs350.pne">Offering</a>&nbsp;inOffering)</code></th>
+        java.util.ArrayList&lt;<a href="Snapshot.html" title="class in edu.odu.cs.cs350.pne">Snapshot</a>&gt;&nbsp;inSnapShotList)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -180,13 +180,13 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calcProjection()">calcProjection</a></span>()</code></th>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSnapshot(edu.odu.cs.cs350.pne.Snapshot)">addSnapshot</a></span>&#8203;(<a href="Snapshot.html" title="class in edu.odu.cs.cs350.pne">Snapshot</a>&nbsp;inSnapshot)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="Offering.html" title="class in edu.odu.cs.cs350.pne">Offering</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOffering()">getOffering</a></span>()</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calcProjection()">calcProjection</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
@@ -195,33 +195,23 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getYear()">getYear</a></span>()</code></th>
+<td class="colFirst"><code><a href="Snapshot.html" title="class in edu.odu.cs.cs350.pne">Snapshot</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSnapshot(int)">getSnapshot</a></span>&#8203;(int&nbsp;i)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#outputCSV()">outputCSV</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getYear()">getYear</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readCSV()">readCSV</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSeason(java.lang.String)">setSeason</a></span>&#8203;(java.lang.String&nbsp;inSeason)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOffering(edu.odu.cs.cs350.pne.Offering)">setOffering</a></span>&#8203;(<a href="Offering.html" title="class in edu.odu.cs.cs350.pne">Offering</a>&nbsp;inOffering)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSeason(java.lang.String)">setSeason</a></span>&#8203;(java.lang.String&nbsp;inSeason)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setYear(int)">setYear</a></span>&#8203;(int&nbsp;inYear)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setYear(java.lang.String)">setYear</a></span>&#8203;(java.lang.String&nbsp;inYear)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -257,15 +247,15 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;Semester()</pre>
 </li>
 </ul>
-<a id="&lt;init&gt;(int,java.lang.String,edu.odu.cs.cs350.pne.Offering)">
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.util.ArrayList)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Semester</h4>
-<pre>public&nbsp;Semester&#8203;(int&nbsp;inYear,
+<pre>public&nbsp;Semester&#8203;(java.lang.String&nbsp;inYear,
                 java.lang.String&nbsp;inSeason,
-                <a href="Offering.html" title="class in edu.odu.cs.cs350.pne">Offering</a>&nbsp;inOffering)</pre>
+                java.util.ArrayList&lt;<a href="Snapshot.html" title="class in edu.odu.cs.cs350.pne">Snapshot</a>&gt;&nbsp;inSnapShotList)</pre>
 </li>
 </ul>
 </li>
@@ -284,7 +274,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getYear</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getYear()</pre>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getYear()</pre>
 </li>
 </ul>
 <a id="getSeason()">
@@ -296,22 +286,13 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getSeason()</pre>
 </li>
 </ul>
-<a id="getOffering()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getOffering</h4>
-<pre class="methodSignature">public&nbsp;<a href="Offering.html" title="class in edu.odu.cs.cs350.pne">Offering</a>&nbsp;getOffering()</pre>
-</li>
-</ul>
-<a id="setYear(int)">
+<a id="setYear(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setYear</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setYear&#8203;(int&nbsp;inYear)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setYear&#8203;(java.lang.String&nbsp;inYear)</pre>
 </li>
 </ul>
 <a id="setSeason(java.lang.String)">
@@ -323,40 +304,31 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;setSeason&#8203;(java.lang.String&nbsp;inSeason)</pre>
 </li>
 </ul>
-<a id="setOffering(edu.odu.cs.cs350.pne.Offering)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setOffering</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setOffering&#8203;(<a href="Offering.html" title="class in edu.odu.cs.cs350.pne">Offering</a>&nbsp;inOffering)</pre>
-</li>
-</ul>
-<a id="readCSV()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>readCSV</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;readCSV()</pre>
-</li>
-</ul>
-<a id="outputCSV()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>outputCSV</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;outputCSV()</pre>
-</li>
-</ul>
 <a id="calcProjection()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>calcProjection</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;calcProjection()</pre>
+</li>
+</ul>
+<a id="getSnapshot(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSnapshot</h4>
+<pre class="methodSignature">public&nbsp;<a href="Snapshot.html" title="class in edu.odu.cs.cs350.pne">Snapshot</a>&nbsp;getSnapshot&#8203;(int&nbsp;i)</pre>
+</li>
+</ul>
+<a id="addSnapshot(edu.odu.cs.cs350.pne.Snapshot)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>calcProjection</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;calcProjection()</pre>
+<h4>addSnapshot</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;addSnapshot&#8203;(<a href="Snapshot.html" title="class in edu.odu.cs.cs350.pne">Snapshot</a>&nbsp;inSnapshot)</pre>
 </li>
 </ul>
 </li>
