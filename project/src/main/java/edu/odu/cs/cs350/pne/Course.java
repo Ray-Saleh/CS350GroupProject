@@ -5,7 +5,7 @@ public class Course {
     private String subject;
     // CRSE = Course Number
     private String CRSE;
-
+    
     ArrayList<Offering> offerringList;
     public Course() {
         this.subject = "";
@@ -53,5 +53,13 @@ public class Course {
         return offerringList;
     }
 
+    public int getTotalEnrolled(){
+        int total=0;
+        for(int i =0 ;i< offerringList.size(); i++)
+        {
+          total = total+  offerringList.get(i).getEnrollment().ENR;
+        }
+        return total;
+    }
 
 }
