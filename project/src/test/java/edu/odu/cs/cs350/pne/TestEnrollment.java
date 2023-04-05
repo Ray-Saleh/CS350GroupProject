@@ -18,10 +18,8 @@ public void testConstructor(){
     assertThat(enrollment.getXLSTGroup(), equalTo(0));
     assertThat(enrollment.getOVERALLCAP(), equalTo(0));
     assertThat(enrollment.getXLSTENR(), equalTo(0));
-    assertThat(enrollment.getCourse().getSubject(), equalTo(""));
-    assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
+    }   
 
-}
     @Test 
     public void testsetXLSTCap(){
         Enrollment enrollment=new Enrollment();
@@ -34,8 +32,6 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
     @Test 
     public void testsetENR(){
@@ -49,42 +45,37 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
     
     @Test 
     public void testsetLINK(){
         Enrollment enrollment=new Enrollment();
 
-        enrollment.setLINK(10);
+        enrollment.setLINK("10");
 
         assertThat(enrollment.getXLSTCap(), equalTo(0));
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getLINK(), equalTo(10));
+        assertThat(enrollment.getLINK(), equalTo("10"));
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
+    ;
     }
     
     @Test 
     public void testsetXLSTGroup(){
         Enrollment enrollment=new Enrollment();
 
-        enrollment.setXLSTGroup(10);
+        enrollment.setXLSTGroup("10");
 
         assertThat(enrollment.getXLSTCap(), equalTo(0));
         assertThat(enrollment.getENR(), equalTo(0));
         assertThat(enrollment.getLINK(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo(10));
+        assertThat(enrollment.getXLSTGroup(), equalTo("10"));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
+   
     }
-        
     
     @Test 
     public void testsetOVERALLCAP(){
@@ -98,9 +89,8 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(10));
         assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
     }
+    
     @Test 
     public void testsetXLSTENR(){
         Enrollment enrollment=new Enrollment();  
@@ -113,24 +103,9 @@ public void testConstructor(){
         assertThat(enrollment.getXLSTGroup(), equalTo(0));
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
         assertThat(enrollment.getXLSTENR(), equalTo(10));
-        assertThat(enrollment.getCourse().getSubject(), equalTo(""));
-        assertThat(enrollment.getCourse().getCRSE(), equalTo(00000));
+
     }
-    @Test 
-    public void testsetCourse(){
-        Enrollment enrollment=new Enrollment();
-        
-        Course course= new Course("TEST",12345);
 
-        enrollment.setCourse(course);
-
-        assertThat(enrollment.getXLSTCap(), equalTo(0));
-        assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getLINK(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo(0));
-        assertThat(enrollment.getOVERALLCAP(), equalTo(0));
-        assertThat(enrollment.getXLSTENR(), equalTo(0));
-        assertThat(enrollment.getCourse(),equalTo(course));
-      }
     
+
 }
