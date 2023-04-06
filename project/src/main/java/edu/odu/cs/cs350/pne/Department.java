@@ -144,7 +144,7 @@ public class Department {
             enrollmentOverAllSnapshots[x]=tempCourseList.get(i).getTotalEnrolled();
         }
        
-        int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots, i);
+        int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots, i); //TODO FIX THIS 
         int projected=smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize()-1];
      
 
