@@ -50,4 +50,14 @@ public class Semester {
     {
        snapshotList.add(inSnapshot);
     }
+    public void setSnapshotList(ArrayList<Snapshot> inSnapshotList)
+    {
+        snapshotList = inSnapshotList;
+    }
+    public ArrayList<Snapshot> getSnapshotList(){
+        return snapshotList;
+    }
+    public int getSnapshotListSize(){
+        return snapshotList.size();
+    }
 }

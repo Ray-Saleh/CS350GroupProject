@@ -11,6 +11,7 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Year;
 import java.util.ArrayList;
 
 public class Department {
@@ -32,21 +33,11 @@ public class Department {
          tempSemester.setYear(args[i].substring(args[i].length()-6,args[i].length()-2));
          semesterList.add(tempSemester);    
          readCsvFiles(args[i], semesterList,i);
-        
-        }
-         
-        
+         simpleProjectionReport(tempSemester);
 
-            
-      
-        simpleProjectionReport(semesterList.get(0));
-
-        // comment from here to fake output comment to remove the fakeoutput
-
-       
-
-        
+        }      
     }
+
 
     public static void readCsvFiles(String directory , ArrayList<Semester> semesterList , int i) {
         File dir = new File(directory);
@@ -116,6 +107,7 @@ public class Department {
 
       return tempSnapshot;
     }
+
     public static int[] smoothCurve(int[] values, int windowSize) {
         int[] smoothedValues = new int[values.length];
 
@@ -132,24 +124,39 @@ public class Department {
         return smoothedValues;
     }
 
-    public static void simpleProjectionReport(Semester inSemester){
-      // fake output
-      
-
-      String filename = "Fake_Output.csv";
+    public static void simpleProjectionReport(Semester outSemester){
+      String filename = "SimpleOutput"+outSemester.getYear()+outSemester.getSeason()+".csv";
       File file = new File(filename);
       if (file.exists()) {
           file.delete();
           System.out.println("Deleted existing file " + filename);
       }
-      String[] data1 = { "CRN", "Subj", "CRSE", "XLST Cap" };
-      String[] data2 = { "1", "CS", "330", "30" };
-      String[] data3 = { "2", "CS", "350", "30" };
-      String[] data4 = { "3", "CS", "361", "30" };
-      writeDataToCSV(data1, "Fake_Output.csv");
-      writeDataToCSV(data2, "Fake_Output.csv");
-      writeDataToCSV(data3, "Fake_Output.csv");
-      writeDataToCSV(data4, "Fake_Output.csv");
+     
+      String[] data = { "Course", "Enrollment", "Projected", "Cap" };      
+      writeDataToCSV(data,filename);
+    
+      ArrayList<Course>  tempCourseList =outSemester.getSnapshot(outSemester.getSnapshotListSize()-1).getCourseList();
+
+      for(int i=0;i<tempCourseList.size(); i++){
+        
+        int[] enrollmentOverAllSnapshots = new int[outSemester.getSnapshotListSize()];
+        for(int x=0; x< outSemester.getSnapshotListSize(); x++){
+            enrollmentOverAllSnapshots[x]=tempCourseList.get(i).getTotalEnrolled();
+        }
+       
+        int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots, i);
+        int projected=smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize()-1];
+     
+
+        data  = new String[] {tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
+            String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
+            String.valueOf(projected),
+            String.valueOf(tempCourseList.get(i).getOverallCap())
+        };
+        
+        writeDataToCSV(data,filename);    
+      }
+      System.out.println("Data has been written to " + filename + " successfully!");
 }
 
     public static void writeDataToCSV(String[] data, String filename) {
@@ -164,7 +171,6 @@ public class Department {
             csvWriter.append("\n"); // add a new line character to separate rows
             csvWriter.flush();
             csvWriter.close();
-            System.out.println("Data has been written to " + filename + " successfully!");
         } catch (IOException e) {
             e.printStackTrace();
         }

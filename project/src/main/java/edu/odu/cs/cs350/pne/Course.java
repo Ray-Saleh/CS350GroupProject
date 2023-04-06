@@ -8,7 +8,7 @@ public class Course {
     
     ArrayList<Offering> offerringList;
     public Course() {
-        this.subject = "";
+        this.subject = "null";
         this.CRSE =" 000";
         this.offerringList = new ArrayList<Offering>();
       }
@@ -55,9 +55,18 @@ public class Course {
 
     public int getTotalEnrolled(){
         int total=0;
-        for(int i =0 ;i< offerringList.size(); i++)
+        for(int i =0 ; i<offerringList.size(); i++)
         {
-          total = total+  offerringList.get(i).getEnrollment().ENR;
+          total = total+  offerringList.get(i).getEnrollment().getENR();
+        }
+        return total;
+    }
+    public int getOverallCap()
+    {
+        int total=0;
+        for(int i =0 ; i<offerringList.size(); i++)
+        {
+          total = total+  offerringList.get(i).getEnrollment().getOVERALLCAP();
         }
         return total;
     }
