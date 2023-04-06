@@ -53,7 +53,7 @@ public class Course {
         return offerringList;
     }
 
-    public int getTotalEnrolled(){
+    public int getTotalEnrolled(){ //TODO Fix this to not consider connected classes
         int total=0;
         for(int i =0 ; i<offerringList.size(); i++)
         {
@@ -61,7 +61,7 @@ public class Course {
         }
         return total;
     }
-    public int getOverallCap()
+    public int getOverallCap()   //TODO Fix this to not consider connected classes or for finding the right cap
     {
         int total=0;
         for(int i =0 ; i<offerringList.size(); i++)
