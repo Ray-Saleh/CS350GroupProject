@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Year;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class Department {
 
@@ -35,7 +36,7 @@ public class Department {
          readCsvFiles(args[i], tempSemester);
 
          //Outputs
-         simpleProjectionReport(tempSemester);
+         ProjectionReports(tempSemester);
          semesterList.add(tempSemester);       
         }      
     }
@@ -108,7 +109,7 @@ public class Department {
       if(tempSnapshot.getCourse(fields[3])!= null){
          tempSnapshot.getCourse(fields[3]).addOffering(tempOffering);
       }
-     //If course doesn't already exist , create new course in the array of courses, and add tempOffering to that course      
+     //If course doesn't already exist int the course array, create new course in the array of courses, and add tempOffering to that course      
       else{
          tempCourse.addOffering(tempOffering);
          tempSnapshot.addCourse(tempCourse);
@@ -117,6 +118,7 @@ public class Department {
       return tempSnapshot;
     }
 
+    // TODO fix smooth curves 
     public static int[] smoothCurve(int[] values, int windowSize) {
         int[] smoothedValues = new int[values.length];
 
@@ -133,58 +135,103 @@ public class Department {
         return smoothedValues;
     }
 
-    public static void simpleProjectionReport(Semester outSemester){
-      String filename = "SimpleOutput"+outSemester.getYear()+outSemester.getSeason()+".csv";
+    
+    
+    public static void ProjectionReports(Semester outSemester){
+
+      //Detailed :: Steps up file path for Detailed Project Report CVS Sheet
+      String filename = "DetailedProjectReport@"+LocalDateTime.now()+".csv";
       File file = new File(filename);
       if (file.exists()) {
           file.delete();
           System.out.println("Deleted existing file " + filename);
       }
      
+      //Simple :: Sets up First Line of Consle output
       String[] data = { "Course", "Enrollment", "Projected", "Cap" };      
-      writeDataToCSV(data,filename);
+      writeDataToConsle(data,filename);
     
       ArrayList<Course>  tempCourseList =outSemester.getSnapshot(outSemester.getSnapshotListSize()-1).getCourseList();
 
+      // TODO Detailed:: Sets up First Line of CSV Sheet output
+      
+
+      //Loops Through All the Courses avaiable in the given Semester
       for(int i=0;i<tempCourseList.size(); i++){
         
+        //Gathers All the needed data for a specific course across all the snapshots in outSemester
         int[] enrollmentOverAllSnapshots = new int[outSemester.getSnapshotListSize()];
         for(int x=0; x< outSemester.getSnapshotListSize(); x++){
+            //Gathers all total enrollment 
             enrollmentOverAllSnapshots[x]=tempCourseList.get(i).getTotalEnrolled();
+            //Gathers etc.
+
         }
        
+        //Uses collected data to find and calculated needed data
         int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots, i); //TODO FIX THIS 
         int projected=smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize()-1];
      
+        // Outputs data line by line
 
+        ///Simple :: formats the need data in an array of Strings and sends it to writeDataToConsle
         data  = new String[] {tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
             String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
             String.valueOf(projected),
             String.valueOf(tempCourseList.get(i).getOverallCap())
-        };
-        
-        writeDataToCSV(data,filename);    
+        };    
+        writeDataToConsle(data,filename);    
+
+        //TODO Detailed :: Formated data for line of a CSV sheets
+
       }
       System.out.println("Data has been written to " + filename + " successfully!");
 }
-
-    public static void writeDataToCSV(String[] data, String filename) {
-        try {
-            FileWriter csvWriter = new FileWriter(filename, true);
-            for (int i = 0; i < data.length; i++) {
-                csvWriter.append(data[i]);
-                if (i != data.length - 1) {
-                    csvWriter.append(","); // use a comma as the delimiter between columns
-                }
+    
+//Prints Data to CSV sheet line by line
+public static void writeDataToCSV(String[] data, String filename) {
+    try {
+        FileWriter csvWriter = new FileWriter(filename, true);
+        for (int i = 0; i < data.length; i++) {
+            csvWriter.append(data[i]);
+            if (i != data.length - 1) {
+                csvWriter.append(","); // use a comma as the delimiter between columns
             }
-            csvWriter.append("\n"); // add a new line character to separate rows
-            csvWriter.flush();
-            csvWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        csvWriter.append("\n"); // add a new line character to separate rows
+        csvWriter.flush();
+        csvWriter.close();
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
 
+//Prints Data to Consle Line by line
+public static void writeDataToConsle(String[] data, String filename) {
+    try {
+        FileWriter csvWriter = new FileWriter(filename, true);
+        for (int i = 0; i < data.length; i++) {
+            csvWriter.append(data[i]);
+            if (i != data.length - 1) {
+                csvWriter.append(","); // use a comma as the delimiter between columns
+            }
+        }
+        csvWriter.append("\n"); // add a new line character to separate rows
+        csvWriter.flush();
+        csvWriter.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+//TODO Merges an array of semesters
+public Semester mergeSemesters(ArrayList<Semester> inSemesterList){
+    Semester outSemester = new Semester();
+
+    return outSemester;
+}
+
+/* 
     // Detailed Projection Report outputed to a CSV file
     // Used the following as I had no idea how to write a CSV file
     // https://www.geeksforgeeks.org/writing-a-csv-file-in-java-using-opencsv/
@@ -202,11 +249,11 @@ public class Department {
            // writer.close();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            //  Auto-generated catch block
             e.printStackTrace();
         }
     }
-
+*/
 }
 /*
  * // private String subject;
