@@ -21,28 +21,30 @@ public class Department {
             System.err.println("Usage: java CsvReader <directory>");
             System.exit(1);
         }
-        ArrayList<Semester> semesterList = new ArrayList<Semester>();
 
-        //creates semesters and assigns information for each semester directory given
-        
-        
+        //creates semesters and assigns information for each semester directory given in args[]
+        ArrayList<Semester> semesterList = new ArrayList<Semester>();
         for(int i=0;i<args.length; i++)
         {
+         //Initializing semester for semester Directory at args[i]
          Semester tempSemester = new Semester();
          tempSemester.setSeason(args[i].substring(args[i].length()-2,args[i].length())); 
          tempSemester.setYear(args[i].substring(args[i].length()-6,args[i].length()-2));
-         semesterList.add(tempSemester);    
-         readCsvFiles(args[i], semesterList,i);
-         simpleProjectionReport(tempSemester);
+         
+         //Reads Data In
+         readCsvFiles(args[i], tempSemester);
 
+         //Outputs
+         simpleProjectionReport(tempSemester);
+         semesterList.add(tempSemester);       
         }      
     }
 
 
-    public static void readCsvFiles(String directory , ArrayList<Semester> semesterList , int i) {
+    public static void readCsvFiles(String directory , Semester tempSemester) {
+       
+        //Directory check : ensures directory exist
         File dir = new File(directory);
-
-        //directory check
         if (!dir.isDirectory()) {
             System.err.println("Error: " + directory + " is not a directory.");
             System.exit(1);
@@ -62,11 +64,12 @@ public class Department {
                     line = line.trim();
                    
                     String[] fields = line.split("\",\"");
+                    //Read each line of data and stored needed data
                     tempSnapshot = readCSVLine(fields, tempSnapshot);
-                   // System.out.println(fields[2] + "@");
+                   
                 }
 
-                semesterList.get(i).addSnapshot(tempSnapshot);
+                tempSemester.addSnapshot(tempSnapshot);
                 scanner.close();
             } catch (FileNotFoundException e) {
                 System.err.println("Error: File not found - " + file.getName());
@@ -75,19 +78,22 @@ public class Department {
         }
     }
 
+    //Reads each line of data and stored needed data
     //Reads a given line from a CSV file sends it to the apporitate location
     public static Snapshot readCSVLine(String[] fields, Snapshot tempSnapshot){
       Course tempCourse = new Course();
       Offering tempOffering = new Offering();
       Enrollment tempEnrollment = new Enrollment();
       
-   
+      //Adds course data to temp course 
       tempCourse.setCRSE(fields[3]);
       tempCourse.setSubject(fields[2]);
 
+      //Adds Offering data to tempOffering
       tempOffering.setProfessor(fields[21]);
       tempOffering.setCRN(Integer.parseInt(fields[1]));
-
+      
+      //Adds enrollment data to tempEnrollment
       tempEnrollment.setXLSTCap(Integer.parseInt(fields[6]));
       tempEnrollment.setENR(Integer.parseInt(fields[7]));
       tempEnrollment.setLINK(fields[8]);
@@ -95,11 +101,14 @@ public class Department {
       tempEnrollment.setOVERALLCAP(Integer.parseInt(fields[23]));
       tempEnrollment.setXLSTENR(Integer.parseInt(fields[24]));
 
+      //Adds tempEnrollment to tempOffering 
       tempOffering.setEnrollment(tempEnrollment);
 
+      //If course already exist in the array of courses just add the offering to the exisiting course's array of offerings
       if(tempSnapshot.getCourse(fields[3])!= null){
          tempSnapshot.getCourse(fields[3]).addOffering(tempOffering);
       }
+     //If course doesn't already exist , create new course in the array of courses, and add tempOffering to that course      
       else{
          tempCourse.addOffering(tempOffering);
          tempSnapshot.addCourse(tempCourse);
