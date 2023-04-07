@@ -143,8 +143,7 @@ public class Department {
       String filename = "DetailedProjectReport@"+LocalDateTime.now()+".csv";
       File file = new File(filename);
       if (file.exists()) {
-          file.delete();
-          System.out.println("Deleted existing file " + filename);
+          System.out.println(filename + "Already Exist");
       }
      
       //Simple :: Sets up First Line of Consle output
@@ -208,20 +207,12 @@ public static void writeDataToCSV(String[] data, String filename) {
 
 //Prints Data to Consle Line by line
 public static void writeDataToConsle(String[] data, String filename) {
-    try {
-        FileWriter csvWriter = new FileWriter(filename, true);
-        for (int i = 0; i < data.length; i++) {
-            csvWriter.append(data[i]);
-            if (i != data.length - 1) {
-                csvWriter.append(","); // use a comma as the delimiter between columns
-            }
-        }
-        csvWriter.append("\n"); // add a new line character to separate rows
-        csvWriter.flush();
-        csvWriter.close();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+    int columnSpacing = 12;
+   for(int i =0 ;i<data.length; i++)
+   {
+    System.out.printf("%-" + columnSpacing + "s",data[i]);
+   }
+   System.out.printf("\n");
 }
 
 //TODO Merges an array of semesters
