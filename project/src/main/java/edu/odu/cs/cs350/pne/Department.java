@@ -85,11 +85,20 @@ public class Department {
       Course tempCourse = new Course();
       Offering tempOffering = new Offering();
       Enrollment tempEnrollment = new Enrollment();
-      
-      //Adds course data to temp course 
+      Section tempSection = new Section();
+
+      //Adds course data to tempCourse 
       tempCourse.setCRSE(fields[3]);
       tempCourse.setSubject(fields[2]);
 
+      //Adds Section data to tempSection
+      if(fields[8].length()!=0)
+      {
+        tempSection.setLINK(fields[8].substring(1,2));
+      }
+      else{
+        tempSection.setLINK("1");
+      }
       //Adds Offering data to tempOffering
       tempOffering.setProfessor(fields[21]);
       tempOffering.setCRN(Integer.parseInt(fields[1]));
@@ -97,7 +106,6 @@ public class Department {
       //Adds enrollment data to tempEnrollment
       tempEnrollment.setXLSTCap(Integer.parseInt(fields[6]));
       tempEnrollment.setENR(Integer.parseInt(fields[7]));
-      tempEnrollment.setLINK(fields[8]);
       tempEnrollment.setXLSTGroup(fields[9]);
       tempEnrollment.setOVERALLCAP(Integer.parseInt(fields[23]));
       tempEnrollment.setXLSTENR(Integer.parseInt(fields[24]));
@@ -105,16 +113,28 @@ public class Department {
       //Adds tempEnrollment to tempOffering 
       tempOffering.setEnrollment(tempEnrollment);
 
-      //If course already exist in the array of courses just add the offering to the exisiting course's array of offerings
+      //If the course  exsit in the list of courses check to see if the section exist in the list of sections
       if(tempSnapshot.getCourse(fields[3])!= null){
-         tempSnapshot.getCourse(fields[3]).addOffering(tempOffering);
-      }
-     //If course doesn't already exist int the course array, create new course in the array of courses, and add tempOffering to that course      
-      else{
-         tempCourse.addOffering(tempOffering);
+
+        //If section already exist in the array of section just add the offering to the exisiting sections's array of offerings
+        if(tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink())!= null){
+            
+            tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink()).addOffering(tempOffering);
+        }
+        //If section doesn't already exist in the section array, create new section in the array of section, and add tempOffering to that course    
+        else{
+            tempSection.addOffering(tempOffering);
+            tempSnapshot.getCourse(fields[3]).addSection(tempSection);   
+        }
+       
+    }
+     //If course doesn't already exist in the course array,  add tempOffering to the tempSection,
+     // add tempSection to that courseList , add temp section to new course in the array of courses
+      else{       
+         tempSection.addOffering(tempOffering);
+         tempCourse.addSection(tempSection);
          tempSnapshot.addCourse(tempCourse);
       }
-
       return tempSnapshot;
     }
 

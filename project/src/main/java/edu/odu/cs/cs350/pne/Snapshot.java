@@ -32,7 +32,7 @@ public void addCourse(Course addCourse){
 public Course getCourse(String inCRSE){
   for(int i= 0; i<courseList.size(); i ++)
   {
-
+    
      if( courseList.get(i).getCRSE().equals(inCRSE))
      {
       return courseList.get(i);

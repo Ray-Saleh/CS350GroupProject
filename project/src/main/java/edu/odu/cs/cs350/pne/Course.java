@@ -6,15 +6,15 @@ public class Course {
     // CRSE = Course Number
     private String CRSE;
     
-    ArrayList<Offering> offerringList;
+    ArrayList<Section> sectionList;
     public Course() {
         this.subject = "null";
         this.CRSE =" 000";
-        this.offerringList = new ArrayList<Offering>();
+        this.sectionList = new ArrayList<Section>();
       }
 
-    public Course(String sub, String inCRSE, ArrayList<Offering> inOfferringList) {
-        this.offerringList = inOfferringList;
+    public Course(String sub, String inCRSE, ArrayList<Section> inSectionList) {
+        this.sectionList = inSectionList;
         this.subject = sub;
         this.CRSE = inCRSE;
     }
@@ -22,7 +22,6 @@ public class Course {
     public String getSubject() {
         return this.subject;
     }
-
     public String getCRSE() {
         return this.CRSE;
     }
@@ -35,40 +34,35 @@ public class Course {
         CRSE = inCRSE;
     }
 
-    public void addOffering(Offering addOffering){
-        offerringList.add(addOffering);
+    public void addSection(Section addSection){
+        sectionList.add(addSection);
     }
-    public Offering getOffering(int inCRN){
-        for(int i= 0; i<offerringList.size(); i ++)
+    public Section getSection(String inCRSE){
+        
+   
+        for(int i= 0; i<sectionList.size(); i ++)
         {
-           if( offerringList.get(i).getCRN() == inCRN)
+           if( sectionList.get(i).getLink().equals(inCRSE))
            {
-            return offerringList.get(i);
+            return sectionList.get(i);
            }
-        }   
-        return null;    
+        }
+        return null;
     }
-    
-    public ArrayList<Offering> getOfferingList(){
-        return offerringList;
+    public ArrayList<Section> getSectionList(){
+       
+        return sectionList;
     }
 
-    public int getTotalEnrolled(){ //TODO Fix this to not consider connected classes
-        int total=0;
-        for(int i =0 ; i<offerringList.size(); i++)
-        {
-          total = total+  offerringList.get(i).getEnrollment().getENR();
-        }
-        return total;
+    //TODO ensure that main class represents overall enrollment and cap
+    public int getOverallCap(){
+        
+        return sectionList.get(0).getOV();
+
     }
-    public int getOverallCap()   //TODO Fix this to not consider connected classes or for finding the right cap
-    {
-        int total=0;
-        for(int i =0 ; i<offerringList.size(); i++)
-        {
-          total = total+  offerringList.get(i).getEnrollment().getOVERALLCAP();
-        }
-        return total;
+    
+    public int getTotalEnrolled(){
+        return sectionList.get(0).getTE();
     }
 
 }

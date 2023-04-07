@@ -1,7 +1,4 @@
 package edu.odu.cs.cs350.pne;
-import java.time.LocalDate;
-
-
 
 public class Offering {
     //numsecotions will be int for now

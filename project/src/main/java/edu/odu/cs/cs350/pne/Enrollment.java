@@ -19,17 +19,15 @@ public class Enrollment {
     public Enrollment(){
         XLSTCap=0;
         ENR=0;
-        LINK="0";
         XLSTGroup="0";
         OVERALLCAP=0;
         XLSTENR=0;
        
     }
 
-    public Enrollment(int inXLSTCap, int inENR, String inLINK, String inXLSTGroup, int inOVERALLCAP, int inXLSTENR, Course incourse){
+    public Enrollment(int inXLSTCap, int inENR, String inXLSTGroup, int inOVERALLCAP, int inXLSTENR, Course incourse){
         XLSTCap=inXLSTCap;
         ENR=inENR;
-        LINK=inLINK;
         XLSTGroup=inXLSTGroup;
         OVERALLCAP=inOVERALLCAP;
         XLSTENR=inXLSTENR;
@@ -41,9 +39,6 @@ public class Enrollment {
     }
     public int getENR() {
         return ENR;
-    }
-    public String getLINK(){
-        return LINK;
     }
     public String getXLSTGroup(){
         return XLSTGroup;
@@ -61,9 +56,6 @@ public class Enrollment {
     }
     public void setENR(int inENR) {
         ENR = inENR;
-    }
-    public void setLINK(String inLINK){
-       LINK = inLINK;
     }
     public void setXLSTGroup(String inXLSTGroup){
        XLSTGroup = inXLSTGroup;
