@@ -1,27 +1,25 @@
-/* package edu.odu.cs.cs350.pne;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+    package edu.odu.cs.cs350.pne;
+    import org.junit.jupiter.api.BeforeEach;
+    import org.junit.jupiter.api.Test;
+    import static org.junit.jupiter.api.Assertions.*;
+    import static org.hamcrest.MatcherAssert.assertThat;
+    import static org.hamcrest.Matchers.*;
 
-import edu.odu.cs.cs350.pne.*;
+    import edu.odu.cs.cs350.pne.*;
 
-public class TestDepartment {
-    
- 
-    @Test
-    public void testConstructor()
-    {
-       // Department depart = new Department();
-        //depart.readCSV();
-        //depart.getEnrollment();
+    public class TestDepartment {
 
-    }
+
 
     @Test
     public void testSummaryReport(){
-        
+        Department testingSummeryReport = new Department();
+        testingSummeryReport.
+    }
+
+    @Test
+    public void testDetailedReport(){
+
     }
 
     @Test
@@ -50,5 +48,5 @@ public class TestDepartment {
         
     }
 
-}
-*/
+    }
+    

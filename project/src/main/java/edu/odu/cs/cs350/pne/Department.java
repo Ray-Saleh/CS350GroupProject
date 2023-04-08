@@ -54,6 +54,15 @@ public class Department {
             System.err.println("Error: " + directory + " is not a directory.");
             System.exit(1);
         }
+        File[] dates = dir.listFiles((dir1, name) -> name.startsWith("dates"));
+        for(File datesTXT : dates)
+        try{
+            datesTXT.getName();
+        }
+        catch(FileNotFoundException e){
+            System.err.println("Error: File not found - " + datesTXT.getName());
+            System.exit(1);
+        }
 
         File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
 
