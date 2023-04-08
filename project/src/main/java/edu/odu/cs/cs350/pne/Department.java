@@ -35,11 +35,15 @@ public class Department {
          //Reads Data In
          readCsvFiles(args[i], tempSemester);
 
-         //Outputs
-         ProjectionReports(tempSemester);
          semesterList.add(tempSemester);       
         }      
+
+        Semester mergedSemesters = mergeSemesters(semesterList);
+
+        ProjectionReports(mergedSemesters);
     }
+    
+ 
 
 
     public static void readCsvFiles(String directory , Semester tempSemester) {
@@ -236,12 +240,18 @@ public static void writeDataToConsle(String[] data, String filename) {
 }
 
 //TODO Merges an array of semesters
-public Semester mergeSemesters(ArrayList<Semester> inSemesterList){
+public static Semester mergeSemesters(ArrayList<Semester> inSemesterList){
     Semester outSemester = new Semester();
-
-    return outSemester;
-}
-
+     for(int i =0 ; i< inSemesterList.size();i++)
+    {
+      for(int x =0;x < inSemesterList.get(i).getSnapshotList().size();  x++)    
+      {
+        outSemester.addSnapshot(inSemesterList.get(i).getSnapshot(x));
+      }
+    }   
+     return outSemester;
+ }
+ 
 /* 
     // Detailed Projection Report outputed to a CSV file
     // Used the following as I had no idea how to write a CSV file
