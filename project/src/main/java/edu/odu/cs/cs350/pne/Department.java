@@ -73,7 +73,6 @@ public class Department {
                     tempSnapshot = readCSVLine(fields, tempSnapshot);
                    
                 }
-
                 tempSemester.addSnapshot(tempSnapshot);
                 scanner.close();
             } catch (FileNotFoundException e) {
