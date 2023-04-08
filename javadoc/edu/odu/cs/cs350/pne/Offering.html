@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -156,10 +156,10 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int,java.lang.String,int,edu.odu.cs.cs350.pne.Enrollment)">Offering</a></span>&#8203;(int&nbsp;inCRN,
-        java.lang.String&nbsp;p,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,edu.odu.cs.cs350.pne.Enrollment,edu.odu.cs.cs350.pne.Course)">Offering</a></span>&#8203;(java.lang.String&nbsp;p,
         int&nbsp;n,
-        <a href="Enrollment.html" title="class in edu.odu.cs.cs350.pne">Enrollment</a>&nbsp;e)</code></th>
+        <a href="Enrollment.html" title="class in edu.odu.cs.cs350.pne">Enrollment</a>&nbsp;e,
+        <a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;c)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -182,40 +182,60 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCRN()">getCRN</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCourseNumber()">getCourseNumber</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="Enrollment.html" title="class in edu.odu.cs.cs350.pne">Enrollment</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnrollment()">getEnrollment</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCourseSubject()">getCourseSubject</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumSections()">getNumSections</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnrolledNum()">getEnrolledNum</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnrollmentCap()">getEnrollmentCap</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumSections()">getNumSections</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProfessor()">getProfessor</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCRN(int)">setCRN</a></span>&#8203;(int&nbsp;inCRN)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEnrollment(edu.odu.cs.cs350.pne.Enrollment)">setEnrollment</a></span>&#8203;(<a href="Enrollment.html" title="class in edu.odu.cs.cs350.pne">Enrollment</a>&nbsp;inEnrollment)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCourseNumber(int)">setCourseNumber</a></span>&#8203;(int&nbsp;i)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCourseSubject(java.lang.String)">setCourseSubject</a></span>&#8203;(java.lang.String&nbsp;string)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEnrollmentCap(int)">setEnrollmentCap</a></span>&#8203;(int&nbsp;i)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEnrollmentNum(int)">setEnrollmentNum</a></span>&#8203;(int&nbsp;i)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNumSections(int)">setNumSections</a></span>&#8203;(int&nbsp;i)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProfessor(java.lang.String)">setProfessor</a></span>&#8203;(java.lang.String&nbsp;string)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -253,16 +273,16 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;Offering()</pre>
 </li>
 </ul>
-<a id="&lt;init&gt;(int,java.lang.String,int,edu.odu.cs.cs350.pne.Enrollment)">
+<a id="&lt;init&gt;(java.lang.String,int,edu.odu.cs.cs350.pne.Enrollment,edu.odu.cs.cs350.pne.Course)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Offering</h4>
-<pre>public&nbsp;Offering&#8203;(int&nbsp;inCRN,
-                java.lang.String&nbsp;p,
+<pre>public&nbsp;Offering&#8203;(java.lang.String&nbsp;p,
                 int&nbsp;n,
-                <a href="Enrollment.html" title="class in edu.odu.cs.cs350.pne">Enrollment</a>&nbsp;e)</pre>
+                <a href="Enrollment.html" title="class in edu.odu.cs.cs350.pne">Enrollment</a>&nbsp;e,
+                <a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;c)</pre>
 </li>
 </ul>
 </li>
@@ -293,6 +313,42 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;int&nbsp;getNumSections()</pre>
 </li>
 </ul>
+<a id="getEnrollmentCap()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEnrollmentCap</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getEnrollmentCap()</pre>
+</li>
+</ul>
+<a id="getEnrolledNum()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEnrolledNum</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getEnrolledNum()</pre>
+</li>
+</ul>
+<a id="getCourseSubject()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCourseSubject</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getCourseSubject()</pre>
+</li>
+</ul>
+<a id="getCourseNumber()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCourseNumber</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getCourseNumber()</pre>
+</li>
+</ul>
 <a id="setProfessor(java.lang.String)">
 <!--   -->
 </a>
@@ -311,40 +367,40 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;setNumSections&#8203;(int&nbsp;i)</pre>
 </li>
 </ul>
-<a id="setCRN(int)">
+<a id="setEnrollmentCap(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setCRN</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setCRN&#8203;(int&nbsp;inCRN)</pre>
+<h4>setEnrollmentCap</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setEnrollmentCap&#8203;(int&nbsp;i)</pre>
 </li>
 </ul>
-<a id="getCRN()">
+<a id="setEnrollmentNum(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getCRN</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getCRN()</pre>
+<h4>setEnrollmentNum</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setEnrollmentNum&#8203;(int&nbsp;i)</pre>
 </li>
 </ul>
-<a id="setEnrollment(edu.odu.cs.cs350.pne.Enrollment)">
+<a id="setCourseSubject(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setEnrollment</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setEnrollment&#8203;(<a href="Enrollment.html" title="class in edu.odu.cs.cs350.pne">Enrollment</a>&nbsp;inEnrollment)</pre>
+<h4>setCourseSubject</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setCourseSubject&#8203;(java.lang.String&nbsp;string)</pre>
 </li>
 </ul>
-<a id="getEnrollment()">
+<a id="setCourseNumber(int)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getEnrollment</h4>
-<pre class="methodSignature">public&nbsp;<a href="Enrollment.html" title="class in edu.odu.cs.cs350.pne">Enrollment</a>&nbsp;getEnrollment()</pre>
+<h4>setCourseNumber</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setCourseNumber&#8203;(int&nbsp;i)</pre>
 </li>
 </ul>
 </li>

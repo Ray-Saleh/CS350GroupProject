@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -156,8 +156,8 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.util.ArrayList)">Snapshot</a></span>&#8203;(java.lang.String&nbsp;inFileName,
-        java.util.ArrayList&lt;<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&gt;&nbsp;inCourseList)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int,int)">Snapshot</a></span>&#8203;(int&nbsp;y,
+        int&nbsp;s)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -179,28 +179,23 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addCourse(edu.odu.cs.cs350.pne.Course)">addCourse</a></span>&#8203;(<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;addCourse)</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSemester()">getSemester</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCourse(java.lang.String)">getCourse</a></span>&#8203;(java.lang.String&nbsp;inCRSE)</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getYear()">getYear</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCourseList()">getCourseList</a></span>()</code></th>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSemester(int)">setSemester</a></span>&#8203;(int&nbsp;s)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFileName()">getFileName</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFileName(java.lang.String)">setFileName</a></span>&#8203;(java.lang.String&nbsp;inName)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setYear(int)">setYear</a></span>&#8203;(int&nbsp;y)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -236,14 +231,14 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;Snapshot()</pre>
 </li>
 </ul>
-<a id="&lt;init&gt;(java.lang.String,java.util.ArrayList)">
+<a id="&lt;init&gt;(int,int)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Snapshot</h4>
-<pre>public&nbsp;Snapshot&#8203;(java.lang.String&nbsp;inFileName,
-                java.util.ArrayList&lt;<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&gt;&nbsp;inCourseList)</pre>
+<pre>public&nbsp;Snapshot&#8203;(int&nbsp;y,
+                int&nbsp;s)</pre>
 </li>
 </ul>
 </li>
@@ -256,49 +251,40 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="setFileName(java.lang.String)">
+<a id="getSemester()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setFileName</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setFileName&#8203;(java.lang.String&nbsp;inName)</pre>
+<h4>getSemester</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getSemester()</pre>
 </li>
 </ul>
-<a id="getFileName()">
+<a id="getYear()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getFileName</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getFileName()</pre>
+<h4>getYear</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getYear()</pre>
 </li>
 </ul>
-<a id="addCourse(edu.odu.cs.cs350.pne.Course)">
+<a id="setSemester(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>addCourse</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;addCourse&#8203;(<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;addCourse)</pre>
+<h4>setSemester</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setSemester&#8203;(int&nbsp;s)</pre>
 </li>
 </ul>
-<a id="getCourse(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCourse</h4>
-<pre class="methodSignature">public&nbsp;<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;getCourse&#8203;(java.lang.String&nbsp;inCRSE)</pre>
-</li>
-</ul>
-<a id="getCourseList()">
+<a id="setYear(int)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getCourseList</h4>
-<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&gt;&nbsp;getCourseList()</pre>
+<h4>setYear</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setYear&#8203;(int&nbsp;y)</pre>
 </li>
 </ul>
 </li>
