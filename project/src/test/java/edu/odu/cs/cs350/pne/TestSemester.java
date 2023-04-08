@@ -11,8 +11,9 @@ import edu.odu.cs.cs350.pne.*;
 public class TestSemester {
 
     @Test
-    public void testConstructor() {
-
+    public void testConstructor() 
+    {
+       
     }
 
 }
