@@ -161,7 +161,7 @@ public class Department {
     public static void ProjectionReports(Semester outSemester) {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
-        String filename = "DetailedProjectReport@" + LocalDateTime.now() + ".csv";
+        String filename = "FakeDetailedProjectReport@" + LocalDateTime.now() + ".csv";
         File file = new File(filename);
         if (file.exists()) {
             System.out.println(filename + "Already Exist");
@@ -170,6 +170,7 @@ public class Department {
         // Simple :: Sets up First Line of Consle output
         String[] data = { "Course", "Enrollment", "Projected", "Cap" };
         writeDataToConsle(data, filename);
+        writeDataToCSV(data, filename);
 
         ArrayList<Course> tempCourseList = outSemester.getSnapshot(outSemester.getSnapshotListSize() - 1)
                 .getCourseList();
@@ -202,6 +203,7 @@ public class Department {
                     String.valueOf(projected),
                     String.valueOf(tempCourseList.get(i).getOverallCap())
             };
+            writeDataToCSV(data, filename);
             writeDataToConsle(data, filename);
 
             // TODO Detailed :: Formated data for line of a CSV sheets
