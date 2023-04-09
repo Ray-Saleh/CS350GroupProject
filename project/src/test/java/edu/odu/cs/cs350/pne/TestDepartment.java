@@ -9,13 +9,21 @@
 
     public class TestDepartment {
 
-
-
     @Test
     public void testOutput(){
         Department testingOutput = new Department();
-        String[] arg = "./src/test/data/TestDat"
-        testingOutput(arg);
+        String[] dir = "./src/test/data";
+        testingOutput.readCsvFiles(dir, "TestDat");
+        
+    }
+
+    @Test
+    public void testProjectionReports(){
+
+    } 
+
+    @Test
+    public void testReadCSV(){
         
     }
 
@@ -41,7 +49,6 @@
         int[] input5 = {1, 2, 3, 4, 5, 6};
         int[] expectedOutput5 = {1, 2, 3, 4, 5, 5};
         assertArrayEquals(expectedOutput5, d.smoothCurve(input5, 1));
-
         
     }
 
