@@ -57,7 +57,11 @@ public class Department {
         File[] dates = dir.listFiles((dir1, name) -> name.startsWith("dates"));
         for(File datesTXT : dates)
         try{
-            datesTXT.getName();
+            Scanner insideDatesTXT = new Scanner(datesTXT);
+            while(insideDatesTXT.hasNextLine()){
+                String line = insideDatesTXT.nextLine();
+                
+            }
         }
         catch(FileNotFoundException e){
             System.err.println("Error: File not found - " + datesTXT.getName());

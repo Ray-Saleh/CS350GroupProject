@@ -12,14 +12,11 @@
 
 
     @Test
-    public void testSummaryReport(){
-        Department testingSummeryReport = new Department();
-        testingSummeryReport.
-    }
-
-    @Test
-    public void testDetailedReport(){
-
+    public void testOutput(){
+        Department testingOutput = new Department();
+        String[] arg = "./src/test/data/TestDat"
+        testingOutput(arg);
+        
     }
 
     @Test
