@@ -23,32 +23,29 @@ public class Department {
             System.exit(1);
         }
 
-        //creates semesters and assigns information for each semester directory given in args[]
+        // creates semesters and assigns information for each semester directory given
+        // in args[]
         ArrayList<Semester> semesterList = new ArrayList<Semester>();
-        for(int i=0;i<args.length; i++)
-        {
-         //Initializing semester for semester Directory at args[i]
-         Semester tempSemester = new Semester();
-         tempSemester.setSeason(args[i].substring(args[i].length()-2,args[i].length())); 
-         tempSemester.setYear(args[i].substring(args[i].length()-6,args[i].length()-2));
-         
-         //Reads Data In
-         readCsvFiles(args[i], tempSemester);
+        for (int i = 0; i < args.length; i++) {
+            // Initializing semester for semester Directory at args[i]
+            Semester tempSemester = new Semester();
+            tempSemester.setSeason(args[i].substring(args[i].length() - 2, args[i].length()));
+            tempSemester.setYear(args[i].substring(args[i].length() - 6, args[i].length() - 2));
 
-         semesterList.add(tempSemester);       
-        }      
+            // Reads Data In
+            readCsvFiles(args[i], tempSemester);
+
+            semesterList.add(tempSemester);
+        }
 
         Semester mergedSemesters = mergeSemesters(semesterList);
 
         ProjectionReports(mergedSemesters);
     }
-    
- 
 
+    public static void readCsvFiles(String directory, Semester tempSemester) {
 
-    public static void readCsvFiles(String directory , Semester tempSemester) {
-       
-        //Directory check : ensures directory exist
+        // Directory check : ensures directory exist
         File dir = new File(directory);
         if (!dir.isDirectory()) {
             System.err.println("Error: " + directory + " is not a directory.");
@@ -59,19 +56,19 @@ public class Department {
 
         for (File file : files) {
             try {
-               Snapshot tempSnapshot = new Snapshot();
+                Snapshot tempSnapshot = new Snapshot();
                 Scanner scanner = new Scanner(file);
-                
+
                 scanner.nextLine();
                 tempSnapshot.setFileName(file.getName());
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
                     line = line.trim();
-                   
+
                     String[] fields = line.split("\",\"");
-                    //Read each line of data and stored needed data
+                    // Read each line of data and stored needed data
                     tempSnapshot = readCSVLine(fields, tempSnapshot);
-                   
+
                 }
                 tempSemester.addSnapshot(tempSnapshot);
                 scanner.close();
@@ -82,66 +79,69 @@ public class Department {
         }
     }
 
-    //Reads each line of data and stored needed data
-    //Reads a given line from a CSV file sends it to the apporitate location
-    public static Snapshot readCSVLine(String[] fields, Snapshot tempSnapshot){
-      Course tempCourse = new Course();
-      Offering tempOffering = new Offering();
-      Enrollment tempEnrollment = new Enrollment();
-      Section tempSection = new Section();
+    // Reads each line of data and stored needed data
+    // Reads a given line from a CSV file sends it to the apporitate location
+    public static Snapshot readCSVLine(String[] fields, Snapshot tempSnapshot) {
+        Course tempCourse = new Course();
+        Offering tempOffering = new Offering();
+        Enrollment tempEnrollment = new Enrollment();
+        Section tempSection = new Section();
 
-      //Adds course data to tempCourse 
-      tempCourse.setCRSE(fields[3]);
-      tempCourse.setSubject(fields[2]);
+        // Adds course data to tempCourse
+        tempCourse.setCRSE(fields[3]);
+        tempCourse.setSubject(fields[2]);
 
-      //Adds Section data to tempSection
-      if(fields[8].length()!=0)
-      {
-        tempSection.setLINK(fields[8].substring(1,2));
-      }
-      else{
-        tempSection.setLINK("1");
-      }
-      //Adds Offering data to tempOffering
-      tempOffering.setProfessor(fields[21]);
-      tempOffering.setCRN(Integer.parseInt(fields[1]));
-      
-      //Adds enrollment data to tempEnrollment
-      tempEnrollment.setXLSTCap(Integer.parseInt(fields[6]));
-      tempEnrollment.setENR(Integer.parseInt(fields[7]));
-      tempEnrollment.setXLSTGroup(fields[9]);
-      tempEnrollment.setOVERALLCAP(Integer.parseInt(fields[23]));
-      tempEnrollment.setXLSTENR(Integer.parseInt(fields[24]));
-
-      //Adds tempEnrollment to tempOffering 
-      tempOffering.setEnrollment(tempEnrollment);
-
-      //If the course  exsit in the list of courses check to see if the section exist in the list of sections
-      if(tempSnapshot.getCourse(fields[3])!= null){
-
-        //If section already exist in the array of section just add the offering to the exisiting sections's array of offerings
-        if(tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink())!= null){
-            
-            tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink()).addOffering(tempOffering);
+        // Adds Section data to tempSection
+        if (fields[8].length() != 0) {
+            tempSection.setLINK(fields[8].substring(1, 2));
+        } else {
+            tempSection.setLINK("1");
         }
-        //If section doesn't already exist in the section array, create new section in the array of section, and add tempOffering to that course    
-        else{
+        // Adds Offering data to tempOffering
+        tempOffering.setProfessor(fields[21]);
+        tempOffering.setCRN(Integer.parseInt(fields[1]));
+
+        // Adds enrollment data to tempEnrollment
+        tempEnrollment.setXLSTCap(Integer.parseInt(fields[6]));
+        tempEnrollment.setENR(Integer.parseInt(fields[7]));
+        tempEnrollment.setXLSTGroup(fields[9]);
+        tempEnrollment.setOVERALLCAP(Integer.parseInt(fields[23]));
+        tempEnrollment.setXLSTENR(Integer.parseInt(fields[24]));
+
+        // Adds tempEnrollment to tempOffering
+        tempOffering.setEnrollment(tempEnrollment);
+
+        // If the course exsit in the list of courses check to see if the section exist
+        // in the list of sections
+        if (tempSnapshot.getCourse(fields[3]) != null) {
+
+            // If section already exist in the array of section just add the offering to the
+            // exisiting sections's array of offerings
+            if (tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink()) != null) {
+
+                tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink()).addOffering(tempOffering);
+            }
+            // If section doesn't already exist in the section array, create new section in
+            // the array of section, and add tempOffering to that course
+            else {
+                tempSection.addOffering(tempOffering);
+                tempSnapshot.getCourse(fields[3]).addSection(tempSection);
+            }
+
+        }
+        // If course doesn't already exist in the course array, add tempOffering to the
+        // tempSection,
+        // add tempSection to that courseList , add temp section to new course in the
+        // array of courses
+        else {
             tempSection.addOffering(tempOffering);
-            tempSnapshot.getCourse(fields[3]).addSection(tempSection);   
+            tempCourse.addSection(tempSection);
+            tempSnapshot.addCourse(tempCourse);
         }
-       
-    }
-     //If course doesn't already exist in the course array,  add tempOffering to the tempSection,
-     // add tempSection to that courseList , add temp section to new course in the array of courses
-      else{       
-         tempSection.addOffering(tempOffering);
-         tempCourse.addSection(tempSection);
-         tempSnapshot.addCourse(tempCourse);
-      }
-      return tempSnapshot;
+        return tempSnapshot;
     }
 
-    // TODO fix smooth curves 
+    // TODO fix smooth curves
     public static int[] smoothCurve(int[] values, int windowSize) {
         int[] smoothedValues = new int[values.length];
 
@@ -158,96 +158,93 @@ public class Department {
         return smoothedValues;
     }
 
-    
-    
-    public static void ProjectionReports(Semester outSemester){
+    public static void ProjectionReports(Semester outSemester) {
 
-      //Detailed :: Steps up file path for Detailed Project Report CVS Sheet
-      String filename = "DetailedProjectReport@"+LocalDateTime.now()+".csv";
-      File file = new File(filename);
-      if (file.exists()) {
-          System.out.println(filename + "Already Exist");
-      }
-     
-      //Simple :: Sets up First Line of Consle output
-      String[] data = { "Course", "Enrollment", "Projected", "Cap" };      
-      writeDataToConsle(data,filename);
-    
-      ArrayList<Course>  tempCourseList =outSemester.getSnapshot(outSemester.getSnapshotListSize()-1).getCourseList();
+        // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
+        String filename = "DetailedProjectReport@" + LocalDateTime.now() + ".csv";
+        File file = new File(filename);
+        if (file.exists()) {
+            System.out.println(filename + "Already Exist");
+        }
 
-      // TODO Detailed:: Sets up First Line of CSV Sheet output
-      
+        // Simple :: Sets up First Line of Consle output
+        String[] data = { "Course", "Enrollment", "Projected", "Cap" };
+        writeDataToConsle(data, filename);
 
-      //Loops Through All the Courses avaiable in the given Semester
-      for(int i=0;i<tempCourseList.size(); i++){
-        
-        //Gathers All the needed data for a specific course across all the snapshots in outSemester
-        int[] enrollmentOverAllSnapshots = new int[outSemester.getSnapshotListSize()];
-        for(int x=0; x< outSemester.getSnapshotListSize(); x++){
-            //Gathers all total enrollment 
-            enrollmentOverAllSnapshots[x]=tempCourseList.get(i).getTotalEnrolled();
-            //Gathers etc.
+        ArrayList<Course> tempCourseList = outSemester.getSnapshot(outSemester.getSnapshotListSize() - 1)
+                .getCourseList();
+
+        // TODO Detailed:: Sets up First Line of CSV Sheet output
+
+        // Loops Through All the Courses avaiable in the given Semester
+        for (int i = 0; i < tempCourseList.size(); i++) {
+
+            // Gathers All the needed data for a specific course across all the snapshots in
+            // outSemester
+            int[] enrollmentOverAllSnapshots = new int[outSemester.getSnapshotListSize()];
+            for (int x = 0; x < outSemester.getSnapshotListSize(); x++) {
+                // Gathers all total enrollment
+                enrollmentOverAllSnapshots[x] = tempCourseList.get(i).getTotalEnrolled();
+                // Gathers etc.
+
+            }
+
+            // Uses collected data to find and calculated needed data
+            int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots, i); // TODO FIX THIS
+            int projected = smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize() - 1];
+
+            // Outputs data line by line
+
+            /// Simple :: formats the need data in an array of Strings and sends it to
+            /// writeDataToConsle
+            data = new String[] { tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
+                    String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
+                    String.valueOf(projected),
+                    String.valueOf(tempCourseList.get(i).getOverallCap())
+            };
+            writeDataToConsle(data, filename);
+
+            // TODO Detailed :: Formated data for line of a CSV sheets
 
         }
-       
-        //Uses collected data to find and calculated needed data
-        int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots, i); //TODO FIX THIS 
-        int projected=smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize()-1];
-     
-        // Outputs data line by line
+        System.out.println("Data has been written to " + filename + " successfully!");
+    }
 
-        ///Simple :: formats the need data in an array of Strings and sends it to writeDataToConsle
-        data  = new String[] {tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
-            String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
-            String.valueOf(projected),
-            String.valueOf(tempCourseList.get(i).getOverallCap())
-        };    
-        writeDataToConsle(data,filename);    
+    // Prints Data to CSV sheet line by line
+    public static void writeDataToCSV(String[] data, String filename) {
+        try {
+            FileWriter csvWriter = new FileWriter(filename, true);
+            for (int i = 0; i < data.length; i++) {
+                csvWriter.append(data[i]);
+                if (i != data.length - 1) {
+                    csvWriter.append(","); // use a comma as the delimiter between columns
+                }
+            }
+            csvWriter.append("\n"); // add a new line character to separate rows
+            csvWriter.flush();
+            csvWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-        //TODO Detailed :: Formated data for line of a CSV sheets
-
-      }
-      System.out.println("Data has been written to " + filename + " successfully!");
-}
-    
-//Prints Data to CSV sheet line by line
-public static void writeDataToCSV(String[] data, String filename) {
-    try {
-        FileWriter csvWriter = new FileWriter(filename, true);
+    // Prints Data to Consle Line by line
+    public static void writeDataToConsle(String[] data, String filename) {
+        int columnSpacing = 12;
         for (int i = 0; i < data.length; i++) {
-            csvWriter.append(data[i]);
-            if (i != data.length - 1) {
-                csvWriter.append(","); // use a comma as the delimiter between columns
+            System.out.printf("%-" + columnSpacing + "s", data[i]);
+        }
+        System.out.printf("\n");
+    }
+
+    // TODO Merges an array of semesters
+    public static Semester mergeSemesters(ArrayList<Semester> inSemesterList) {
+        Semester outSemester = new Semester();
+        for (int i = 0; i < inSemesterList.size(); i++) {
+            for (int x = 0; x < inSemesterList.get(i).getSnapshotList().size(); x++) {
+                outSemester.addSnapshot(inSemesterList.get(i).getSnapshot(x));
             }
         }
-        csvWriter.append("\n"); // add a new line character to separate rows
-        csvWriter.flush();
-        csvWriter.close();
-    } catch (IOException e) {
-        e.printStackTrace();
+        return outSemester;
     }
 }
-
-//Prints Data to Consle Line by line
-public static void writeDataToConsle(String[] data, String filename) {
-    int columnSpacing = 12;
-   for(int i =0 ;i<data.length; i++)
-   {
-    System.out.printf("%-" + columnSpacing + "s",data[i]);
-   }
-   System.out.printf("\n");
-}
-
-//TODO Merges an array of semesters
-public static Semester mergeSemesters(ArrayList<Semester> inSemesterList){
-    Semester outSemester = new Semester();
-     for(int i =0 ; i< inSemesterList.size();i++)
-    {
-      for(int x =0;x < inSemesterList.get(i).getSnapshotList().size();  x++)    
-      {
-        outSemester.addSnapshot(inSemesterList.get(i).getSnapshot(x));
-      }
-    }   
-     return outSemester;
- }
- 
