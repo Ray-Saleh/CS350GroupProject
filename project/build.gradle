@@ -42,7 +42,7 @@ task copyDocs(dependsOn: 'javadoc') {
     }
 }
 
-task reports(dependsOn: ['javadoc','test']) {
+task reports(dependsOn: ['javadoc','test', 'copyDocs']) {
     doLast {
         copy {
             from 'src/main/html/'
