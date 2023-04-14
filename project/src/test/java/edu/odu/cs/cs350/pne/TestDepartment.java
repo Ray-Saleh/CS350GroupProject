@@ -30,7 +30,7 @@ public class TestDepartment {
         int[] actualSmoothed = d.smoothCurve(enrollment);
         assertThat(toList(actualSmoothed), is(equalTo(toList(expectedSmoothed))));
 
-        // Test case 2: Smooth curve with larger window size
+        // Test case 2: Smooth curve with random values
         int[] enrollment2 = { 50, 200, 130, 197, 62, 41, 52, 33 };
         int[] expectedSmoothed2 = { 125, 126, 175, 129, 100, 51, 42, 42 };
         int[] actualSmoothed2 = d.smoothCurve(enrollment2);
