@@ -142,8 +142,9 @@ public class Department {
     }
 
     // TODO fix smooth curves
-    public static int[] smoothCurve(int[] values, int windowSize) {
+    public static int[] smoothCurve(int[] values) {
         int[] smoothedValues = new int[values.length];
+        int windowSize = (int) Math.ceil((double) values.length / 10); // dynamic window size
 
         for (int i = 0; i < values.length; i++) {
             int sum = 0;
@@ -191,7 +192,7 @@ public class Department {
             }
 
             // Uses collected data to find and calculated needed data
-            int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots, i); // TODO FIX THIS
+            int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots); // TODO FIX THIS
             int projected = smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize() - 1];
 
             // Outputs data line by line

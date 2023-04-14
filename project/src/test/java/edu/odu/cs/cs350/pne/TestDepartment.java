@@ -3,6 +3,10 @@ package edu.odu.cs.cs350.pne;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -10,29 +14,27 @@ import edu.odu.cs.cs350.pne.*;
 
 public class TestDepartment {
 
+    private List<Integer> toList(int[] arr) {
+        List<Integer> list = new ArrayList<>();
+        for (int num : arr) {
+            list.add(num);
+        }
+        return list;
+    }
+
     @Test // needs to be changed
     public void testSmoothCurving() {
         Department d = new Department();
-        int[] input1 = { 1, 2, 3, 4, 5 };
-        int[] expectedOutput1 = { 1, 2, 3, 4, 4 };
-        assertArrayEquals(expectedOutput1, d.smoothCurve(input1, 1));
+        int[] enrollment = { 100, 150, 200, 250, 300, 350, 400, 450 };
+        int[] expectedSmoothed = { 125, 150, 200, 250, 300, 350, 400, 425 };
+        int[] actualSmoothed = d.smoothCurve(enrollment);
+        assertThat(toList(actualSmoothed), is(equalTo(toList(expectedSmoothed))));
 
-        int[] input2 = { 1, 2, 3, 4 };
-        int[] expectedOutput2 = { 1, 2, 3, 3 };
-        assertArrayEquals(expectedOutput2, d.smoothCurve(input2, 1));
-
-        int[] input3 = { 1, 2, 3, 4, 5, 6 };
-        int[] expectedOutput3 = { 1, 2, 3, 4, 5, 5 };
-        assertArrayEquals(expectedOutput3, d.smoothCurve(input3, 1));
-
-        int[] input4 = { 1, 2, 3, 4, 5 };
-        int[] expectedOutput4 = { 1, 2, 3, 4, 4 };
-        assertArrayEquals(expectedOutput4, d.smoothCurve(input4, 1));
-
-        int[] input5 = { 1, 2, 3, 4, 5, 6 };
-        int[] expectedOutput5 = { 1, 2, 3, 4, 5, 5 };
-        assertArrayEquals(expectedOutput5, d.smoothCurve(input5, 1));
-
+        // Test case 2: Smooth curve with larger window size
+        int[] enrollment2 = { 50, 200, 130, 197, 62, 41, 52, 33 };
+        int[] expectedSmoothed2 = { 125, 126, 175, 129, 100, 51, 42, 42 };
+        int[] actualSmoothed2 = d.smoothCurve(enrollment2);
+        assertThat(toList(actualSmoothed2), is(equalTo(toList(expectedSmoothed2))));
     }
 
     // @TODO
@@ -45,4 +47,3 @@ public class TestDepartment {
     }
 
 }
-
