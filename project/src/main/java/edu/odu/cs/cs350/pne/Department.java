@@ -111,12 +111,12 @@ public class Department {
         // Adds tempEnrollment to tempOffering
         tempOffering.setEnrollment(tempEnrollment);
 
-        // If the course exsit in the list of courses check to see if the section exist
+        // If the course exists in the list of courses check to see if the section exist
         // in the list of sections
         if (tempSnapshot.getCourse(fields[3]) != null) {
 
             // If section already exist in the array of section just add the offering to the
-            // exisiting sections's array of offerings
+            // existing sections's array of offerings
             if (tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink()) != null) {
 
                 tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink()).addOffering(tempOffering);
