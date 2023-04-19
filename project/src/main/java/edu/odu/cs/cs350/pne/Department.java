@@ -201,7 +201,11 @@ public class Department {
             Random r = new Random();
             int randomNum = r.nextInt(10);
             if(tempCourseList.get(i).getOverallCap() != projected){
-                projected += randomNum;
+                int temp = projected += randomNum;
+                if(temp > projected){
+                    temp -= 1;
+                }
+                projected = temp;
             }
 
             // Outputs data line by line
