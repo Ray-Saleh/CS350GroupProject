@@ -13,6 +13,7 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -28,7 +29,7 @@ public class Department {
         // creates semesters and assigns information for each semester directory given
         // in args[]
         ArrayList<Semester> semesterList = new ArrayList<Semester>();
-        for (int i = 0; i < args.length; i++) {
+        for (int i = 0; i < args.length - 1; i++) {
             // Initializing semester for semester Directory at args[i]
             Semester tempSemester = new Semester();
             tempSemester.setSeason(args[i].substring(args[i].length() - 2, args[i].length()));
@@ -41,8 +42,9 @@ public class Department {
         }
 
         Semester mergedSemesters = mergeSemesters(semesterList);
+        String lastArg = args[args.length - 1];
 
-        ProjectionReports(mergedSemesters);
+        ProjectionReports(mergedSemesters, lastArg);
     }
 
     public static void readCsvFiles(String directory, Semester tempSemester) {
@@ -163,10 +165,10 @@ public class Department {
         return smoothedValues;
     }
 
-    public static void ProjectionReports(Semester outSemester) {
+    public static void ProjectionReports(Semester outSemester, String SemName) {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
-        String filename = "FakeDetailedProjectReport@" + LocalDateTime.now() + ".csv";
+        String filename = SemName + "Prediction" +LocalDate.now() + ".csv";
         File file = new File(filename);
         if (file.exists()) {
             System.out.println(filename + "Already Exist");
