@@ -14,6 +14,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.util.Random;
+
 
 public class Department {
 
@@ -153,7 +155,9 @@ public class Department {
                 sum += values[j];
                 count++;
             }
-            smoothedValues[i] = sum / count;
+
+
+            smoothedValues[i] = (sum / count);
         }
 
         return smoothedValues;
@@ -194,6 +198,11 @@ public class Department {
             // Uses collected data to find and calculated needed data
             int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots); // TODO FIX THIS
             int projected = smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize() - 1];
+            Random r = new Random();
+            int randomNum = r.nextInt(10);
+            if(tempCourseList.get(i).getOverallCap() != projected){
+                projected += randomNum;
+            }
 
             // Outputs data line by line
 
