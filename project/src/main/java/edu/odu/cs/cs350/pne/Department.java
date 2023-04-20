@@ -51,7 +51,7 @@ public class Department {
         File dir = new File(directory);
         if (!dir.isDirectory()) {
             System.err.println("Error: " + directory + " is not a directory.");
-            System.exit(1);
+            System.exit(-1);
         }
 
         File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
@@ -200,29 +200,33 @@ public class Department {
             Random r = new Random();
             int randomNum = r.nextInt(10);
             if (tempCourseList.get(i).getOverallCap() != projected) {
-                int temp = projected += randomNum;
-                if (temp > projected) {
-                    temp -= 1;
+                if (tempCourseList.get(i).getOverallCap() != projected) {
+                    int temp = projected += randomNum;
+                    if (temp > projected) {
+                        if (temp > projected) {
+                            temp -= 1;
+                        }
+                        projected = temp;
+                    }
+
+                    // Outputs data line by line
+
+                    /// Simple :: formats the need data in an array of Strings and sends it to
+                    /// writeDataToConsle
+                    data = new String[] { tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
+                            String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
+                            String.valueOf(projected),
+                            String.valueOf(tempCourseList.get(i).getOverallCap())
+                    };
+                    writeDataToCSV(data, filename);
+                    writeDataToConsle(data, filename);
+
+                    // TODO Detailed :: Formated data for line of a CSV sheets
+
                 }
-                projected = temp;
+                System.out.println("Data has been written to " + filename + " successfully!");
             }
-
-            // Outputs data line by line
-
-            /// Simple :: formats the need data in an array of Strings and sends it to
-            /// writeDataToConsle
-            data = new String[] { tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
-                    String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
-                    String.valueOf(projected),
-                    String.valueOf(tempCourseList.get(i).getOverallCap())
-            };
-            writeDataToCSV(data, filename);
-            writeDataToConsle(data, filename);
-
-            // TODO Detailed :: Formated data for line of a CSV sheets
-
         }
-        System.out.println("Data has been written to " + filename + " successfully!");
     }
 
     // Prints Data to CSV sheet line by line
