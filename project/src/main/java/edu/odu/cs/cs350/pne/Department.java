@@ -25,7 +25,7 @@ public class Department {
         }
 
         // creates semesters and assigns information for each semester directory given
-        // in args[]
+        // in args[] in the command line
         ArrayList<Semester> semesterList = new ArrayList<Semester>();
         for (int i = 0; i < args.length - 1; i++) {
             // Initializing semester for semester Directory at args[i]
