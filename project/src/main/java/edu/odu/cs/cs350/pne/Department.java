@@ -166,7 +166,7 @@ public class Department {
     public static void ProjectionReports(Semester outSemester, String SemName) {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
-        String filename = SemName + "Prediction" + LocalDate.now() + ".csv";
+        String filename = SemName + "Prediction.csv";
         File file = new File(filename);
         if (file.exists()) {
             System.out.println(filename + "Already Exist");
