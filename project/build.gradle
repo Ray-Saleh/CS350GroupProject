@@ -21,6 +21,7 @@ application {
 dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
 	testImplementation 'org.hamcrest:hamcrest-library:2.2'
+    implementation 'com.opencsv:opencsv:5.5.2'
 
 }
 
@@ -123,4 +124,3 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
 }
 
 check.dependsOn copyDocs
-
