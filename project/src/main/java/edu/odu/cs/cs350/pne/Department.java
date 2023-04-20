@@ -14,7 +14,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Random;
 
 public class Department {
