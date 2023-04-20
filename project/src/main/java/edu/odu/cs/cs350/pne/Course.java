@@ -64,5 +64,8 @@ public class Course {
     public int getTotalEnrolled(){
         return sectionList.get(0).getTE();
     }
+    public String getCourse(){
+        return this.subject+this.CRSE;
+    }
 
 }
