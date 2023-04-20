@@ -17,7 +17,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Random;
 
-
 public class Department {
 
     public static void main(String[] args) {
@@ -42,9 +41,9 @@ public class Department {
         }
 
         Semester mergedSemesters = mergeSemesters(semesterList);
-        String lastArg = args[args.length - 1];
+        String lArg = args[args.length - 1];
 
-        ProjectionReports(mergedSemesters, lastArg);
+        ProjectionReports(mergedSemesters, lArg);
     }
 
     public static void readCsvFiles(String directory, Semester tempSemester) {
@@ -158,7 +157,6 @@ public class Department {
                 count++;
             }
 
-
             smoothedValues[i] = (sum / count);
         }
 
@@ -168,7 +166,7 @@ public class Department {
     public static void ProjectionReports(Semester outSemester, String SemName) {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
-        String filename = SemName + "Prediction" +LocalDate.now() + ".csv";
+        String filename = SemName + "Prediction" + LocalDate.now() + ".csv";
         File file = new File(filename);
         if (file.exists()) {
             System.out.println(filename + "Already Exist");
@@ -202,9 +200,9 @@ public class Department {
             int projected = smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize() - 1];
             Random r = new Random();
             int randomNum = r.nextInt(10);
-            if(tempCourseList.get(i).getOverallCap() != projected){
+            if (tempCourseList.get(i).getOverallCap() != projected) {
                 int temp = projected += randomNum;
-                if(temp > projected){
+                if (temp > projected) {
                     temp -= 1;
                 }
                 projected = temp;
