@@ -271,52 +271,57 @@ public class Department {
 
             Sheet sheet = workbook.createSheet(course.get(i).getCourse());
             // Create the header in the worksheet
-            Row header = sheet.createRow(0);
-//for(semester : 2x numSemesters){
+            Row row = sheet.createRow(0);
+      for(int s = 0; s< numSemsters; ){
             // Create cells in the header and set their values
-            Cell headerCell = header.createCell(0); // i instead of 0
+            Cell headerCell = row.createCell(0); // i instead of 0
             headerCell.setCellValue("d historical");
-
-            headerCell = header.createCell(1); // i +1
+            for(int g = 1; g<dhistoricaltot; g++){
+                row = sheet.createRow(g);
+                Cell data = row.createCell(0);
+                data.setCellValue(singleDhistory);
+            }
+            headerCell = row.createCell(1); // i +1
             headerCell.setCellValue("Previous Semester");
-            //i=+1
-//}
+            for(int g = 1; g<enrolledInSemester; g++){
+                row = sheet.createRow(i);
+                Cell data = row.createCell(s+1);
+                data.setCellValue(singleSemester);
+            }
+            s=+1;
+}
 //After Above is implemented this can change appropriately
-            headerCell = header.createCell(2);
+            headerCell = row.createCell(2);
             headerCell.setCellValue("d current");
+            for(int g = 1; g<numDCurrent; g++){
 
-            headerCell = header.createCell(3);
+                
+            }
+
+            headerCell = row.createCell(3);
             headerCell.setCellValue("Current Semester");
 
-            headerCell = header.createCell(4);
+            headerCell = row.createCell(4);
             headerCell.setCellValue("d projected");
 
-            headerCell = header.createCell(5);
+            headerCell = row.createCell(5);
             headerCell.setCellValue("Projected");
 
             Row rowData = sheet.createRow(1);
             Cell cellData = rowData.createCell(0)
             cellData.setCellValue(.1);
-            //for(semester : 2x numSemesters){
-            // Create cells in the header and set their values
-            Cell headerCell = header.createCell(0); // i instead of 0
-            headerCell.setCellValue("d historical");
-
-            headerCell = header.createCell(1); // i +1
-            headerCell.setCellValue("Previous Semester");
-            //i=+1
-//}
+          
 //After Above is implemented this can change appropriately
-            headerCell = header.createCell(2);
+            headerCell = row.createCell(2);
             headerCell.setCellValue(); //d current Value
 
-            headerCell = header.createCell(3);
+            headerCell = row.createCell(3);
             headerCell.setCellValue(); //current Semester enrolled
 
-            headerCell = header.createCell(4);
+            headerCell = row.createCell(4);
             headerCell.setCellValue(); //d projected value
 
-            headerCell = header.createCell(5);
+            headerCell = row.createCell(5);
             headerCell.setCellValue(); // Projected value
         }
     }
