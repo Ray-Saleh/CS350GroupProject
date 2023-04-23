@@ -271,10 +271,12 @@ public class Department {
 
             Sheet sheet = workbook.createSheet(course.get(i).getCourse());
             // Create the header in the worksheet
+            
             Row row = sheet.createRow(0);
-      for(int s = 0; s< numSemsters; ){
+            Cell headerCell = row.createCell(0)
+            for(int s = 0; s< numSemsters; ){
             // Create cells in the header and set their values
-            Cell headerCell = row.createCell(0); // i instead of 0
+            headerCell = row.createCell(0); // i instead of 0
             headerCell.setCellValue("d historical");
             for(int g = 1; g<dhistoricaltot; g++){
                 row = sheet.createRow(g);
