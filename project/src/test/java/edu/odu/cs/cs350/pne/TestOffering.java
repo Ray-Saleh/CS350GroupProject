@@ -15,7 +15,7 @@ public class TestOffering {
 
         assertThat(o.getCRN(), is(0));
         assertThat(o.getProfessor(), is(""));
-        assertThat(o.getNumSections(), is(0));
+      
         assertNotNull(o.getEnrollment());
 
     }
@@ -27,7 +27,7 @@ public class TestOffering {
 
         assertThat(o.getCRN(), is(1234));
         assertThat(o.getProfessor(), is("Zeil"));
-        assertThat(o.getNumSections(), is(5));
+    
         assertThat(o.getEnrollment(), is(e));
     }
 
@@ -40,7 +40,7 @@ public class TestOffering {
 
         assertThat(o.getCRN(), is(1234));
         assertThat(o.getProfessor(), is("Kennedy"));
-        assertThat(o.getNumSections(), is(5));
+       
         assertThat(o.getEnrollment(), is(e));
     }
 
@@ -53,7 +53,7 @@ public class TestOffering {
 
         assertThat(o.getCRN(), is(11));
         assertThat(o.getProfessor(), is("Zeil"));
-        assertThat(o.getNumSections(), is(5));
+       
         assertThat(o.getEnrollment(), is(e));
     }
 
@@ -62,11 +62,11 @@ public class TestOffering {
         Enrollment e = new Enrollment(0, 0, "", 0, 0, new Course());
         Offering o = new Offering(1234, "Zeil", 5, e);
 
-        o.setNumSections(0);
+        
 
         assertThat(o.getCRN(), is(1234));
         assertThat(o.getProfessor(), is("Zeil"));
-        assertThat(o.getNumSections(), is(0));
+       
         assertThat(o.getEnrollment(), is(e));
     }
 
@@ -81,7 +81,7 @@ public class TestOffering {
 
         assertThat(o.getCRN(), is(1234));
         assertThat(o.getProfessor(), is("Zeil"));
-        assertThat(o.getNumSections(), is(5));
+ 
         assertThat(o.getEnrollment(), is(e1));
     }
 

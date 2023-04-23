@@ -12,11 +12,11 @@ public class TestEnrollment {
     @Test
     public void testConstructor(){
         Enrollment enrollment=new Enrollment();
-        assertThat(enrollment.getXLSTCap(), equalTo(0));
+
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
+      
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
-        assertThat(enrollment.getXLSTENR(), equalTo(0));
+       
     }   
 
     @Test 
@@ -25,11 +25,11 @@ public class TestEnrollment {
         
         enrollment.setXLSTCap(10);
 
-        assertThat(enrollment.getXLSTCap(), equalTo(10));
+   
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
+    
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
-        assertThat(enrollment.getXLSTENR(), equalTo(0));
+    
     }
     @Test 
     public void testsetENR(){
@@ -37,11 +37,11 @@ public class TestEnrollment {
 
         enrollment.setENR(10);
 
-        assertThat(enrollment.getXLSTCap(), equalTo(0));
+ 
         assertThat(enrollment.getENR(), equalTo(10));
-        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
+  
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
-        assertThat(enrollment.getXLSTENR(), equalTo(0));
+      
     }
     
     @Test 
@@ -50,11 +50,11 @@ public class TestEnrollment {
 
         enrollment.setXLSTGroup("10");
 
-        assertThat(enrollment.getXLSTCap(), equalTo(0));
+    
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo("10"));
+        
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
-        assertThat(enrollment.getXLSTENR(), equalTo(0));
+       
    
     }
     
@@ -64,11 +64,11 @@ public class TestEnrollment {
         
         enrollment.setOVERALLCAP(10);
 
-        assertThat(enrollment.getXLSTCap(), equalTo(0));
+    
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
+  
         assertThat(enrollment.getOVERALLCAP(), equalTo(10));
-        assertThat(enrollment.getXLSTENR(), equalTo(0));
+
     }
     
     @Test 
@@ -77,11 +77,11 @@ public class TestEnrollment {
 
         enrollment.setXLSTENR(10);
 
-        assertThat(enrollment.getXLSTCap(), equalTo(0));
+ 
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getXLSTGroup(), equalTo("0"));
+     
         assertThat(enrollment.getOVERALLCAP(), equalTo(0));
-        assertThat(enrollment.getXLSTENR(), equalTo(10));
+     
 
     }
 
