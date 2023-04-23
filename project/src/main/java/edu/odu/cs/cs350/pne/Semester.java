@@ -34,12 +34,6 @@ public class Semester {
         Season = inSeason;
     }
 
-    public int calcProjection(){
-        int futureEnrollment = 0;
-
-
-        return futureEnrollment;
-    }
 
     public Snapshot getSnapshot(int i)
     {
@@ -49,10 +43,6 @@ public class Semester {
     public void addSnapshot(Snapshot inSnapshot)
     {
        snapshotList.add(inSnapshot);
-    }
-    public void setSnapshotList(ArrayList<Snapshot> inSnapshotList)
-    {
-        snapshotList = inSnapshotList;
     }
     public ArrayList<Snapshot> getSnapshotList(){
         return snapshotList;

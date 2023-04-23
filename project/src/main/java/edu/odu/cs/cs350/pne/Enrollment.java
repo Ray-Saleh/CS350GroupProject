@@ -34,21 +34,21 @@ public class Enrollment {
         
     }
     ///Accesors 
-    public int getXLSTCap() {
-        return XLSTCap;
-    }
+    // public int getXLSTCap() {
+    //     return XLSTCap;
+    // }
     public int getENR() {
         return ENR;
     }
-    public String getXLSTGroup(){
-        return XLSTGroup;
-    }
+    // public String getXLSTGroup(){
+    //     return XLSTGroup;
+    // }
     public int getOVERALLCAP(){
         return OVERALLCAP;
     }
-    public int getXLSTENR() {
-        return XLSTENR;
-    }
+    // public int getXLSTENR() {
+    //     return XLSTENR;
+    // }
 
     ///Mutators
     public void setXLSTCap(int inXLSTCap) {

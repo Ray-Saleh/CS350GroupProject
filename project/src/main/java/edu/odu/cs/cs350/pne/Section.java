@@ -48,6 +48,7 @@ public class Section {
         return offerringList;
     }
 
+    
     public int getTE(){ //TODO Fix this to not consider connected classes
         int total=0;
         for(int i =0 ; i<offerringList.size(); i++)
