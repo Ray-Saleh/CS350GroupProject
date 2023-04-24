@@ -69,4 +69,5 @@ public class TestCourse {
         assertThat(c.getSubject(), is("CS"));
         assertThat(c.getSectionList(), contains(s1, s2));
     }
-}
+    
+ 
