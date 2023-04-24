@@ -11,7 +11,7 @@ public class TestEnrollment {
         Enrollment enrollment=new Enrollment();
 
         assertThat(enrollment.getENR(), equalTo(0));
-        assertThat(enrollment.getOVERALLCAP(), equalTo(0))     
+        assertThat(enrollment.getOVERALLCAP(), equalTo(0));    
     }   
 
     @Test 
