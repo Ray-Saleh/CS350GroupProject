@@ -58,5 +58,4 @@ public class Offering {
     public Enrollment getEnrollment() {
         return this.enrollment;
     }
-
 }
