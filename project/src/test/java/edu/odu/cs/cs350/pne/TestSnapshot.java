@@ -2,7 +2,6 @@ package edu.odu.cs.cs350.pne;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ public class TestSnapshot {
 
         assertThat(s.getFileName(), is("emptySnapshot"));
         assertTrue(s.getCourseList().isEmpty());
-
     }
 
     @Test
@@ -25,7 +23,6 @@ public class TestSnapshot {
 
         assertThat(s.getFileName(), is("Ray"));
         assertTrue(s.getCourseList().isEmpty());
-
     }
 
     @Test
@@ -37,7 +34,6 @@ public class TestSnapshot {
 
         assertThat(s.getFileName(), is("Say"));
         assertTrue(s.getCourseList().isEmpty());
-
     }
 
     @Test
