@@ -80,8 +80,5 @@ public class Course {
         return this.subject+this.CRSE;
     }
 
-    public String getCourse() {
-        return this.subject+this.CRSE;
-    }
-
+ 
 }
