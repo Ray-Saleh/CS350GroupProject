@@ -254,7 +254,16 @@ public class Department {
 
                 /// Simple :: formats the need data in an array of Strings and sends it to
                 /// writeDataToConsle
-                data = new String[] { tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
+                String needMoreSeats;
+
+                if(projected>tempCourseList.get(i).getOverallCap())
+                {
+                    needMoreSeats = "*";
+                }
+                else{
+                    needMoreSeats = " ";
+                }
+                data = new String[] { needMoreSeats + tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
                         String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
                         String.valueOf(projected),
                         String.valueOf(tempCourseList.get(i).getOverallCap())
