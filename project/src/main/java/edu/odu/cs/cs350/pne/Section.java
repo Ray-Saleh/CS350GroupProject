@@ -48,8 +48,8 @@ public class Section {
         return offerringList;
     }
 
-    
-    public int getTE(){ //TODO Fix this to not consider connected classes
+    public int getTE()
+    {
         int total=0;
         for(int i =0 ; i<offerringList.size(); i++)
         {
@@ -57,7 +57,7 @@ public class Section {
         }
         return total;
     }
-    public int getOV()   //TODO Fix this to not consider connected classes or for finding the right cap
+    public int getOV() 
     {
         int total=0;
         for(int i =0 ; i<offerringList.size(); i++)
