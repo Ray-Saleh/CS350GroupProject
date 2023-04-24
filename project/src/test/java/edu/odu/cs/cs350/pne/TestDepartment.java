@@ -19,7 +19,6 @@ public class TestDepartment {
 
     @Test // needs to be changed
     public void testSmoothCurving() {
-        Department d = new Department();
         int[] enrollment = { 100, 150, 200, 250, 300, 350, 400, 450 };
         int[] expectedSmoothed = { 125, 150, 200, 250, 300, 350, 400, 425 };
         int[] actualSmoothed = Department.smoothCurve(enrollment);
