@@ -14,7 +14,6 @@ public class TestCourse {
     @Test
     public void testConstructor() {
         Course c = new Course();
-        ArrayList<Section> sList = new ArrayList<Section>();
 
         assertThat(c.getCRSE(), is(" 000"));
         assertThat(c.getSubject(), is("null"));
