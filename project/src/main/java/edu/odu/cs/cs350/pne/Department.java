@@ -71,6 +71,14 @@ public class Department {
             }
         }
         
+        if(tempSemester.start != "")
+        {
+            start = tempSemester.start;
+        }
+        if(tempSemester.end != "")
+        {
+            end = tempSemester.end;
+        }
         File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
 
         for (File file : files) {
