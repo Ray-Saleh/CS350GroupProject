@@ -1,7 +1,6 @@
 
 package edu.odu.cs.cs350.pne;
 
-
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -34,7 +33,6 @@ public class TestSection {
         s.setLINK("Boatz n Hoez");
         assertThat(s.getLink(), is("Boatz n Hoez"));
         assertTrue(s.getOfferingList().isEmpty());
-
     }
 
     @Test
