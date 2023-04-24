@@ -178,7 +178,6 @@ public class Department {
         return tempSnapshot;
     }
 
-    // TODO fix smooth curves
     public static int[] smoothCurve(int[] values) {
         int[] smoothedValues = new int[values.length];
         int windowSize = (int) Math.ceil((double) values.length / 10); // dynamic window size
@@ -211,8 +210,6 @@ public class Department {
         writeDataToCSV(data, filename);
         writeDataToConsle(data, filename);
         ArrayList<Course> tempCourseList = outSemester.getSnapshot(outSemester.getSnapshotListSize() - 1).getCourseList();
-
-        // TODO Detailed:: Sets up First Line of CSV Sheet output
 
         // Loops Through All the Courses avaiable in the given Semester
         for (int i = 0; i < tempCourseList.size(); i++) {
