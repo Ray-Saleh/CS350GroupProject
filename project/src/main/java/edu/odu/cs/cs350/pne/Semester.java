@@ -5,6 +5,10 @@ public class Semester {
     String Year;
     String Season;
     ArrayList<Snapshot> snapshotList;
+
+    String start = "";
+    String end = "";
+
     public Semester() {
         Year = "0000";
         Season = "";
