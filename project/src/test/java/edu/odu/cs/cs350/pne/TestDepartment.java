@@ -22,13 +22,13 @@ public class TestDepartment {
         Department d = new Department();
         int[] enrollment = { 100, 150, 200, 250, 300, 350, 400, 450 };
         int[] expectedSmoothed = { 125, 150, 200, 250, 300, 350, 400, 425 };
-        int[] actualSmoothed = d.smoothCurve(enrollment);
+        int[] actualSmoothed = Department.smoothCurve(enrollment);
         assertThat(toList(actualSmoothed), is(equalTo(toList(expectedSmoothed))));
 
         // Test case 2: Smooth curve with random values
         int[] enrollment2 = { 150, 200, 130, 197, 62, 41, 52, 33 };
         int[] expectedSmoothed2 = {175, 160, 175, 129, 100, 51, 42, 42};
-        int[] actualSmoothed2 = d.smoothCurve(enrollment2);
+        int[] actualSmoothed2 = Department.smoothCurve(enrollment2);
         assertThat(toList(actualSmoothed2), is(equalTo(toList(expectedSmoothed2))));
     }
 
