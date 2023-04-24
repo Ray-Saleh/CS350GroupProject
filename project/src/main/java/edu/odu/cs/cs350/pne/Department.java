@@ -3,6 +3,7 @@ package edu.odu.cs.cs350.pne;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ import java.time.LocalDateTime;
 
 public class Department {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         if (args.length == 0) {
             System.err.println("Usage: java CsvReader <directory>");
             System.exit(1);
@@ -43,7 +44,7 @@ public class Department {
 
         Semester mergedSemesters = mergeSemesters(semesterList);
 
-        ProjectionReports(mergedSemesters);
+        ProjectionReports(mergedSemesters,semesterList);
     }
 
     public static void readCsvFiles(String directory, Semester tempSemester) {
@@ -173,7 +174,7 @@ public class Department {
         return smoothedValues;
     }
 
-    public static void ProjectionReports(Semester outSemester) {
+    public static void ProjectionReports(Semester outSemester,ArrayList<Semester> semesterList) throws IOException {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
         String filename = "DetailedProjectReport@.xlsx";
@@ -219,7 +220,7 @@ public class Department {
             };
             writeDataToConsle(data, filename);
             // FileWriter excel = new File(output+"ProjectionReports;)";
-            // excelTemplate(tempCourseList, filename, );
+             excelTemplate(tempCourseList, filename,semesterList);
 
         }
         System.out.println("Data has been written to " + filename + " successfully!");
@@ -263,9 +264,8 @@ public class Department {
         return outSemester;
     }
 
-    public static void excelTemplate(ArrayList<Course> course, String excelOutput, Snapshot sanp) {
-        FileInputStream file = new FileInputStream(new File(excelOutput));
-        Workbook workbook = new XSSFWorkbook(file);
+    public static void excelTemplate(ArrayList<Course> course, String excelOutput,ArrayList<Semester> semesterList) throws IOException {
+        Workbook workbook = new HSSFWorkbook();
 
         for (int i = 0; i < course.size(); i++) {
 
@@ -273,35 +273,49 @@ public class Department {
             // Create the header in the worksheet
             
             Row row = sheet.createRow(0);
-            Cell headerCell = row.createCell(0)
-            for(int s = 0; s< numSemsters; ){
-            // Create cells in the header and set their values
-            headerCell = row.createCell(0); // i instead of 0
-            headerCell.setCellValue("d historical");
-            for(int g = 1; g<dhistoricaltot; g++){
-                row = sheet.createRow(g);
-                Cell data = row.createCell(0);
-                data.setCellValue(singleDhistory);
+            Cell headerCell = row.createCell(0);
+
+            int numCells = 0;
+
+            for(numCells=0; numCells+1 <= 2*semesterList.size(); numCells++){
+                // Create cells in the header and set their values
+                headerCell = row.createCell(numCells); 
+                headerCell.setCellValue("d historical");
+
+                for(int g = 1; g < semesterList.get(numCells).getSnapshotListSize(); g++){
+                    row = sheet.createRow(g);
+                    Cell data = row.createCell(numCells);
+                    data.setCellValue(g/semesterList.get(numCells).getSnapshotListSize());
+                }
+
+                headerCell = row.createCell(numCells+1); 
+                headerCell.setCellValue("Previous Semester");
+                numCells =+1;
+                for(int g = 1; g<semesterList.get(numCells).getSnapshotListSize(); g++){
+                    row = sheet.createRow(i);
+                    Cell data = row.createCell(numCells);
+                    data.setCellValue(course.get(i).getTotalEnrolled());
+                }
+          
             }
-            headerCell = row.createCell(1); // i +1
-            headerCell.setCellValue("Previous Semester");
-            for(int g = 1; g<enrolledInSemester; g++){
-                row = sheet.createRow(i);
-                Cell data = row.createCell(s+1);
-                data.setCellValue(singleSemester);
-            }
-            s=+1;
-}
 //After Above is implemented this can change appropriately
-            headerCell = row.createCell(2);
+            numCells =+ 1;
+            headerCell = row.createCell(numCells);
             headerCell.setCellValue("d current");
-            for(int g = 1; g<numDCurrent; g++){
-
-                
+            for(int g = 1; g<semesterList.size(); g++){
+                row = sheet.createRow(g);
+                Cell data = row.createCell(numCells);
+                data.setCellValue(g/semesterList.get(numCells).getSnapshotListSize());
             }
 
-            headerCell = row.createCell(3);
+            numCells =+1;
+            headerCell = row.createCell(numCells);
             headerCell.setCellValue("Current Semester");
+            for(int g = 1; g<semesterList.get(numCells).getSnapshotListSize(); g++){
+                row = sheet.createRow(i);
+                Cell data = row.createCell(numCells);
+                data.setCellValue(course.get(i).getTotalEnrolled());
+            }
 
             headerCell = row.createCell(4);
             headerCell.setCellValue("d projected");
@@ -310,21 +324,24 @@ public class Department {
             headerCell.setCellValue("Projected");
 
             Row rowData = sheet.createRow(1);
-            Cell cellData = rowData.createCell(0)
+            Cell cellData = rowData.createCell(0);
             cellData.setCellValue(.1);
           
-//After Above is implemented this can change appropriately
-            headerCell = row.createCell(2);
-            headerCell.setCellValue(); //d current Value
+// //After Above is implemented this can change appropriately
+//             headerCell = row.createCell(2);
+//             headerCell.setCellValue(); //d current Value
 
-            headerCell = row.createCell(3);
-            headerCell.setCellValue(); //current Semester enrolled
+//             headerCell = row.createCell(3);
+//             headerCell.setCellValue(); //current Semester enrolled
 
-            headerCell = row.createCell(4);
-            headerCell.setCellValue(); //d projected value
+//             headerCell = row.createCell(4);
+//             headerCell.setCellValue(); //d projected value
 
-            headerCell = row.createCell(5);
-            headerCell.setCellValue(); // Projected value
+//             headerCell = row.createCell(5);
+//             headerCell.setCellValue(); // Projected value
+
+ FileOutputStream out = new FileOutputStream(new File(excelOutput));
+            workbook.write(out);
         }
     }
 
