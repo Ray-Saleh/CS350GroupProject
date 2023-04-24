@@ -70,4 +70,45 @@ public class TestCourse {
         assertThat(c.getSectionList(), contains(s1, s2));
     }
     
+    @Test
+    public void testGetTotalEnrolled(){
+
+        Course tempCourse = new Course();
+        Section tempSection= new Section();
+        Offering tempOffering1 = new Offering();
+        Offering tempOffering2 = new Offering();
+        Enrollment  tempEnrollment= new Enrollment();
+
+        tempEnrollment.setENR(10);
+
+        tempOffering1.setEnrollment(tempEnrollment);
+        tempOffering2.setEnrollment(tempEnrollment);
+        
+        tempSection.addOffering(tempOffering1);
+        tempSection.addOffering(tempOffering2);
+
+        tempCourse.addSection(tempSection);
+
+        assertThat(tempCourse.getTotalEnrolled(), equalTo(20));
+    }
+
+    @Test
+    public void testGetOverallCap(){
+        Course tempCourse = new Course();
+        Section tempSection= new Section();
+        Offering tempOffering1 = new Offering();
+        Offering tempOffering2 = new Offering();
+        Enrollment  tempEnrollment= new Enrollment();
+
+        tempEnrollment.setENR(5);
+
+        tempOffering1.setEnrollment(tempEnrollment);
+        tempOffering2.setEnrollment(tempEnrollment);
+        
+        tempSection.addOffering(tempOffering1);
+        tempSection.addOffering(tempOffering2);
+
+        tempCourse.addSection(tempSection);
+
+    }
 }
