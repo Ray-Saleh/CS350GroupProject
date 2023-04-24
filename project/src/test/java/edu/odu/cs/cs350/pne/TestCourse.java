@@ -23,7 +23,6 @@ public class TestCourse {
 
     @Test
     public void testCopyConstructor() {
-        Offering o = new Offering();
         ArrayList<Section> sList = new ArrayList<Section>();
 
         Course c = new Course("CS", "150", sList);
@@ -48,7 +47,6 @@ public class TestCourse {
 
     @Test
     public void testSetSub() {
-        Offering o = new Offering();
         ArrayList<Section> sList = new ArrayList<Section>();
 
         Course c = new Course("CS", "150", sList);
