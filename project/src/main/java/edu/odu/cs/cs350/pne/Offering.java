@@ -58,4 +58,8 @@ public class Offering {
     public Enrollment getEnrollment() {
         return this.enrollment;
     }
+
+    public void setNumSections(int tempNum){
+        numSections= tempNum;   
+    }
 }
