@@ -31,17 +31,9 @@ public class Offering {
         return this.professor;
     }
 
-    // public int getNumSections() {
-    //     return this.numSections;
-    // }
-
     public void setProfessor(String string) {
         this.professor = string;
     }
-
-    // public void setNumSections(int i) {
-    //     this.numSections = i;
-    // }
 
     public void setCRN(int inCRN) {
         this.crn = inCRN;
