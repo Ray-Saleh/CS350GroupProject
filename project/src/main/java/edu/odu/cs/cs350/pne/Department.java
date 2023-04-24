@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
-import java.util.Date;
 
 public class Department {
 
@@ -66,11 +65,11 @@ public class Department {
         File[] dates = dir.listFiles((dir1, name) -> name.endsWith(".txt"));
         for (File date : dates) {
             try{
-                Scanner scanner = new Scanner(date);
+            Scanner scanner = new Scanner(date);
               start =scanner.nextLine();
               end =scanner.nextLine();
             
-
+              scanner.close();
             }catch (FileNotFoundException e) {
                 System.err.println("Error: File not found - " + date.getName());
                 System.exit(1);
