@@ -80,8 +80,6 @@ public class Department {
         Calendar eDate= Calendar.getInstance();
         Calendar fDate= Calendar.getInstance();
 
-       
-
         sDate.set(Integer.parseInt(start.substring(0, 4)), Integer.parseInt(start.substring(5, 7)), Integer.parseInt(start.substring(8, 10)));
         eDate.set(Integer.parseInt(end.substring(0, 4)), Integer.parseInt(end.substring(5, 7)), Integer.parseInt(end.substring(8, 10)));
 
