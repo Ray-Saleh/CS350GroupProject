@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -175,44 +175,52 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(java.lang.String[]&nbsp;args)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#excelTemplate(java.util.ArrayList,java.lang.String,java.util.ArrayList)">excelTemplate</a></span>&#8203;(java.util.ArrayList&lt;<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&gt;&nbsp;course,
+             java.lang.String&nbsp;excelOutput,
+             java.util.ArrayList&lt;<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&gt;&nbsp;semesterList)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(java.lang.String[]&nbsp;args)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mergeSemesters(java.util.ArrayList)">mergeSemesters</a></span>&#8203;(java.util.ArrayList&lt;<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&gt;&nbsp;inSemesterList)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ProjectionReports(edu.odu.cs.cs350.pne.Semester,java.lang.String)">ProjectionReports</a></span>&#8203;(<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&nbsp;outSemester,
-                 java.lang.String&nbsp;SemName)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ProjectionReports(edu.odu.cs.cs350.pne.Semester,java.lang.String,java.util.ArrayList)">ProjectionReports</a></span>&#8203;(<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&nbsp;outSemester,
+                 java.lang.String&nbsp;SemName,
+                 java.util.ArrayList&lt;<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&gt;&nbsp;semesterList)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readCsvFiles(java.lang.String,edu.odu.cs.cs350.pne.Semester)">readCsvFiles</a></span>&#8203;(java.lang.String&nbsp;directory,
             <a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&nbsp;tempSemester)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="Snapshot.html" title="class in edu.odu.cs.cs350.pne">Snapshot</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readCSVLine(java.lang.String%5B%5D,edu.odu.cs.cs350.pne.Snapshot)">readCSVLine</a></span>&#8203;(java.lang.String[]&nbsp;fields,
            <a href="Snapshot.html" title="class in edu.odu.cs.cs350.pne">Snapshot</a>&nbsp;tempSnapshot)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static int[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#smoothCurve(int%5B%5D)">smoothCurve</a></span>&#8203;(int[]&nbsp;values)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeDataToConsle(java.lang.String%5B%5D,java.lang.String)">writeDataToConsle</a></span>&#8203;(java.lang.String[]&nbsp;data,
                  java.lang.String&nbsp;filename)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeDataToCSV(java.lang.String%5B%5D,java.lang.String)">writeDataToCSV</a></span>&#8203;(java.lang.String[]&nbsp;data,
               java.lang.String&nbsp;filename)</code></th>
@@ -267,7 +275,12 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>main</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;main&#8203;(java.lang.String[]&nbsp;args)</pre>
+<pre class="methodSignature">public static&nbsp;void&nbsp;main&#8203;(java.lang.String[]&nbsp;args)
+                 throws java.io.IOException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
 </li>
 </ul>
 <a id="readCsvFiles(java.lang.String,edu.odu.cs.cs350.pne.Semester)">
@@ -299,14 +312,20 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;int[]&nbsp;smoothCurve&#8203;(int[]&nbsp;values)</pre>
 </li>
 </ul>
-<a id="ProjectionReports(edu.odu.cs.cs350.pne.Semester,java.lang.String)">
+<a id="ProjectionReports(edu.odu.cs.cs350.pne.Semester,java.lang.String,java.util.ArrayList)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>ProjectionReports</h4>
 <pre class="methodSignature">public static&nbsp;void&nbsp;ProjectionReports&#8203;(<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&nbsp;outSemester,
-                                     java.lang.String&nbsp;SemName)</pre>
+                                     java.lang.String&nbsp;SemName,
+                                     java.util.ArrayList&lt;<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&gt;&nbsp;semesterList)
+                              throws java.io.IOException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
 </li>
 </ul>
 <a id="writeDataToCSV(java.lang.String[],java.lang.String)">
@@ -332,10 +351,26 @@ extends java.lang.Object</pre>
 <a id="mergeSemesters(java.util.ArrayList)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>mergeSemesters</h4>
 <pre class="methodSignature">public static&nbsp;<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&nbsp;mergeSemesters&#8203;(java.util.ArrayList&lt;<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&gt;&nbsp;inSemesterList)</pre>
+</li>
+</ul>
+<a id="excelTemplate(java.util.ArrayList,java.lang.String,java.util.ArrayList)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>excelTemplate</h4>
+<pre class="methodSignature">public static&nbsp;void&nbsp;excelTemplate&#8203;(java.util.ArrayList&lt;<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&gt;&nbsp;course,
+                                 java.lang.String&nbsp;excelOutput,
+                                 java.util.ArrayList&lt;<a href="Semester.html" title="class in edu.odu.cs.cs350.pne">Semester</a>&gt;&nbsp;semesterList)
+                          throws java.io.IOException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
 </li>
 </ul>
 </li>
