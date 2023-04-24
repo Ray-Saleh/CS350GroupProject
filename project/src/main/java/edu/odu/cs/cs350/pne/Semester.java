@@ -29,7 +29,6 @@ public class Semester {
         return Season;
     }
 
- 
     public void setYear(String inYear) {
         Year = inYear;
     }
@@ -48,9 +47,11 @@ public class Semester {
     {
        snapshotList.add(inSnapshot);
     }
+
     public ArrayList<Snapshot> getSnapshotList(){
         return snapshotList;
     }
+
     public int getSnapshotListSize(){
         return snapshotList.size();
     }
