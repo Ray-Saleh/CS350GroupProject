@@ -13,8 +13,10 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.time.LocalDate;
 import java.util.Random;
+import java.util.Date;
 
 public class Department {
 
@@ -71,38 +73,45 @@ public class Department {
             }
         }
         
-        if(tempSemester.start != "")
-        {
-            start = tempSemester.start;
-        }
-        if(tempSemester.end != "")
-        {
-            end = tempSemester.end;
-        }
+        Calendar sDate = Calendar.getInstance();
+        Calendar eDate= Calendar.getInstance();
+        Calendar fDate= Calendar.getInstance();
+
+       
+
+        sDate.set(Integer.parseInt(start.substring(0, 4)), Integer.parseInt(start.substring(5, 7)), Integer.parseInt(start.substring(8, 10)));
+        eDate.set(Integer.parseInt(end.substring(0, 4)), Integer.parseInt(end.substring(5, 7)), Integer.parseInt(end.substring(8, 10)));
+
         File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
 
         for (File file : files) {
             try {
-                Snapshot tempSnapshot = new Snapshot();
-                Scanner scanner = new Scanner(file);
 
-                scanner.nextLine();
-                tempSnapshot.setFileName(file.getName());
-                while (scanner.hasNextLine()) {
-                    String line = scanner.nextLine();
-                    line = line.trim();
-
-                    String[] fields = line.split("\",\"");
-                    // Read each line of data and stored needed data
-                    tempSnapshot = readCSVLine(fields, tempSnapshot);
-
-                }
-                tempSemester.addSnapshot(tempSnapshot);
-                scanner.close();
-            } catch (FileNotFoundException e) {
-                System.err.println("Error: File not found - " + file.getName());
-                System.exit(1);
-            }
+                fDate.set(Integer.parseInt(file.getName().substring(0, 4)), Integer.parseInt(file.getName().substring(5, 7)), Integer.parseInt(file.getName().substring(8, 10)));
+          
+                   if(fDate.compareTo(sDate)>=0 &&fDate.compareTo(eDate)<=0)
+                       {            
+                                Snapshot tempSnapshot = new Snapshot();
+                                Scanner scanner = new Scanner(file);
+                
+                                scanner.nextLine();
+                                tempSnapshot.setFileName(file.getName());
+                                while (scanner.hasNextLine()) {
+                                    String line = scanner.nextLine();
+                                    line = line.trim();
+                
+                                    String[] fields = line.split("\",\"");
+                                    // Read each line of data and stored needed data
+                                    tempSnapshot = readCSVLine(fields, tempSnapshot);
+                                }
+                                tempSemester.addSnapshot(tempSnapshot);
+                                scanner.close();
+                        } 
+                    }
+           catch (FileNotFoundException e) {
+            System.err.println("Error: File not found - " + file.getName());
+            System.exit(1);
+            }  
         }
     }
 
@@ -201,8 +210,7 @@ public class Department {
         writeDataToConsle(data, filename);
         writeDataToCSV(data, filename);
 
-        ArrayList<Course> tempCourseList = outSemester.getSnapshot(outSemester.getSnapshotListSize() - 1)
-                .getCourseList();
+        ArrayList<Course> tempCourseList = outSemester.getSnapshot(outSemester.getSnapshotListSize() - 1).getCourseList();
 
         // TODO Detailed:: Sets up First Line of CSV Sheet output
 
