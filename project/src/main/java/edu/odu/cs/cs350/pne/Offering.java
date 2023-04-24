@@ -62,4 +62,8 @@ public class Offering {
     public void setNumSections(int tempNum){
         numSections= tempNum;   
     }
+
+    public int getNumSections(){
+        return numSections;
+    }
 }
