@@ -190,7 +190,7 @@ public class Department {
     public static void ProjectionReports(Semester outSemester, String SemName,ArrayList<Semester> semesterList) throws IOException {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
-        String filename = SemName + "_Prediction.csv";
+        String filename = SemName + "_DetailedProjectionReport.xlsx";
         File file = new File(filename);
         if (file.exists()) {
             System.out.println(filename + "Already Exist");
@@ -377,6 +377,7 @@ public class Department {
 
  FileOutputStream out = new FileOutputStream(new File(excelOutput));
             workbook.write(out);
+            workbook.close();
         }
     }
 }
