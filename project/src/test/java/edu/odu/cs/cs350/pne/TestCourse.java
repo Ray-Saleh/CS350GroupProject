@@ -70,4 +70,4 @@ public class TestCourse {
         assertThat(c.getSectionList(), contains(s1, s2));
     }
     
- 
+}

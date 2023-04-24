@@ -49,13 +49,16 @@ public class Section {
     public int getTE()
     {
         int total=0;
+       
         for(int i =0 ; i<offerringList.size(); i++)
         {
+        
           total = total+  offerringList.get(i).getEnrollment().getENR();
+          System.out.print(offerringList.get(i).getEnrollment().getENR()); 
         }
         return total;
     }
-    
+
     public int getOV() 
     {
         int total=0;

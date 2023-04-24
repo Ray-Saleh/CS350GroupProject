@@ -36,7 +36,11 @@ public class TestDepartment {
         int i = 1;
         int i1 = 1;
         assertThat(i + i1, is(2));
+    }
 
+    @Test
+    public void testWriteTOConsole(){
+        
     }
 
 }
