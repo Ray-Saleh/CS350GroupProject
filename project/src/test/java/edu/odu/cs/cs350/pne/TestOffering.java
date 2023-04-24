@@ -1,9 +1,8 @@
 package edu.odu.cs.cs350.pne;
 
-//import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -14,8 +13,7 @@ public class TestOffering {
         Offering o = new Offering();
 
         assertThat(o.getCRN(), is(0));
-        assertThat(o.getProfessor(), is(""));
-      
+        assertThat(o.getProfessor(), is(""));  
         assertNotNull(o.getEnrollment());
 
     }
@@ -26,8 +24,7 @@ public class TestOffering {
         Offering o = new Offering(1234, "Zeil", 5, e);
 
         assertThat(o.getCRN(), is(1234));
-        assertThat(o.getProfessor(), is("Zeil"));
-    
+        assertThat(o.getProfessor(), is("Zeil"));    
         assertThat(o.getEnrollment(), is(e));
     }
 
@@ -40,7 +37,6 @@ public class TestOffering {
 
         assertThat(o.getCRN(), is(1234));
         assertThat(o.getProfessor(), is("Kennedy"));
-       
         assertThat(o.getEnrollment(), is(e));
     }
 
@@ -53,8 +49,7 @@ public class TestOffering {
 
         assertThat(o.getCRN(), is(11));
         assertThat(o.getProfessor(), is("Zeil"));
-       
-        assertThat(o.getEnrollment(), is(e));
+       assertThat(o.getEnrollment(), is(e));
     }
 
     @Test
@@ -62,11 +57,8 @@ public class TestOffering {
         Enrollment e = new Enrollment(0, 0, "", 0, 0, new Course());
         Offering o = new Offering(1234, "Zeil", 5, e);
 
-        
-
         assertThat(o.getCRN(), is(1234));
         assertThat(o.getProfessor(), is("Zeil"));
-       
         assertThat(o.getEnrollment(), is(e));
     }
 
@@ -84,5 +76,4 @@ public class TestOffering {
  
         assertThat(o.getEnrollment(), is(e1));
     }
-
 }
