@@ -17,7 +17,7 @@ public class TestDepartment {
         return list;
     }
 
-    @Test // needs to be changed
+    @Test 
     public void testSmoothCurving() {
         int[] enrollment = { 100, 150, 200, 250, 300, 350, 400, 450 };
         int[] expectedSmoothed = { 125, 150, 200, 250, 300, 350, 400, 425 };
@@ -31,7 +31,6 @@ public class TestDepartment {
         assertThat(toList(actualSmoothed2), is(equalTo(toList(expectedSmoothed2))));
     }
 
-    // @TODO
     @Test
     public void testMergeSections() {
         int i = 1;
