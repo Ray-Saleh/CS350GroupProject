@@ -12,14 +12,12 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 
 public class Department {
-
     public static void main(String[] args) throws IOException {
         if (args.length == 0) {
             System.err.println("Usage: java CsvReader <directory>");
