@@ -16,7 +16,6 @@ public class Snapshot {
     this.courseList = inCourseList;
   }
 
-
   public void setFileName(String inName)
   {
     fileName = inName;
@@ -31,7 +30,7 @@ public class Snapshot {
   }
 
   public Course getCourse(String inCRSE){
-    
+
     for(int i= 0; i<courseList.size(); i ++)
     {
       
