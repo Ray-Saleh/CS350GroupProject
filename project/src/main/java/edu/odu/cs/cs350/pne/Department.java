@@ -193,7 +193,7 @@ public class Department {
         return smoothedValues;
     }
 
-    public static void ProjectionReports(Semester outSemester, String SemName,ArrayList<Semester> inSemesterList) {
+    public static void ProjectionReports(Semester outSemester, String SemName,ArrayList<Semester> semesterList) {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
         String filename = SemName + "DetailedProjection.xlsx";
