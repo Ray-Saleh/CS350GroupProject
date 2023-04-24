@@ -231,7 +231,7 @@ public class Department {
             }
 
             // Uses collected data to find and calculated needed data
-            int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots); // TODO FIX THIS
+            int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots);
             int projected = smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize() - 1];
             Random r = new Random();
             int randomNum = r.nextInt(10);
@@ -308,7 +308,6 @@ public class Department {
         System.out.printf("\n");
     }
 
-    // TODO Merges an array of semesters
     public static Semester mergeSemesters(ArrayList<Semester> inSemesterList) {
         Semester outSemester = new Semester();
         for (int i = 0; i < inSemesterList.size(); i++) {
