@@ -177,7 +177,7 @@ public class Department {
     public static void ProjectionReports(Semester outSemester,ArrayList<Semester> semesterList) throws IOException {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
-        String filename = "DetailedProjectReport@.xlsx";
+        String filename = "DetailedProjectReport.xlsx";
         File file = new File(filename);
         if (file.exists()) {
             System.out.println(filename + "Already Exist");
