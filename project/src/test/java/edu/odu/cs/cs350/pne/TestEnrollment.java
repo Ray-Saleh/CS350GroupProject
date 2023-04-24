@@ -40,7 +40,7 @@ public class TestEnrollment {
         enrollment.setXLSTGroup("10");
  
         assertThat(enrollment.getENR(), equalTo(0));     
-        assertThat(enrollment.getOVERALLCAP(), equalTo(0))
+        assertThat(enrollment.getOVERALLCAP(), equalTo(0));
     }
     
     @Test 
