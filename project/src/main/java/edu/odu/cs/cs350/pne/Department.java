@@ -215,15 +215,10 @@ public class Department {
             int[] enrollmentOverAllSnapshots = new int[outSemester.getSnapshotListSize()];
             for (int x = 0; x < outSemester.getSnapshotListSize(); x++) {
                 // Gathers all total enrollment
-                //enrollmentOverAllSnapshots[x] = tempCourseList.get(i).getTotalEnrolled();
-
-               // System.out.printf( Integer.toString(outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()).getTotalEnrolled()));
+               
                if(outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()) != null){
                  enrollmentOverAllSnapshots[x] = outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()).getTotalEnrolled();
                 }
-
-                // Gathers etc.
-
             }
 
             // Uses collected data to find and calculated needed data
