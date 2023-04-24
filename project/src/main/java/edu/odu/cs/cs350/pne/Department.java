@@ -47,6 +47,9 @@ public class Department {
 
     public static void readCsvFiles(String directory, Semester tempSemester) {
 
+        String start = null;
+        String end = null;
+
         // Directory check : ensures directory exist
         File dir = new File(directory);
         if (!dir.isDirectory()) {
@@ -54,6 +57,20 @@ public class Department {
             System.exit(-1);
         }
 
+        File[] dates = dir.listFiles((dir1, name) -> name.endsWith(".txt"));
+        for (File date : dates) {
+            try{
+                Scanner scanner = new Scanner(date);
+              start =scanner.nextLine();
+              end =scanner.nextLine();
+            
+
+            }catch (FileNotFoundException e) {
+                System.err.println("Error: File not found - " + date.getName());
+                System.exit(1);
+            }
+        }
+        
         File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
 
         for (File file : files) {
@@ -189,7 +206,13 @@ public class Department {
             int[] enrollmentOverAllSnapshots = new int[outSemester.getSnapshotListSize()];
             for (int x = 0; x < outSemester.getSnapshotListSize(); x++) {
                 // Gathers all total enrollment
-                enrollmentOverAllSnapshots[x] = tempCourseList.get(i).getTotalEnrolled();
+                //enrollmentOverAllSnapshots[x] = tempCourseList.get(i).getTotalEnrolled();
+
+               // System.out.printf( Integer.toString(outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()).getTotalEnrolled()));
+               if(outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()) != null){
+                 enrollmentOverAllSnapshots[x] = outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()).getTotalEnrolled();
+                }
+
                 // Gathers etc.
 
             }
@@ -223,9 +246,11 @@ public class Department {
                 // TODO Detailed :: Formated data for line of a CSV sheets
 
             }
-            System.out.println("Data has been written to " + filename + " successfully!");
+        
 
         }
+        System.out.println("\n\nData has been written to " + filename + " successfully!");
+
     }
 
     // Prints Data to CSV sheet line by line
