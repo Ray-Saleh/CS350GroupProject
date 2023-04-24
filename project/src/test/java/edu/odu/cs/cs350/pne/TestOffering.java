@@ -1,6 +1,5 @@
 package edu.odu.cs.cs350.pne;
 
-
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -49,7 +48,7 @@ public class TestOffering {
 
         assertThat(o.getCRN(), is(11));
         assertThat(o.getProfessor(), is("Zeil"));
-       assertThat(o.getEnrollment(), is(e));
+        assertThat(o.getEnrollment(), is(e));
     }
 
     @Test
@@ -66,14 +65,12 @@ public class TestOffering {
     public void testSetEnrollment() {
         Enrollment e = new Enrollment(0, 0, "", 0, 0, new Course());
         Offering o = new Offering(1234, "Zeil", 5, e);
-
         Enrollment e1 = new Enrollment(10, 10, "Apples", 10, 10, new Course());
 
         o.setEnrollment(e1);
 
         assertThat(o.getCRN(), is(1234));
         assertThat(o.getProfessor(), is("Zeil"));
- 
         assertThat(o.getEnrollment(), is(e1));
     }
 }
