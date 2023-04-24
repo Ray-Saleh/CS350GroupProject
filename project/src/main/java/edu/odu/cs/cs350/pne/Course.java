@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Course {
     private String subject;
-    // CRSE = Course Number
     private String CRSE;
 
     ArrayList<Section> sectionList;
@@ -76,9 +75,8 @@ public class Course {
     public int getTotalEnrolled() {
         return sectionList.get(0).getTE();
     }
+
     public String getCourse(){
         return this.subject+this.CRSE;
     }
-
- 
 }
