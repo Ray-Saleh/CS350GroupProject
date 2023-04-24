@@ -21,16 +21,17 @@ import java.time.LocalDateTime;
 
 public class Department {
 
-    public static void main(String[] args) throws IOException {
+   
+    public static void main(String[] args) {
         if (args.length == 0) {
             System.err.println("Usage: java CsvReader <directory>");
             System.exit(1);
         }
 
         // creates semesters and assigns information for each semester directory given
-        // in args[]
+        // in args[] in the command line
         ArrayList<Semester> semesterList = new ArrayList<Semester>();
-        for (int i = 0; i < args.length; i++) {
+        for (int i = 0; i < args.length - 1; i++) {
             // Initializing semester for semester Directory at args[i]
             Semester tempSemester = new Semester();
             tempSemester.setSeason(args[i].substring(args[i].length() - 2, args[i].length()));
@@ -43,31 +44,45 @@ public class Department {
         }
 
         Semester mergedSemesters = mergeSemesters(semesterList);
+        String lArg = args[args.length - 1];
 
-        ProjectionReports(mergedSemesters,semesterList);
+        ProjectionReports(mergedSemesters, lArg);
     }
 
     public static void readCsvFiles(String directory, Semester tempSemester) {
+
+        String start = null;
+        String end = null;
 
         // Directory check : ensures directory exist
         File dir = new File(directory);
         if (!dir.isDirectory()) {
             System.err.println("Error: " + directory + " is not a directory.");
-            System.exit(1);
+            System.exit(-1);
         }
-        File[] dates = dir.listFiles((dir1, name) -> name.startsWith("dates"));
-        for (File datesTXT : dates)
-            try {
-                Scanner insideDatesTXT = new Scanner(datesTXT);
-                while (insideDatesTXT.hasNextLine()) {
-                    String line = insideDatesTXT.nextLine();
 
-                }
-            } catch (FileNotFoundException e) {
-                System.err.println("Error: File not found - " + datesTXT.getName());
+        File[] dates = dir.listFiles((dir1, name) -> name.endsWith(".txt"));
+        for (File date : dates) {
+            try{
+                Scanner scanner = new Scanner(date);
+              start =scanner.nextLine();
+              end =scanner.nextLine();
+            
+
+            }catch (FileNotFoundException e) {
+                System.err.println("Error: File not found - " + date.getName());
                 System.exit(1);
             }
-
+        }
+        
+        if(tempSemester.start != "")
+        {
+            start = tempSemester.start;
+        }
+        if(tempSemester.end != "")
+        {
+            end = tempSemester.end;
+        }
         File[] files = dir.listFiles((dir1, name) -> name.endsWith(".csv"));
 
         for (File file : files) {
@@ -127,12 +142,12 @@ public class Department {
         // Adds tempEnrollment to tempOffering
         tempOffering.setEnrollment(tempEnrollment);
 
-        // If the course exsit in the list of courses check to see if the section exist
+        // If the course exists in the list of courses check to see if the section exist
         // in the list of sections
         if (tempSnapshot.getCourse(fields[3]) != null) {
 
             // If section already exist in the array of section just add the offering to the
-            // exisiting sections's array of offerings
+            // existing sections's array of offerings
             if (tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink()) != null) {
 
                 tempSnapshot.getCourse(fields[3]).getSection(tempSection.getLink()).addOffering(tempOffering);
@@ -158,8 +173,9 @@ public class Department {
     }
 
     // TODO fix smooth curves
-    public static int[] smoothCurve(int[] values, int windowSize) {
+    public static int[] smoothCurve(int[] values) {
         int[] smoothedValues = new int[values.length];
+        int windowSize = (int) Math.ceil((double) values.length / 10); // dynamic window size
 
         for (int i = 0; i < values.length; i++) {
             int sum = 0;
@@ -168,16 +184,17 @@ public class Department {
                 sum += values[j];
                 count++;
             }
-            smoothedValues[i] = sum / count;
+
+            smoothedValues[i] = (sum / count);
         }
 
         return smoothedValues;
     }
 
-    public static void ProjectionReports(Semester outSemester,ArrayList<Semester> semesterList) throws IOException {
+    public static void ProjectionReports(Semester outSemester, String SemName) {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
-        String filename = "DetailedProjectReport.xlsx";
+        String filename = SemName + "DetailedProjection.xlsx";
         File file = new File(filename);
         if (file.exists()) {
             System.out.println(filename + "Already Exist");
@@ -186,6 +203,7 @@ public class Department {
         // Simple :: Sets up First Line of Consle output
         String[] data = { "Course", "Enrollment", "Projected", "Cap" };
         writeDataToConsle(data, filename);
+        writeDataToCSV(data, filename);
 
         ArrayList<Course> tempCourseList = outSemester.getSnapshot(outSemester.getSnapshotListSize() - 1)
                 .getCourseList();
@@ -200,45 +218,66 @@ public class Department {
             int[] enrollmentOverAllSnapshots = new int[outSemester.getSnapshotListSize()];
             for (int x = 0; x < outSemester.getSnapshotListSize(); x++) {
                 // Gathers all total enrollment
-                enrollmentOverAllSnapshots[x] = tempCourseList.get(i).getTotalEnrolled();
+                //enrollmentOverAllSnapshots[x] = tempCourseList.get(i).getTotalEnrolled();
+
+               // System.out.printf( Integer.toString(outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()).getTotalEnrolled()));
+               if(outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()) != null){
+                 enrollmentOverAllSnapshots[x] = outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()).getTotalEnrolled();
+                }
+
                 // Gathers etc.
 
             }
 
             // Uses collected data to find and calculated needed data
-            int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots, i); // TODO FIX THIS
+            int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots); // TODO FIX THIS
             int projected = smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize() - 1];
+            Random r = new Random();
+            int randomNum = r.nextInt(10);
+            if (tempCourseList.get(i).getOverallCap() != projected) {
+                int temp = projected += randomNum;
+                if (temp > projected) {
+                    if (temp > projected) {
+                        temp -= 1;
+                    }
+                    projected = temp;
+                }
 
-            // Outputs data line by line
+                // Outputs data line by line
 
-            /// Simple :: formats the need data in an array of Strings and sends it to
-            /// writeDataToConsle
-            data = new String[] { tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
-                    String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
-                    String.valueOf(projected),
-                    String.valueOf(tempCourseList.get(i).getOverallCap())
-            };
-            writeDataToConsle(data, filename);
-            // FileWriter excel = new File(output+"ProjectionReports;)";
-             excelTemplate(tempCourseList, filename,semesterList);
+                /// Simple :: formats the need data in an array of Strings and sends it to
+                /// writeDataToConsle
+                data = new String[] { tempCourseList.get(i).getSubject() + tempCourseList.get(i).getCRSE(),
+                        String.valueOf(tempCourseList.get(i).getTotalEnrolled()),
+                        String.valueOf(projected),
+                        String.valueOf(tempCourseList.get(i).getOverallCap())
+                };
+                writeDataToCSV(data, filename);
+                writeDataToConsle(data, filename);
+
+                // TODO Detailed :: Formated data for line of a CSV sheets
+
+            }
+        
 
         }
-        System.out.println("Data has been written to " + filename + " successfully!");
+        System.out.println("\n\nData has been written to " + filename + " successfully!");
+
     }
 
-    // Prints Data to Excel sheet line by line
-    public static void writeDataToExcel(String[] data, String filename) {
+    // Prints Data to CSV sheet line by line
+    public static void writeDataToCSV(String[] data, String filename) {
         try {
-            FileWriter excelWriter = new FileWriter(filename, true);
+            FileWriter csvWriter = new FileWriter(filename, true);
             for (int i = 0; i < data.length; i++) {
-                excelWriter.append(data[i]);
+                csvWriter.append(data[i]);
                 if (i != data.length - 1) {
-                    excelWriter.append(","); // use a comma as the delimiter between columns
+                    csvWriter.append(","); // use a comma as the delimiter between columns
                 }
             }
-            excelWriter.append("\n"); // add a new line character to separate rows
-            excelWriter.flush();
-            excelWriter.close();
+            csvWriter.append("\n"); // add a new line character to separate rows
+            csvWriter.flush();
+            csvWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -263,6 +302,7 @@ public class Department {
         }
         return outSemester;
     }
+
 
     public static void excelTemplate(ArrayList<Course> course, String excelOutput,ArrayList<Semester> semesterList) throws IOException {
         Workbook workbook = new HSSFWorkbook();
@@ -298,7 +338,7 @@ public class Department {
                 }
           
             }
-//After Above is implemented this can change appropriately
+    //After Above is implemented this can change appropriately
             numCells =+ 1;
             headerCell = row.createCell(numCells);
             headerCell.setCellValue("d current");
@@ -327,18 +367,18 @@ public class Department {
             Cell cellData = rowData.createCell(0);
             cellData.setCellValue(.1);
           
-// //After Above is implemented this can change appropriately
-//             headerCell = row.createCell(2);
-//             headerCell.setCellValue(); //d current Value
+    // //After Above is implemented this can change appropriately
+    //             headerCell = row.createCell(2);
+    //             headerCell.setCellValue(); //d current Value
 
-//             headerCell = row.createCell(3);
-//             headerCell.setCellValue(); //current Semester enrolled
+    //             headerCell = row.createCell(3);
+    //             headerCell.setCellValue(); //current Semester enrolled
 
-//             headerCell = row.createCell(4);
-//             headerCell.setCellValue(); //d projected value
+    //             headerCell = row.createCell(4);
+    //             headerCell.setCellValue(); //d projected value
 
-//             headerCell = row.createCell(5);
-//             headerCell.setCellValue(); // Projected value
+    //             headerCell = row.createCell(5);
+    //             headerCell.setCellValue(); // Projected value
 
  FileOutputStream out = new FileOutputStream(new File(excelOutput));
             workbook.write(out);
