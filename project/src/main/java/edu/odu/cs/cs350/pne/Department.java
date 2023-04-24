@@ -48,7 +48,7 @@ public class Department {
         Semester mergedSemesters = mergeSemesters(semesterList);
         String lArg = args[args.length - 1];
 
-        ProjectionReports(mergedSemesters, lArg);
+        ProjectionReports(mergedSemesters, lArg ,semesterList);
     }
 
     public static void readCsvFiles(String directory, Semester tempSemester) {
@@ -193,7 +193,7 @@ public class Department {
         return smoothedValues;
     }
 
-    public static void ProjectionReports(Semester outSemester, String SemName) {
+    public static void ProjectionReports(Semester outSemester, String SemName,ArrayList<Semester> inSemesterList) {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
         String filename = SemName + "DetailedProjection.xlsx";
@@ -254,7 +254,7 @@ public class Department {
                         String.valueOf(projected),
                         String.valueOf(tempCourseList.get(i).getOverallCap())
                 };
-                writeDataToCSV(data, filename);
+                excelTemplate(tempCourseList,filename,semesterList)
                 writeDataToConsle(data, filename);
 
                 // TODO Detailed :: Formated data for line of a CSV sheets
