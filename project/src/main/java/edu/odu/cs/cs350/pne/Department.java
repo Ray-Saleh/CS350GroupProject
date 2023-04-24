@@ -210,9 +210,8 @@ public class Department {
 
         // Simple :: Sets up First Line of Consle output
         String[] data = { "Course", "Enrollment", "Projected", "Cap" };
-        writeDataToConsle(data, filename);
         writeDataToCSV(data, filename);
-
+        writeDataToConsle(data, filename);
         ArrayList<Course> tempCourseList = outSemester.getSnapshot(outSemester.getSnapshotListSize() - 1).getCourseList();
 
         // TODO Detailed:: Sets up First Line of CSV Sheet output
