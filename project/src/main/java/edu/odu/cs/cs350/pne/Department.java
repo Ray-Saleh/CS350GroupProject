@@ -1,16 +1,13 @@
 package edu.odu.cs.cs350.pne;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.util.Scanner;
 
-import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -270,13 +267,9 @@ public class Department {
                         System.exit(1);
                 }
                 writeDataToConsle(data, filename);
-
             }
-        
-
         }
         System.out.println("\n\nData has been written to " + filename + " successfully!");
-
     }
 
     // Prints Data to CSV sheet line by line
@@ -352,7 +345,6 @@ public class Department {
                     data.setCellValue(course.get(i).getTotalEnrolled());
                 }
                 numSems++;
-          
             }
     //After Above is implemented this can change appropriately
             numCells =+ 1;
