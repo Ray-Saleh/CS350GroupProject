@@ -1,9 +1,7 @@
 package edu.odu.cs.cs350.pne;
 import java.util.ArrayList;
 
-public class Section {
-
-    
+public class Section { 
     private String Link;
     ArrayList<Offering> offerringList;
 
