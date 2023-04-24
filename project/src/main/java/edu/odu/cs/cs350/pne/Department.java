@@ -134,6 +134,7 @@ public class Department {
         // Adds Offering data to tempOffering
         tempOffering.setProfessor(fields[21]);
         tempOffering.setCRN(Integer.parseInt(fields[1]));
+        tempOffering.setNumSections(3);
 
         // Adds enrollment data to tempEnrollment
         tempEnrollment.setXLSTCap(Integer.parseInt(fields[6]));
