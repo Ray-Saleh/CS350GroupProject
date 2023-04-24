@@ -271,8 +271,6 @@ public class Department {
                 }
                 writeDataToConsle(data, filename);
 
-                // TODO Detailed :: Formated data for line of a CSV sheets
-
             }
         
 
