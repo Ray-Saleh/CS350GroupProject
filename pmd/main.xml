@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.48.0" timestamp="2023-04-24T22:06:18.965">
+<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Course.java">
+<violation beginline="9" endline="9" begincolumn="24" endcolumn="34" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Course" variable="sectionList" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+</file>
+<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Department.java">
+<violation beginline="50" endline="64" begincolumn="15" endcolumn="39" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" variable="start" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'start' (lines '50'-'64').
+</violation>
+<violation beginline="51" endline="65" begincolumn="15" endcolumn="37" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" variable="end" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'end' (lines '51'-'65').
+</violation>
+<violation beginline="57" endline="57" begincolumn="13" endcolumn="23" rule="DoNotTerminateVM" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#donotterminatevm" priority="3">
+System.exit() should not be used in J2EE/JEE apps
+</violation>
+<violation beginline="63" endline="63" begincolumn="21" endcolumn="27" rule="CloseResource" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" variable="scanner" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this Scanner object are closed after use
+</violation>
+<violation beginline="64" endline="64" begincolumn="15" endcolumn="39" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" variable="start" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'start' (lines '64'-'64').
+</violation>
+<violation beginline="65" endline="65" begincolumn="15" endcolumn="37" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" variable="end" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'end' (lines '65'-'65').
+</violation>
+<violation beginline="70" endline="70" begincolumn="17" endcolumn="27" rule="DoNotTerminateVM" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#donotterminatevm" priority="3">
+System.exit() should not be used in J2EE/JEE apps
+</violation>
+<violation beginline="76" endline="112" begincolumn="18" endcolumn="46" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" variable="fDate" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'fDate' (lines '76'-'112').
+</violation>
+<violation beginline="91" endline="91" begincolumn="41" endcolumn="47" rule="CloseResource" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" variable="scanner" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this Scanner object are closed after use
+</violation>
+<violation beginline="109" endline="109" begincolumn="13" endcolumn="23" rule="DoNotTerminateVM" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#donotterminatevm" priority="3">
+System.exit() should not be used in J2EE/JEE apps
+</violation>
+<violation beginline="178" endline="189" begincolumn="13" endcolumn="45" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="smoothCurve" variable="smoothedValues" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'smoothedValues' (lines '178'-'189').
+</violation>
+<violation beginline="179" endline="193" begincolumn="13" endcolumn="69" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="smoothCurve" variable="windowSize" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'windowSize' (lines '179'-'193').
+</violation>
+<violation beginline="183" endline="186" begincolumn="17" endcolumn="23" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="smoothCurve" variable="count" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'count' (lines '183'-'186').
+</violation>
+<violation beginline="186" endline="186" begincolumn="17" endcolumn="23" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="smoothCurve" variable="count" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'count' (lines '186'-'186').
+</violation>
+<violation beginline="189" endline="189" begincolumn="13" endcolumn="45" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="smoothCurve" variable="smoothedValues" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'smoothedValues' (lines '189'-'189').
+</violation>
+<violation beginline="215" endline="220" begincolumn="18" endcolumn="137" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="ProjectionReports" variable="enrollmentOverAllSnapshots" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'enrollmentOverAllSnapshots' (lines '215'-'220').
+</violation>
+<violation beginline="220" endline="220" begincolumn="18" endcolumn="137" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="ProjectionReports" variable="enrollmentOverAllSnapshots" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'enrollmentOverAllSnapshots' (lines '220'-'220').
+</violation>
+<violation beginline="228" endline="228" begincolumn="17" endcolumn="41" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="ProjectionReports" variable="randomNum" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'randomNum' (lines '228'-'228').
+</violation>
+<violation beginline="228" endline="267" begincolumn="17" endcolumn="41" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="ProjectionReports" variable="randomNum" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'randomNum' (lines '228'-'267').
+</violation>
+<violation beginline="261" endline="261" begincolumn="25" endcolumn="35" rule="DoNotTerminateVM" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="ProjectionReports" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#donotterminatevm" priority="3">
+System.exit() should not be used in J2EE/JEE apps
+</violation>
+<violation beginline="272" endline="272" begincolumn="24" endcolumn="32" rule="CloseResource" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="writeDataToCSV" variable="csvWriter" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this FileWriter object are closed after use
+</violation>
+<violation beginline="289" endline="294" begincolumn="13" endcolumn="30" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="writeDataToConsle" variable="columnSpacing" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'columnSpacing' (lines '289'-'294').
+</violation>
+<violation beginline="307" endline="307" begincolumn="18" endcolumn="25" rule="CloseResource" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="excelTemplate" variable="workbook" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this HSSFWorkbook object are closed after use
+</violation>
+<violation beginline="315" endline="322" begincolumn="17" endcolumn="53" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="excelTemplate" variable="headerCell" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'headerCell' (lines '315'-'322').
+</violation>
+<violation beginline="315" endline="346" begincolumn="13" endcolumn="49" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="excelTemplate" variable="headerCell" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'headerCell' (lines '315'-'346').
+</violation>
+<violation beginline="317" endline="320" begincolumn="17" endcolumn="26" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="excelTemplate" variable="numCells" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'numCells' (lines '317'-'320').
+</violation>
+<violation beginline="318" endline="345" begincolumn="13" endcolumn="45" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="excelTemplate" variable="numSems" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'numSems' (lines '318'-'345').
+</violation>
+<violation beginline="335" endline="320" begincolumn="66" endcolumn="75" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="excelTemplate" variable="numCells" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'numCells' (lines '335'-'320').
+</violation>
+<violation beginline="341" endline="345" begincolumn="13" endcolumn="45" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="excelTemplate" variable="numSems" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'numSems' (lines '341'-'345').
+</violation>
+<violation beginline="386" endline="386" begincolumn="19" endcolumn="21" rule="CloseResource" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="excelTemplate" variable="out" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this FileOutputStream object are closed after use
+</violation>
+</file>
+<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Enrollment.java">
+<violation beginline="6" endline="6" begincolumn="9" endcolumn="15" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Enrollment" variable="XLSTCap" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="12" endline="12" begincolumn="12" endcolumn="20" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Enrollment" variable="XLSTGroup" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="18" endline="18" begincolumn="9" endcolumn="15" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Enrollment" variable="XLSTENR" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+</file>
+<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Offering.java">
+<violation beginline="9" endline="9" begincolumn="17" endcolumn="19" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Offering" variable="crn" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+</file>
+<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Section.java">
+<violation beginline="6" endline="6" begincolumn="20" endcolumn="23" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Section" variable="Link" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="7" endline="7" begincolumn="25" endcolumn="37" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Section" variable="offerringList" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+</file>
+<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Semester.java">
+<violation beginline="7" endline="7" begincolumn="25" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Semester" variable="snapshotList" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+</file>
+<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Snapshot.java">
+<violation beginline="5" endline="5" begincolumn="21" endcolumn="30" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Snapshot" variable="courseList" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+</file>
+</pmd>
