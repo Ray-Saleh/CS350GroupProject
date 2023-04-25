@@ -4,6 +4,8 @@ plugins {
 
    // id 'spotbugs' // and/or checkstyle, jacoco, spotbugs
     id 'edu.odu.cs.report_accumulator' version '1.4' 
+    id 'jacoco'
+
 
 }
 
@@ -41,6 +43,12 @@ reportStats{
     //buildID = ""                  // defaults to current date, but can be any run identifier
 }
 
+jacocoTestReport {
+    reports{
+        csv.required = true
+        xml.required = false
+    }
+}
 //post data to branch to create website
 task copyDocs(dependsOn: 'javadoc') {
     doLast {
@@ -100,7 +108,7 @@ task copyReports (type: Copy, dependsOn: ['reports', 'workTree', 'copyDocs', 're
 }
 
 
-task copyWebsite (dependsOn: ['copyReports']) {
+task copyWebsite (dependsOn: ['copyReports', 'jacocoTestReport']) {
 }
 
 task commitWebsite (dependsOn: 'copyWebsite') {
