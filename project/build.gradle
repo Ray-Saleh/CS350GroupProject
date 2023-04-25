@@ -1,6 +1,10 @@
 plugins {
     id 'java'
     id 'application'
+
+   // id 'pmd' // and/or checkstyle, jacoco, spotbugs
+    id 'edu.odu.cs.report_accumulator' version '1.4' 
+
 }
 
 java {
@@ -30,7 +34,12 @@ test {
 	useJUnitPlatform()
 }
 
-
+reportStats{
+    reportsURL = 'https://raysmind.github.io/CS350GroupProject/'
+    htmlSourceDir = file('src/main/html')  // default value
+    reportsDir = file('build/reports') // default value
+    buildID = ""                  // defaults to current date, but can be any run identifier
+}
 
 //post data to branch to create website
 task copyDocs(dependsOn: 'javadoc') {
@@ -42,9 +51,9 @@ task copyDocs(dependsOn: 'javadoc') {
     }
 }
 
-task reports(dependsOn: ['javadoc','test', 'copyDocs']) {
+task reports(dependsOn: ['javadoc','test', 'copyDocs']){
     doLast {
-        copy {
+        copy { 
             from 'src/main/html/'
             into 'build/reports/'
         }
