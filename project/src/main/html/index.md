@@ -4,6 +4,6 @@ Scott Atkins, Prestin Bell, Scott McAllister,  Chance Sadler, Ray Saleh
 
 
 * [Tests](./tests/test/)
-* [T](./testReports.html)
+* [Graphs](./testReports.html)
 * [JavaDoc](./javadoc/)
 
