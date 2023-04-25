@@ -299,6 +299,7 @@ public class Department {
             int historical = semesterList.size() - 1;
 
             //Couldn't debug why the data was not being added :(
+            //If there was more time I would fix it
 
           //  for(numCells=0; numCells+1 <= 2*historical; numCells++){
                 // Create cells in the header and set their values
