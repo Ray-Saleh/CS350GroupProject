@@ -1,0 +1,29 @@
+//<link rel="stylesheet" type="text/css" href="projectReports.css"/> 6
+//<script src="projectReports.js"></script> 10 33-40
+
+<html>
+	<head>
+        <link rel="stylesheet" type="text/css" href="projectReports.css"/> 
+        <script src="projectReports.js"></script> 
+    </head>
+
+    <body>
+        <h1>Project Reports</h1>
+
+
+        <div id="junitGraph" class="graph">junit</div>
+        <a href="tests/">JUnit test report</a>
+
+
+
+        <script type="text/javascript">
+            register2("junitGraph", "tests.csv", "JUnit Tests", "Test Cases");
+            //register2("jacocoGraph", "jacoco.csv", "Test Coverage", "# Branches");
+            //register1("pmdGraph", "pmd.csv", "PMD", "Warnings");
+            //register1("checkstyleGraph", "checkstyle.csv", "Checkstyle", "Warnings");
+            //register2("findbugsGraph", "findbugs.csv", "FindBugs", "Warnings");
+            //register2("spotbugsGraph", "spotbugs.csv", "SpotBugs", "Warnings");
+        </script>
+
+    </body>
+</html>
