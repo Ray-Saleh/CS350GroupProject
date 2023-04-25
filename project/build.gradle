@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'application'
 
-   // id 'spotbugs' // and/or checkstyle, jacoco, spotbugs
+    id 'pmd' // and/or checkstyle, jacoco, spotbugs
     id 'edu.odu.cs.report_accumulator' version '1.4' 
     id 'jacoco'
 
@@ -29,6 +29,7 @@ dependencies {
 	testImplementation 'org.hamcrest:hamcrest-library:2.2'
     implementation 'com.opencsv:opencsv:5.5.2'
     implementation 'org.apache.poi:poi:5.2.3'
+
 }
 
 test {
@@ -49,6 +50,14 @@ jacocoTestReport() {
         xml.required = false
     }
 }
+
+pmd {
+    ignoreFailures = true
+    consoleOutput = false
+}
+pmdTest.enabled = false
+
+
 //post data to branch to create website
 task copyDocs(dependsOn: 'javadoc') {
     doLast {
