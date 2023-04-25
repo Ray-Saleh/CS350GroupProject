@@ -192,6 +192,7 @@ public class Department {
         return smoothedValues;
     }
 
+
     public static void ProjectionReports(Semester outSemester, String SemName,ArrayList<Semester> semesterList) {
 
         // Detailed :: Steps up file path for Detailed Project Report CVS Sheet
@@ -262,23 +263,6 @@ public class Department {
         System.out.println("\n\nData has been written to " + filename + " successfully!");
     }
 
-    // // Prints Data to CSV sheet line by line
-    // public static void writeDataToCSV(String[] data, String filename) {
-    //     try {
-    //         FileWriter csvWriter = new FileWriter(filename, true);
-    //         for (int i = 0; i < data.length; i++) {
-    //             csvWriter.append(data[i]);
-    //             if (i != data.length - 1) {
-    //                 csvWriter.append(","); // use a comma as the delimiter between columns
-    //             }
-    //         }
-    //         csvWriter.append("\n"); // add a new line character to separate rows
-    //         csvWriter.flush();
-    //         csvWriter.close();
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
 
     // Prints Data to Terminal Line by line
     public static void writeDataToTerminal(String[] data) {
@@ -306,61 +290,66 @@ public class Department {
 
             Sheet sheet = workbook.createSheet(course.get(i).getCourse());
             // Create the header in the worksheet
-            
-            Row row = sheet.createRow(0);
+            int numCells = 0;
+            Row row = sheet.createRow(numCells);
             Cell headerCell = row.createCell(0);
 
-            int numCells = 0;
+           
             int numSems = 0;
             int historical = semesterList.size() - 1;
 
-            for(numCells=0; numCells+1 <= 2*historical; numCells++){
+            //Couldn't debug why the data was not being added :(
+
+          //  for(numCells=0; numCells+1 <= 2*historical; numCells++){
                 // Create cells in the header and set their values
                 row.setRowNum(0);
                 headerCell = row.createCell(numCells); 
                 headerCell.setCellValue("d historical");
 
-                for(int g = 1; g < semesterList.get(numSems).getSnapshotListSize(); g++){
-                    row.setRowNum(g);
-                    Cell data = row.createCell(numCells);
-                    data.setCellValue(g/semesterList.get(numSems).getSnapshotListSize());
-                }
-                row.setRowNum(0);
-                numCells++;
-                headerCell = row.createCell(numCells); 
-                headerCell.setCellValue("Previous Semester");
-                numCells++;
-                for(int g = 1; g<semesterList.get(numSems).getSnapshotListSize(); g++){
-                    row.setRowNum(g);
-                    Cell data = row.createCell(numCells);
-                    data.setCellValue(course.get(i).getTotalEnrolled());
-                }
-                numSems++;
-            }
+                //  for(int g = 1; g < semesterList.get(numSems).getSnapshotListSize(); g++){
+                //     row.setRowNum(g);
+                //     Cell data = row.createCell(numCells);
+                //     data.setCellValue(g/semesterList.get(numSems).getSnapshotListSize());
+                // }
+               // row.setRowNum(0);
+               
+              numCells++;  
+              headerCell = row.createCell(numCells); 
+              headerCell.setCellValue("Previous Semester");
+             
+                // for(int g = 1; g<semesterList.get(numSems).getSnapshotListSize(); g++){
+                //     row.setRowNum(g);
+                //     Cell data = row.createCell(numCells);
+                //     data.setCellValue(course.get(i).getTotalEnrolled());
+                // }
+                // numSems++;
+           // }
     //After Above is implemented this can change appropriately
-            numCells =+ 1;
-            numSems = semesterList.size() - 1;
+            numCells++;
+            numSems = semesterList.size()-1;
             row.setRowNum(0);
             headerCell = row.createCell(numCells);
             headerCell.setCellValue("d current");
-            for(int g = 0; g<semesterList.size(); g++){
+            for(int g = 1; g<semesterList.size(); g++){
                 row.setRowNum(g);
                 Cell data = row.createCell(numCells);
                 data.setCellValue(g/semesterList.get(numSems).getSnapshotListSize());
             }
             row.setRowNum(0);
-            numCells =+1;
+            numCells++;
             headerCell = row.createCell(numCells);
             headerCell.setCellValue("Current Semester");
-            for(int g = 0; g<semesterList.get(numSems).getSnapshotListSize(); g++){
+            for(int g = 1; g<semesterList.get(numSems).getSnapshotListSize(); g++){
                 row.setRowNum(g);
                 Cell data = row.createCell(numCells);
                 data.setCellValue(course.get(i).getTotalEnrolled());
             }
+            numCells++;
             row.setRowNum(0);
             headerCell = row.createCell(4);
             headerCell.setCellValue("d projected");
 
+            numCells++;
             headerCell = row.createCell(5);
             headerCell.setCellValue("Projected");
           
