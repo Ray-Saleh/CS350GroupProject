@@ -379,10 +379,10 @@ public class Department {
 
  try (FileOutputStream out = new FileOutputStream(new File(excelOutput))) {
     workbook.write(out);
-} catch (IOException e) {
+    } catch (IOException e) {
     // TODO Auto-generated catch block
     e.printStackTrace();
-}
+    }
             try {
                 workbook.close();
             } catch (IOException e) {
