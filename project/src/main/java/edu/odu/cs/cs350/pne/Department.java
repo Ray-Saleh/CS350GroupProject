@@ -203,10 +203,10 @@ public class Department {
 
         // Simple :: Sets up First Line of Consle output
         String[] data = { "Course", "Enrollment", "Projected", "Cap" };
-        writeDataToCSV(data, filename);
-        writeDataToConsle(data, filename);
+       
+        writeDataToTerminal(data);
         ArrayList<Course> tempCourseList = outSemester.getSnapshot(outSemester.getSnapshotListSize() - 1).getCourseList();
-
+    
         // Loops Through All the Courses avaiable in the given Semester
         for (int i = 0; i < tempCourseList.size(); i++) {
 
@@ -220,7 +220,6 @@ public class Department {
                  enrollmentOverAllSnapshots[x] = outSemester.getSnapshot(x).getCourse(tempCourseList.get(i).getCRSE()).getTotalEnrolled();
                 }
             }
-
             // Uses collected data to find and calculated needed data
             int[] smoothedEnrollmentOverAllSnapshots = smoothCurve(enrollmentOverAllSnapshots);
             int projected = smoothedEnrollmentOverAllSnapshots[outSemester.getSnapshotListSize() - 1];
@@ -234,7 +233,7 @@ public class Department {
                     }
                     projected = temp;
                 }
-
+                
                 // Outputs data line by line
 
                 /// Simple :: formats the need data in an array of Strings and sends it to
@@ -253,39 +252,36 @@ public class Department {
                         String.valueOf(projected),
                         String.valueOf(tempCourseList.get(i).getOverallCap())
                 };
-                
-                try {
-                    excelTemplate(tempCourseList,filename,semesterList);
-                } catch (IOException e) {
-                        System.err.println("Error:Excel Output Failed");
-                        System.exit(1);
-                }
-                writeDataToConsle(data, filename);
+            
+              
+                writeDataToTerminal(data);
             }
+          
         }
+        excelTemplate(tempCourseList,filename,semesterList);
         System.out.println("\n\nData has been written to " + filename + " successfully!");
     }
 
-    // Prints Data to CSV sheet line by line
-    public static void writeDataToCSV(String[] data, String filename) {
-        try {
-            FileWriter csvWriter = new FileWriter(filename, true);
-            for (int i = 0; i < data.length; i++) {
-                csvWriter.append(data[i]);
-                if (i != data.length - 1) {
-                    csvWriter.append(","); // use a comma as the delimiter between columns
-                }
-            }
-            csvWriter.append("\n"); // add a new line character to separate rows
-            csvWriter.flush();
-            csvWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    // // Prints Data to CSV sheet line by line
+    // public static void writeDataToCSV(String[] data, String filename) {
+    //     try {
+    //         FileWriter csvWriter = new FileWriter(filename, true);
+    //         for (int i = 0; i < data.length; i++) {
+    //             csvWriter.append(data[i]);
+    //             if (i != data.length - 1) {
+    //                 csvWriter.append(","); // use a comma as the delimiter between columns
+    //             }
+    //         }
+    //         csvWriter.append("\n"); // add a new line character to separate rows
+    //         csvWriter.flush();
+    //         csvWriter.close();
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
-    // Prints Data to Consle Line by line
-    public static void writeDataToConsle(String[] data, String filename) {
+    // Prints Data to Terminal Line by line
+    public static void writeDataToTerminal(String[] data) {
         int columnSpacing = 12;
         for (int i = 0; i < data.length; i++) {
             System.out.printf("%-" + columnSpacing + "s", data[i]);
@@ -303,7 +299,7 @@ public class Department {
         return outSemester;
     }
 
-    public static void excelTemplate(ArrayList<Course> course, String excelOutput,ArrayList<Semester> semesterList) throws IOException {
+    public static void excelTemplate(ArrayList<Course> course, String excelOutput,ArrayList<Semester> semesterList) {
         Workbook workbook = new HSSFWorkbook();
 
         for (int i = 0; i < course.size(); i++) {
@@ -312,29 +308,30 @@ public class Department {
             // Create the header in the worksheet
             
             Row row = sheet.createRow(0);
-            Cell headerCell = row.createCell(1);
+            Cell headerCell = row.createCell(0);
 
-            int numCells = 1;
+            int numCells = 0;
             int numSems = 0;
+            int historical = semesterList.size() - 1;
 
-            for(numCells=0; numCells+1 <= 2*semesterList.size(); numCells++){
+            for(numCells=0; numCells+1 <= 2*historical; numCells++){
                 // Create cells in the header and set their values
+                row.setRowNum(0);
                 headerCell = row.createCell(numCells); 
                 headerCell.setCellValue("d historical");
 
                 for(int g = 1; g < semesterList.get(numSems).getSnapshotListSize(); g++){
-                    row = sheet.createRow(g);
+                    row.setRowNum(g);
                     Cell data = row.createCell(numCells);
                     data.setCellValue(g/semesterList.get(numSems).getSnapshotListSize());
                 }
-                row=sheet.getRow(0);
+                row.setRowNum(0);
                 numCells++;
-
                 headerCell = row.createCell(numCells); 
                 headerCell.setCellValue("Previous Semester");
                 numCells++;
                 for(int g = 1; g<semesterList.get(numSems).getSnapshotListSize(); g++){
-                    row = sheet.createRow(i);
+                    row.setRowNum(g);
                     Cell data = row.createCell(numCells);
                     data.setCellValue(course.get(i).getTotalEnrolled());
                 }
@@ -343,32 +340,29 @@ public class Department {
     //After Above is implemented this can change appropriately
             numCells =+ 1;
             numSems = semesterList.size() - 1;
+            row.setRowNum(0);
             headerCell = row.createCell(numCells);
             headerCell.setCellValue("d current");
             for(int g = 0; g<semesterList.size(); g++){
-                row = sheet.createRow(g);
+                row.setRowNum(g);
                 Cell data = row.createCell(numCells);
                 data.setCellValue(g/semesterList.get(numSems).getSnapshotListSize());
             }
-
+            row.setRowNum(0);
             numCells =+1;
             headerCell = row.createCell(numCells);
             headerCell.setCellValue("Current Semester");
             for(int g = 0; g<semesterList.get(numSems).getSnapshotListSize(); g++){
-                row = sheet.createRow(i);
+                row.setRowNum(g);
                 Cell data = row.createCell(numCells);
                 data.setCellValue(course.get(i).getTotalEnrolled());
             }
-
+            row.setRowNum(0);
             headerCell = row.createCell(4);
             headerCell.setCellValue("d projected");
 
             headerCell = row.createCell(5);
             headerCell.setCellValue("Projected");
-
-            Row rowData = sheet.createRow(1);
-            Cell cellData = rowData.createCell(0);
-            cellData.setCellValue(.1);
           
     // //After Above is implemented this can change appropriately
     //             headerCell = row.createCell(2);
@@ -383,9 +377,18 @@ public class Department {
     //             headerCell = row.createCell(5);
     //             headerCell.setCellValue(); // Projected value
 
- FileOutputStream out = new FileOutputStream(new File(excelOutput));
-            workbook.write(out);
-            workbook.close();
+ try (FileOutputStream out = new FileOutputStream(new File(excelOutput))) {
+    workbook.write(out);
+} catch (IOException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+            try {
+                workbook.close();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
     }
 }
