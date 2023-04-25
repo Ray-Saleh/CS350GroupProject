@@ -43,7 +43,7 @@ reportStats{
     //buildID = ""                  // defaults to current date, but can be any run identifier
 }
 
-jacocoTestReport {
+jacocoTestReport() {
     reports{
         csv.required = true
         xml.required = false
