@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'application'
 
-    id 'spotbugs' // and/or checkstyle, jacoco, spotbugs
+   // id 'spotbugs' // and/or checkstyle, jacoco, spotbugs
     id 'edu.odu.cs.report_accumulator' version '1.4' 
 
 }
@@ -94,7 +94,7 @@ task workTree(dependsOn: 'clearPages') {
     }
 }
 
-task copyReports (type: Copy, dependsOn: ['reports', 'workTree', 'copyDocs']) {
+task copyReports (type: Copy, dependsOn: ['reports', 'workTree', 'copyDocs', 'reportStats']) {
     from 'build/reports'
     into pagesDir
 }
@@ -133,3 +133,4 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
 }
 
 check.dependsOn copyDocs
+reportStats.dependsOn check
