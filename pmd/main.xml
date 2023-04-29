@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.48.0" timestamp="2023-04-25T00:33:27.539">
-<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Course.java">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.48.0" timestamp="2023-04-29T14:18:54.284">
+<file name="/home/zeil/courses/cs350/AutoGrading/s23-zeil/WorkArea/phase5/repos/Weds2/project/src/main/java/edu/odu/cs/cs350/pne/Course.java">
 <violation beginline="9" endline="9" begincolumn="24" endcolumn="34" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Course" variable="sectionList" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
 </file>
-<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Department.java">
+<file name="/home/zeil/courses/cs350/AutoGrading/s23-zeil/WorkArea/phase5/repos/Weds2/project/src/main/java/edu/odu/cs/cs350/pne/Department.java">
 <violation beginline="50" endline="64" begincolumn="15" endcolumn="39" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Department" method="readCsvFiles" variable="start" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
 Found 'DD'-anomaly for variable 'start' (lines '50'-'64').
 </violation>
@@ -94,7 +94,7 @@ Found 'DD'-anomaly for variable 'numCells' (lines '352'-'293').
 Found 'DU'-anomaly for variable 'numCells' (lines '352'-'382').
 </violation>
 </file>
-<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Enrollment.java">
+<file name="/home/zeil/courses/cs350/AutoGrading/s23-zeil/WorkArea/phase5/repos/Weds2/project/src/main/java/edu/odu/cs/cs350/pne/Enrollment.java">
 <violation beginline="6" endline="6" begincolumn="9" endcolumn="15" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Enrollment" variable="XLSTCap" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -105,12 +105,12 @@ Found non-transient, non-static member. Please mark as transient or provide acce
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
 </file>
-<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Offering.java">
+<file name="/home/zeil/courses/cs350/AutoGrading/s23-zeil/WorkArea/phase5/repos/Weds2/project/src/main/java/edu/odu/cs/cs350/pne/Offering.java">
 <violation beginline="9" endline="9" begincolumn="17" endcolumn="19" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Offering" variable="crn" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
 </file>
-<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Section.java">
+<file name="/home/zeil/courses/cs350/AutoGrading/s23-zeil/WorkArea/phase5/repos/Weds2/project/src/main/java/edu/odu/cs/cs350/pne/Section.java">
 <violation beginline="6" endline="6" begincolumn="20" endcolumn="23" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Section" variable="Link" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -118,12 +118,12 @@ Found non-transient, non-static member. Please mark as transient or provide acce
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
 </file>
-<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Semester.java">
+<file name="/home/zeil/courses/cs350/AutoGrading/s23-zeil/WorkArea/phase5/repos/Weds2/project/src/main/java/edu/odu/cs/cs350/pne/Semester.java">
 <violation beginline="7" endline="7" begincolumn="25" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Semester" variable="snapshotList" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
 </file>
-<file name="C:\Users\raysa\OneDrive\Desktop\Code\CS350GroupProject\project\src\main\java\edu\odu\cs\cs350\pne\Snapshot.java">
+<file name="/home/zeil/courses/cs350/AutoGrading/s23-zeil/WorkArea/phase5/repos/Weds2/project/src/main/java/edu/odu/cs/cs350/pne/Snapshot.java">
 <violation beginline="5" endline="5" begincolumn="21" endcolumn="30" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="edu.odu.cs.cs350.pne" class="Snapshot" variable="courseList" externalInfoUrl="https://pmd.github.io/pmd-6.48.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
