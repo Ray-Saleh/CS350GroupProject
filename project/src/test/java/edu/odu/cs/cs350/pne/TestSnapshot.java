@@ -1,49 +1,52 @@
 package edu.odu.cs.cs350.pne;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-
+import java.util.ArrayList;
 
 public class TestSnapshot {
-    
+
     @Test
-    public void testConstructor()
-    {
+    public void testConstructor() {
         Snapshot s = new Snapshot();
 
-        assertThat(s.getYear(), is(0));
-        assertThat(s.getSemester(), is(0));
-    }
-    
-    @Test
-    public void testCopyConstructor(){
-        Snapshot s = new Snapshot(2020,10);
-
-        assertThat(s.getYear(), is(2020));
-        assertThat(s.getSemester(),is(10));
+        assertThat(s.getFileName(), is("emptySnapshot"));
+        assertTrue(s.getCourseList().isEmpty());
     }
 
     @Test
-    public void setSemester(){
-        Snapshot s = new Snapshot(2020,10);
+    public void testCopyConstructor() {
+        ArrayList<Course> c = new ArrayList<Course>();
+        Snapshot s = new Snapshot("Ray", c);
 
-        s.setSemester(20);
-        
-        assertThat(s.getYear(), is(2020));
-        assertThat(s.getSemester(),is(20));
+        assertThat(s.getFileName(), is("Ray"));
+        assertTrue(s.getCourseList().isEmpty());
     }
 
     @Test
-    public void SetYear(){
-        Snapshot s = new Snapshot(2020,10);
+    public void testSetFileName() {
+        ArrayList<Course> c = new ArrayList<Course>();
+        Snapshot s = new Snapshot("Ray", c);
 
-        s.setYear(2030);
-        
-        assertThat(s.getYear(), is(2030));
-        assertThat(s.getSemester(),is(10));
+        s.setFileName("Say");
+
+        assertThat(s.getFileName(), is("Say"));
+        assertTrue(s.getCourseList().isEmpty());
     }
 
+    @Test
+    public void setCourseList() {
+        ArrayList<Section> s1 = new ArrayList<Section>();
+        Course c1 = new Course("CS", "250", s1);
+        ArrayList<Course> c = new ArrayList<Course>();
+        Snapshot s = new Snapshot("Ray", c);
+
+        s.addCourse(c1);
+
+        assertThat(s.getFileName(), is("Ray"));
+        assertThat(s.getCourseList(), contains(c1));
+    }
 
 }

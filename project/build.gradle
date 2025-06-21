@@ -1,6 +1,12 @@
 plugins {
     id 'java'
     id 'application'
+
+    id 'pmd' // and/or checkstyle, jacoco, spotbugs
+    id 'edu.odu.cs.report_accumulator' version '1.4' 
+    id 'jacoco'
+
+
 }
 
 java {
@@ -12,6 +18,8 @@ repositories {
 	mavenCentral()
 }
 
+mainClassName = 'edu.odu.cs.cs350.pne.Department'
+
 application {
     mainClass = 'edu.odu.cs.cs350.pne.Department'
 }
@@ -19,7 +27,8 @@ application {
 dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
 	testImplementation 'org.hamcrest:hamcrest-library:2.2'
-	implementation 'com.opencsv:opencsv:5.1'
+    implementation 'com.opencsv:opencsv:5.5.2'
+    implementation 'org.apache.poi:poi:5.2.3'
 
 }
 
@@ -28,3 +37,117 @@ test {
 	useJUnitPlatform()
 }
 
+reportStats{
+    reportsURL = 'https://raysmind.github.io/CS350GroupProject/'
+    htmlSourceDir = file('src/main/html')  // default value
+    reportsDir = file('build/reports') // default value
+    //buildID = ""                  // defaults to current date, but can be any run identifier
+}
+
+jacocoTestReport() {
+    reports{
+        csv.required = true
+        xml.required = false
+    }
+}
+
+pmd {
+    ignoreFailures = true
+    consoleOutput = false
+}
+pmdTest.enabled = false
+
+
+//post data to branch to create website
+task copyDocs(dependsOn: 'javadoc') {
+    doLast {
+        copy {
+            from 'build/docs/'
+            into 'build/reports/'
+        }
+    }
+}
+
+task reports(dependsOn: ['javadoc','test', 'copyDocs']){
+    doLast {
+        copy { 
+            from 'src/main/html/'
+            into 'build/reports/'
+        }
+    }
+}
+
+
+task gstatus2 () {
+    doLast {
+        println "Check out repository status"
+        exec {
+            workingDir = '.'
+            commandLine = ['git', 'status']
+        }
+    }
+}
+
+def pagesDir = file("${project.rootDir}/../website-temp").absolutePath
+
+task clearPages(type: Delete) {
+    delete pagesDir
+}
+
+task workTree(dependsOn: 'clearPages') { 
+    doLast {
+        exec {
+            workingDir = '.'
+            commandLine = ['git', 'worktree', 'add', '-f', pagesDir, 'gh-pages']
+        }
+        exec {
+            workingDir = pagesDir
+            commandLine = ['git', 'checkout', 'gh-pages']
+        }
+        exec {
+            workingDir = pagesDir
+            commandLine = ['git', 'pull']
+        }
+    }
+}
+
+task copyReports (type: Copy, dependsOn: ['reports', 'workTree', 'copyDocs', 'reportStats']) {
+    from 'build/reports'
+    into pagesDir
+}
+
+
+task copyWebsite (dependsOn: ['copyReports', 'jacocoTestReport']) {
+}
+
+task commitWebsite (dependsOn: 'copyWebsite') {
+    doLast {
+        Date now = new Date()
+
+        exec {
+            workingDir = pagesDir
+            commandLine = ['git', 'add', pagesDir]
+            ignoreExitValue = true
+        }
+        exec {
+            workingDir = pagesDir
+            commandLine = ['git', 'commit', '-m', 'Updating webpages at ' + now.toString()]
+            ignoreExitValue = true
+        }
+    }
+}
+
+task pushWebsite (type: Exec, dependsOn: 'commitWebsite') {
+    workingDir = pagesDir
+    commandLine = ['git', 'push']
+    ignoreExitValue = true
+}
+
+task deployReports (type: Delete, dependsOn: 'pushWebsite') {
+    group = "Reporting"
+    description  'Commit and push website changes to GitHub'
+    delete pagesDir
+}
+
+check.dependsOn copyDocs
+reportStats.dependsOn check
